@@ -7,6 +7,32 @@ iframe {
   border: none;
 }
 
+#background {
+  background-image: url(yanni.jpeg);
+  background-position: -100px;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+#content {
+  background-color: white;
+  bottom: 0;
+  box-shadow: -1px 0px 10px 0px rgba(0,0,0,0.2);
+  overflow-y: scroll;
+  padding: 0 20px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 660px;
+}
+
+@media screen and (max-width: 900px) {
+  #content {
+    width: 100%;
+  }
+}
+
 #scheduling-blurb-container {
   justify-content: center;
   color: #393939;

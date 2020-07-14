@@ -1,22 +1,51 @@
 // Begin surveysparrow initialisation
 // Code pasted from surveysparrow form creation interface > Share > Embed
-(function(){var e="ss-widget",t="script",a=document,r=window;var s,n,c;r.SS_WIDGET_TOKEN="tt-5031b3";r.SS_ACCOUNT="koa.surveysparrow.com";r.SS_SURVEY_NAME="intake-pre-navigation";if(!a.getElementById(e)){var S=function(){S.update(arguments)};S.args=[];S.update=function(e){S.args.push(e)};r.SparrowLauncher=S;s=a.getElementsByTagName(t);c=s[s.length-1];n=a.createElement(t);n.type="text/javascript";n.async=!0;n.id=e;n.src=["https://","koa.surveysparrow.com/widget/",r.SS_WIDGET_TOKEN].join("");c.parentNode.insertBefore(n,c)}})();
+(function() {
+  var e = "ss-widget",
+    t = "script",
+    a = document,
+    r = window;
+  var s, n, c;
+  r.SS_WIDGET_TOKEN = "tt-5031b3";
+  r.SS_ACCOUNT = "koa.surveysparrow.com";
+  r.SS_SURVEY_NAME = "intake-pre-navigation";
+  // if (!a.getElementById(e)) {
+    var S = function() {
+      S.update(arguments)
+    };
+    S.args = [];
+    S.update = function(e) {
+      S.args.push(e)
+    };
+    r.SparrowLauncher = S;
+    s = a.getElementsByTagName(t);
+    c = s[s.length - 1];
+    n = a.createElement(t);
+    n.type = "text/javascript";
+    n.async = !0;
+    n.id = e;
+    n.src = ["https://", "koa.surveysparrow.com/widget/", r.SS_WIDGET_TOKEN].join("");
+    c.parentNode.insertBefore(n, c)
+  // }
+})();
 // End surveysparrow initialisation
 
-(function(){
+(function() {
 
   // Handle surveysparrow completion
-  window.addEventListener('message', function(event){
+  window.addEventListener('message', function(event) {
 
     if (!event || !event.data || event.data.type !== 'surveyCompleted') return;
 
     var contactDetails = event.data.response
-      .find(function(item){ return item.id === 828908 })
+      .find(function(item) { return item.id === 828908 })
       .answer;
+    var contentContainer = window.document.querySelector('#content');
+
 
     // Hide surveysparrow
     var surveySparrowContainer = window.document.querySelector('#ss_survey_widget');
-    window.document.body.removeChild(surveySparrowContainer);
+    contentContainer.removeChild(surveySparrowContainer);
 
     // Show thank you message before booking
     var schedulingBlurbContainer = window.document.createElement('div');
@@ -35,14 +64,14 @@
     schedulingBlurbContainer.appendChild(schedulingBlurbText);
     schedulingBlurbContainer.appendChild(schedulingBlurbButton);
 
-    window.document.body.appendChild(schedulingBlurbContainer);
+    contentContainer.appendChild(schedulingBlurbContainer);
 
     // Show acuity scheduling when user clicks book button
     var acuityContainer = window.document.createElement('div');
     acuityContainer.id = 'acuity-container';
 
     var acuityIFrame = window.document.createElement('iframe');
-    var acuityQueryString = Object.keys(contactDetails).map(function(key){
+    var acuityQueryString = Object.keys(contactDetails).map(function(key) {
       switch (true) {
         case /First/.test(key):
           return 'firstName=' + contactDetails[key];
@@ -58,12 +87,12 @@
     acuityScript.src = 'https://embed.acuityscheduling.com/js/embed.js';
     acuityScript.type = 'text/javascript';
 
-    schedulingBlurbButton.onclick = function(){
-      window.document.body.removeChild(schedulingBlurbContainer);
+    schedulingBlurbButton.onclick = function() {
+      contentContainer.removeChild(schedulingBlurbContainer);
 
       acuityContainer.appendChild(acuityIFrame);
-      window.document.body.appendChild(acuityContainer);
-      window.document.body.appendChild(acuityScript);
+      contentContainer.appendChild(acuityContainer);
+      contentContainer.appendChild(acuityScript);
     };
   });
 
