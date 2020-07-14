@@ -1,0 +1,22 @@
+{
+  "name": "intake",
+  "version": "1.0.0",
+  "description": "GitHub Pages site for client intake",
+  "main": "none",
+  "scripts": {
+    "develop": "whs -o"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koahouse/intake.git"
+  },
+  "author": "koa",
+  "private": "true",
+  "bugs": {
+    "url": "https://github.com/koahouse/intake/issues"
+  },
+  "homepage": "https://github.com/koahouse/intake#readme",
+  "devDependencies": {
+    "watch-http-server": "^0.7.6"
+  }
+}
