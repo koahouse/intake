@@ -45,11 +45,13 @@
 
     // Hide surveysparrow
     var surveySparrowContainer = window.document.querySelector('#ss_survey_widget');
-    contentContainer.removeChild(surveySparrowContainer);
+    surveySparrowContainer.classList.add('up');
+    window.setTimeout(function(){
+      contentContainer.removeChild(surveySparrowContainer);
+    }, 500);
 
     // Show thank you message before booking
-    var schedulingBlurbContainer = window.document.createElement('div');
-    schedulingBlurbContainer.id = 'scheduling-blurb-container';
+    var schedulingBlurbContainer = window.document.querySelector('#scheduling-blurb-container');
     var schedulingBlurbHeading = window.document.createElement('p');
     schedulingBlurbHeading.id = 'scheduling-blurb-heading';
     schedulingBlurbHeading.innerText = 'Thanks';
@@ -64,11 +66,10 @@
     schedulingBlurbContainer.appendChild(schedulingBlurbText);
     schedulingBlurbContainer.appendChild(schedulingBlurbButton);
 
-    contentContainer.appendChild(schedulingBlurbContainer);
+    schedulingBlurbContainer.classList.remove('down');
 
     // Show acuity scheduling when user clicks book button
-    var acuityContainer = window.document.createElement('div');
-    acuityContainer.id = 'acuity-container';
+    var acuityContainer = window.document.querySelector('#acuity-container');
 
     var acuityIFrame = window.document.createElement('iframe');
     var acuityQueryString = Object.keys(contactDetails).map(function(key) {
@@ -87,12 +88,13 @@
     acuityScript.src = 'https://embed.acuityscheduling.com/js/embed.js';
     acuityScript.type = 'text/javascript';
 
-    schedulingBlurbButton.onclick = function() {
-      contentContainer.removeChild(schedulingBlurbContainer);
+    acuityContainer.appendChild(acuityIFrame);
+    contentContainer.appendChild(acuityContainer);
+    contentContainer.appendChild(acuityScript);
 
-      acuityContainer.appendChild(acuityIFrame);
-      contentContainer.appendChild(acuityContainer);
-      contentContainer.appendChild(acuityScript);
+    schedulingBlurbButton.onclick = function() {
+      schedulingBlurbContainer.classList.add('up');
+      acuityContainer.classList.remove('down');
     };
   });
 

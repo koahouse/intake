@@ -19,8 +19,7 @@ iframe {
   background-color: white;
   bottom: 0;
   box-shadow: -1px 0px 10px 0px rgba(0,0,0,0.2);
-  overflow-y: scroll;
-  padding: 0 20px;
+  overflow: hidden;
   position: absolute;
   right: 0;
   top: 0;
@@ -31,6 +30,24 @@ iframe {
   #content {
     width: 100%;
   }
+}
+
+#content > div:not(#ss-widget) {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateY(0%);
+  transition: 0.2s;
+}
+
+#content > div:not(#ss-widget).up {
+  transform: translateY(-100%);
+}
+
+#content > div:not(#ss-widget).down {
+  transform: translateY(100%);
 }
 
 #scheduling-blurb-container {
@@ -56,6 +73,12 @@ iframe {
   color: #393939b3;
   font-size: 18px;
   line-height: 1.5;
+}
+
+@media screen and (min-width: 901px) {
+  #scheduling-blurb-text {
+    font-size: 16px;
+  }
 }
 
 #scheduling-blurb-button {
@@ -86,6 +109,7 @@ iframe {
   height: 100%;
   margin: auto;
   max-width: 600px;
+  overflow-y: scroll;
 }
 
 #acuity-container iframe {
