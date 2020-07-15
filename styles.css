@@ -1,6 +1,7 @@
 body {
   height: 100vh;
   margin: 0;
+  overflow: hidden;
 }
 
 iframe {
@@ -78,6 +79,12 @@ iframe {
 @media screen and (min-width: 901px) {
   #scheduling-blurb-text {
     font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #scheduling-blurb-text {
+    font-size: 14px;
   }
 }
 
