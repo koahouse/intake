@@ -35,6 +35,8 @@
   // Handle surveysparrow completion
   window.addEventListener('message', function(event) {
 
+    console.log(event);
+
     if (!event || !event.data || event.data.type !== 'surveyCompleted') return;
 
     var contactDetails = event.data.response

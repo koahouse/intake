@@ -1,6 +1,6 @@
 ### 📥 Intake
 
-This is a dead simple static page which we serve using [GitHub Pages](https://pages.github.com/).
+This is a dead simple mini React app built on [`create-react-app`](https://create-react-app.dev/) and served on [GitHub Pages](https://pages.github.com/).
 
 #### Develop
 
@@ -8,8 +8,8 @@ In your favourite terminal, run...
 
 ```sh
 $ git clone https://github.com/koahouse/intake.git
-$ npm install
-$ npm run develop
+$ yarn
+$ yarn start
 ```
 
 A browser window will open with the intake page.
