@@ -1,0 +1,103 @@
+/* Make background transparent */
+html,
+body,
+.surveysparrow-survey-container--classic-form {
+    background-color: #00000000;
+}
+
+/* Hide surveysparrow branding */
+.made_with_ss_svg_loader,
+.ss_classic_footer_right_content_wrap__branding {
+    display: none;
+}
+
+/* Normalise welcome header */
+.ss-header-text--fluid.main-header-font-size--sm {
+    color: #20333A;
+    font-size: 32px;
+    line-height: 1.2;
+}
+
+/* Normalise welcome paragraph */
+.sm_ss-survey-text-size--base {
+    font-size: 21px;
+}
+
+.ss-survey-text-color--primary-07 {
+    color: #52818f;
+}
+
+/* Hide question numbers */
+.ss_cl_survey_qstn_left {
+    opacity: 0;
+}
+
+/* Normalise slider interface */
+.ss-constant-sum-wrapper .slider-item .rc-slider {
+    max-width: 400px;
+}
+
+.ss-constant-sum-wrapper .slider-item h4 {
+    display: none;
+}
+
+.ss-constant-sum-wrapper .ss-constant-sum-slider h5 {
+    max-width: 500px;
+}
+
+/* Add a little more padding to all questions */
+@media screen and (max-width: 767px) {
+    .ss-fp-scroll__item-data-wrap {
+        padding-right: 36px;
+        padding-left: 36px;
+    }
+}
+
+/* Stop 'Next' button hiding behind progress tracker */
+.ss_cl_survey_qstn_item {
+    padding-bottom: 100px !important;
+}
+
+@media screen and (max-width: 400px) {
+    .sm_ss-survey-text-size--base {
+        font-size: 14px;
+    }
+}
+
+/* Normalise buttons */
+.ss-primary-action-btn {
+    border-radius: 0;
+    font-size: 23px;
+    font-weight: 500;
+    padding: 21px;
+    text-transform: none;
+    width: 100%;
+}
+
+/* Align welcome page left */
+.ss_classic_survey_intro_contents .ss-survey-heading--text {
+    text-align: left;
+}
+
+.ss_classic_survey_intro_contents .ss_cl_qstn_action {
+    justify-content: flex-start;
+}
+
+/* Normalise language dropdown */
+.ss-language-selector--wrapper .flag-icon,
+.ss-language-selector--globe {
+    display: none;
+}
+
+.ss-language-selector--wrapper h3 {
+    color: #20333A;
+    margin: 0 6px;
+}
+
+.ss-language-selector--wrapper .ss-language-selector--down {
+    margin: 0;
+}
+
+.ss-language-selector--wrapper .ss-language-selector--down path {
+    fill: #20333A;
+}

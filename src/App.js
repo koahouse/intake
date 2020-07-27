@@ -1,26 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          I am Marc
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import { Form, Hero, I18nProvider, Viewport } from './modules';
 
+const App = () => (
+  <I18nProvider>
+    <Viewport>
+      <Hero />
+      <Form />
+    </Viewport>
+  </I18nProvider>
+);
+
+// eslint-disable-next-line import/no-default-export
 export default App;

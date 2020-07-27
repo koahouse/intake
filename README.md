@@ -18,4 +18,8 @@ It will auto refresh when you save changes to files.
 
 #### Deploy
 
-Every commit to `master` deploys to https://koahouse.github.io/intake/
+```sh
+$ yarn deploy
+```
+
+Deploys to https://welcome.koa.house

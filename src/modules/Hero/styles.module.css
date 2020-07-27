@@ -1,0 +1,41 @@
+.container {
+  background-image: url(./wall.jpg);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  opacity: 1;
+  padding: 24px;
+  position: absolute;
+  transition:
+    opacity 0.3s ease-out,
+    visibility 0s 0.3s;
+  visibility: visible;
+  width: 100%;
+  z-index: 2;
+}
+
+.container.isHidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.heading {
+  color: #fff;
+  font-family: 'DM Serif Display', serif;
+  font-size: 42px;
+  font-weight: 400;
+  position: relative;
+  z-index: 1;
+}
+
+.image {
+  bottom: 0;
+  height: 85%;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-40%);
+  z-index: 0;
+}

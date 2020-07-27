@@ -1,0 +1,18 @@
+.button {
+  background-color: #5d818e;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 500;
+  outline: none;
+  padding: 16px;
+  position: relative;
+  transition: 0.2s ease;
+  z-index: 1;
+}
+
+.button:hover {
+  background-color: #5c818e;
+}

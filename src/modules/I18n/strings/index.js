@@ -1,0 +1,1 @@
+export { getStrings } from './getStrings';
