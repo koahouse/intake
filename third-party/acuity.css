@@ -1,0 +1,40 @@
+.content {
+  margin: 0 auto;
+}
+
+.step-pane {
+  border: none;
+  margin: 0;
+}
+
+.business-content-logo-adjust-container {
+  display: none;
+}
+
+.select-type {
+  visibility: hidden;
+  height: 0;
+}
+
+.date-heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.date-head-text {
+  margin-bottom: 8px;
+}
+
+* {
+  border-radius: 0 !important;
+}
+
+label[for="phone"],
+input#phone {
+  display: none;
+}
+
+span[data-original-text="You will be billed "] {
+  display: none;
+}
