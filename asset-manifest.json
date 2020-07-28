@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.85867c7d.chunk.css",
+    "main.css": "/static/css/main.a021a889.chunk.css",
     "main.js": "/static/js/main.3ac4c8eb.chunk.js",
     "main.js.map": "/static/js/main.3ac4c8eb.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.bd76f78b.js",
@@ -8,9 +8,9 @@
     "static/js/2.12d4bfdc.chunk.js": "/static/js/2.12d4bfdc.chunk.js",
     "static/js/2.12d4bfdc.chunk.js.map": "/static/js/2.12d4bfdc.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.1192d5b4ce1eea5fb4a63bde399ea246.js": "/precache-manifest.1192d5b4ce1eea5fb4a63bde399ea246.js",
+    "precache-manifest.1760cae1acffbb0c7d75d63a64aef103.js": "/precache-manifest.1760cae1acffbb0c7d75d63a64aef103.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.85867c7d.chunk.css.map": "/static/css/main.85867c7d.chunk.css.map",
+    "static/css/main.a021a889.chunk.css.map": "/static/css/main.a021a889.chunk.css.map",
     "static/js/2.12d4bfdc.chunk.js.LICENSE.txt": "/static/js/2.12d4bfdc.chunk.js.LICENSE.txt",
     "static/media/koa-logo.555c7e01.svg": "/static/media/koa-logo.555c7e01.svg",
     "static/media/nads.png": "/static/media/nads.b54e223c.png",
@@ -19,7 +19,7 @@
   "entrypoints": [
     "static/js/runtime-main.bd76f78b.js",
     "static/js/2.12d4bfdc.chunk.js",
-    "static/css/main.85867c7d.chunk.css",
+    "static/css/main.a021a889.chunk.css",
     "static/js/main.3ac4c8eb.chunk.js"
   ]
 }
