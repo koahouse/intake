@@ -1,9 +1,16 @@
 import React from 'react';
 
-import { Form, Hero, I18nProvider, Viewport } from './modules';
+import {
+  BackButtonDisabler,
+  Form,
+  Hero,
+  I18nProvider,
+  Viewport,
+} from './modules';
 
 const App = () => (
   <I18nProvider>
+    <BackButtonDisabler />
     <Viewport>
       <Hero />
       <Form />
