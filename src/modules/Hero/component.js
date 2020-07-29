@@ -19,6 +19,7 @@ export const Component = () => {
       <Logo />
       <h1 className={styles.heading}>{WELCOME_TO_YOUR_KOA_JOURNEY}</h1>
       <Button onClick={handleClick}>{NEXT}</Button>
+      <div className={styles.widescreenFlexPlaceholder} />
     </div>
   );
 };

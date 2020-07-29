@@ -29,3 +29,12 @@
 .container > div.down {
   top: 100%;
 }
+
+@media screen and (min-width: 901px) {
+  .container {
+    flex-basis: 750px;
+    flex-grow: 0;
+    flex-shrink: 0.3;
+    position: relative;
+  }
+}

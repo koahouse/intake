@@ -21,3 +21,9 @@
   margin: 0;
   margin-bottom: 24px;
 }
+
+@media screen and (min-width: 901px) {
+  .container {
+    padding: 72px;
+  }
+}

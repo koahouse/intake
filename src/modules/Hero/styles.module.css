@@ -39,3 +39,34 @@
   transform: translateX(-40%);
   z-index: 0;
 }
+
+.widescreenFlexPlaceholder {
+  display: none;
+}
+
+@media screen and (min-width: 901px) {
+  .container {
+    flex-grow: 1;
+    padding: 72px;
+    position: relative;
+  }
+
+  .container svg {
+    flex-shrink: 0;
+    transform: scale(1.1);
+    transform-origin: top left;
+  }
+
+  .heading {
+    font-size: 58px;
+    max-width: 500px;
+  }
+
+  .container button {
+    display: none;
+  }
+
+  .widescreenFlexPlaceholder {
+    display: block;
+  }
+}
