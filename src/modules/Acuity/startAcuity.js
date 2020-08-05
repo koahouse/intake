@@ -1,13 +1,9 @@
-export const startAcuity = (contactDetails) => {
-  const queryString = Object.entries(contactDetails)
-    .map(([key, value]) => `${key}=${value}`)
-    .join('&');
-
+export const startAcuity = (responseId) => {
   const iframe = window.document.createElement('iframe');
 
   iframe.src =
-    'https://app.acuityscheduling.com/schedule.php?owner=20088051&' +
-    queryString;
+    'https://app.acuityscheduling.com/schedule.php?owner=20088051&phone=' +
+    responseId;
 
   const script = window.document.createElement('script');
 

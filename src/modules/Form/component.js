@@ -8,11 +8,11 @@ import styles from './styles.module.css';
 
 export const Component = () => {
   const [step, setStep] = useState(0);
-  const [contactDetails, setContactDetails] = useState(null);
+  const [responseId, setResponseId] = useState(null);
 
-  const handleSubmitSurveySparrow = (contactDetails) => {
+  const handleSubmitSurveySparrow = (responseId) => {
     setStep(1);
-    setContactDetails(contactDetails);
+    setResponseId(responseId);
   };
 
   const handleFinishBridge = () => setStep(2);
@@ -28,7 +28,7 @@ export const Component = () => {
       <div
         className={{ 0: styles.down, 1: styles.down, 2: styles.middle }[step]}
       >
-        <Acuity contactDetails={contactDetails} />
+        <Acuity responseId={responseId} />
       </div>
     </div>
   );

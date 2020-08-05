@@ -1,15 +1,14 @@
-import React, { useEffect, useLayoutEffect } from 'react';
+import React, { useEffect } from 'react';
+import { v4 as uuid } from 'uuid';
 
 import { useSetLanguageCode } from '../I18n';
 
-import { startSurveySparrow } from './startSurveySparrow';
-import { getContactDetails } from './utils/getContactDetails';
 import styles from './styles.module.css';
+
+const ID = uuid().replace(/-/g, '');
 
 export const Component = ({ onSubmit }) => {
   const setLanguageCode = useSetLanguageCode();
-
-  useLayoutEffect(startSurveySparrow, []);
 
   const handleMessage = (event) => {
     if (!event || !event.data) return;
@@ -20,9 +19,7 @@ export const Component = ({ onSubmit }) => {
     }
 
     if (event.data.type === 'surveyCompleted') {
-      const contactDetails = getContactDetails(event.data.response);
-
-      onSubmit(contactDetails);
+      onSubmit(ID);
       return;
     }
   };
@@ -31,11 +28,15 @@ export const Component = ({ onSubmit }) => {
     window.addEventListener('message', handleMessage);
 
     return () => window.removeEventListener('message', handleMessage);
-  });
+  }, []);
 
   return (
     <div className={styles.container}>
-      <div id="ss-widget" />
+      <iframe
+        allowfullscreen=""
+        id="ss_widget_frame"
+        src={`http://koa.surveysparrow.com/widget/intake-pre-navigation/tt-5031b3?id=${ID}`}
+      ></iframe>
     </div>
   );
 };

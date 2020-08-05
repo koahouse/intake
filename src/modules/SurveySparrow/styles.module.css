@@ -2,3 +2,13 @@
   height: 100%;
   width: 100%;
 }
+
+.container > iframe {
+  transition: none 0s ease 0s;
+  background: none transparent;
+  opacity: 1;
+  border: none;
+  z-index: 2147483647;
+  width: 100% !important;
+  height: 100% !important;
+}
