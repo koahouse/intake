@@ -35,7 +35,7 @@ export const Component = ({ onSubmit }) => {
       <iframe
         allowfullscreen=""
         id="ss_widget_frame"
-        src={`http://koa.surveysparrow.com/widget/intake-pre-navigation/tt-5031b3?id=${ID}`}
+        src={`https://koa.surveysparrow.com/widget/intake-pre-navigation/tt-5031b3?id=${ID}`}
       ></iframe>
     </div>
   );
