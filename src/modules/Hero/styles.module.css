@@ -22,6 +22,15 @@
   visibility: hidden;
 }
 
+.logo {
+  color: #fff;
+  font-family: 'DM Serif Display', serif;
+  font-size: 36px;
+  font-weight: 400;
+  position: relative;
+  z-index: 1;
+}
+
 .heading {
   color: #fff;
   font-family: 'DM Serif Display', serif;

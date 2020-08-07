@@ -5,5 +5,5 @@ export const en = {
   WE_CHARGE_SIXTY_EUROS:
     "We charge €60 for care navigation. We will do everything we can to find a good match with a care provider. If we can't, we give you your money back.",
   THANKS: 'Thanks',
-  WELCOME_TO_YOUR_KOA_JOURNEY: 'Welcome to your koa journey',
+  WELCOME_TO_YOUR_OLIVA_JOURNEY: 'Welcome to your Oliva journey',
 };

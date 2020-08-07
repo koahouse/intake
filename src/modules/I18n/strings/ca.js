@@ -5,5 +5,5 @@ export const ca = {
   WE_CHARGE_SIXTY_EUROS:
     'Cargem 60€ per navegació assistencial. Farem tot el que puguem per trobar una bona coincidència amb un proveïdor d’atenció. Si no podem, us retornem els vostres diners.',
   THANKS: 'Gràcies',
-  WELCOME_TO_YOUR_KOA_JOURNEY: 'Benvingut al teu viatge amb koa',
+  WELCOME_TO_YOUR_OLIVA_JOURNEY: 'Benvingut al teu viatge amb Oliva',
 };

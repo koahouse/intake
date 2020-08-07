@@ -5,5 +5,5 @@ export const es = {
   WE_CHARGE_SIXTY_EUROS:
     'Cargamos 60€ por la navegación de atención. Haremos todo lo posible para encontrar una buena combinación con un proveedor de atención. Si no podemos, le devolveremos su dinero',
   THANKS: 'Gracias',
-  WELCOME_TO_YOUR_KOA_JOURNEY: 'Bienvenido a tu viaje con koa',
+  WELCOME_TO_YOUR_OLIVA_JOURNEY: 'Bienvenido a tu viaje con Oliva',
 };
