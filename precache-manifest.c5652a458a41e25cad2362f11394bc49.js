@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "29ee71aed6aaeb6ff1fa256e0d65cfb7",
+    "revision": "7c0a69fc6d298f04195fa8e6bd26cbf4",
     "url": "/index.html"
   },
   {
-    "revision": "5b2c1d2739625c87f052",
-    "url": "/static/css/main.b24f9589.chunk.css"
+    "revision": "83973140c5fa9bd8987e",
+    "url": "/static/css/main.04e813e3.chunk.css"
   },
   {
     "revision": "9cb235d99a345b774e1c",
@@ -16,16 +16,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/js/2.2e4da421.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "5b2c1d2739625c87f052",
-    "url": "/static/js/main.a0cad05d.chunk.js"
+    "revision": "83973140c5fa9bd8987e",
+    "url": "/static/js/main.9c7612e6.chunk.js"
   },
   {
     "revision": "7d69ee2f91e750b8e89d",
     "url": "/static/js/runtime-main.bd76f78b.js"
-  },
-  {
-    "revision": "555c7e01c087fc82d0cac7f49adaf6a2",
-    "url": "/static/media/koa-logo.555c7e01.svg"
   },
   {
     "revision": "b54e223c3dfcf7faea399d39e53ab340",
