@@ -1,22 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { v4 as uuid } from 'uuid';
 
-import { useSetLanguageCode } from '../I18n';
+import { useLanguageCode } from '../I18n';
 
 import styles from './styles.module.css';
 
 const ID = uuid().replace(/-/g, '');
 
 export const Component = ({ onSubmit }) => {
-  const setLanguageCode = useSetLanguageCode();
+  const languageCode = useLanguageCode();
 
   const handleMessage = (event) => {
     if (!event || !event.data) return;
-
-    if (event.data.type === 'languageChanged') {
-      setLanguageCode(event.data.code);
-      return;
-    }
 
     if (event.data.type === 'surveyCompleted') {
       onSubmit(ID);
@@ -30,13 +25,17 @@ export const Component = ({ onSubmit }) => {
     return () => window.removeEventListener('message', handleMessage);
   }, []);
 
+  const src = useMemo(
+    () =>
+      languageCode === 'es'
+        ? `https://koa.surveysparrow.com/widget/intake--spanish/tt-246a95?id=${ID}`
+        : `https://koa.surveysparrow.com/widget/intake--english/tt-5031b3?id=${ID}`,
+    [languageCode]
+  );
+
   return (
     <div className={styles.container}>
-      <iframe
-        allowfullscreen=""
-        id="ss_widget_frame"
-        src={`https://koa.surveysparrow.com/widget/intake-pre-navigation/tt-5031b3?id=${ID}`}
-      ></iframe>
+      <iframe allowFullScreen="" id="ss_widget_frame" src={src}></iframe>
     </div>
   );
 };
