@@ -1,9 +1,9 @@
-export const startAcuity = (responseId) => {
+export const startAcuity = (languageCode, responseId) => {
   const iframe = window.document.createElement('iframe');
 
-  iframe.src =
-    'https://app.acuityscheduling.com/schedule.php?owner=20088051&phone=' +
-    responseId;
+  const owner = languageCode.includes('es') ? 20408348 : 20088051;
+
+  iframe.src = `https://app.acuityscheduling.com/schedule.php?owner=${owner}&phone=${responseId}`;
 
   const script = window.document.createElement('script');
 
