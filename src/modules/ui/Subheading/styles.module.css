@@ -1,0 +1,11 @@
+.subheading {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+	line-height: 24px;
+  font-weight: inherit;
+  z-index: 1;
+}
+
+.centered {
+  text-align: center;
+}

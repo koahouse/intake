@@ -1,6 +1,8 @@
 .container {
   height: 100%;
+  opacity: 0;
   overflow-y: scroll;
+  transition: 0.2s ease-in;
   width: 100%;
 }
 
@@ -8,4 +10,8 @@
   border: none;
   height: 100%;
   width: 100%;
+}
+
+.visible {
+  opacity: 1;
 }

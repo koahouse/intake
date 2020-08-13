@@ -1,4 +1,5 @@
 .container {
+  background: #fff;
   height: 100%;
   position: absolute;
   width: 100%;
@@ -11,8 +12,8 @@
   position: absolute;
   top: 0;
   transition:
-    opacity 0.2s ease,
-    top 0.2s ease;
+    opacity 0.4s ease,
+    top 0.4s ease;
   width: 100%;
 }
 
@@ -32,9 +33,9 @@
 
 @media screen and (min-width: 901px) {
   .container {
-    flex-basis: 750px;
+    flex-basis: 520px;
     flex-grow: 0;
-    flex-shrink: 0.3;
+    flex-shrink: 0;
     position: relative;
   }
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import {
   BackButtonDisabler,
@@ -8,15 +8,19 @@ import {
   Viewport,
 } from './modules';
 
-const App = () => (
-  <I18nProvider>
-    <BackButtonDisabler />
-    <Viewport>
-      <Hero />
-      <Form />
-    </Viewport>
-  </I18nProvider>
-);
+const App = () => {
+  const [step, setStep] = useState(0);
+
+  return (
+    <I18nProvider>
+      <BackButtonDisabler />
+      <Viewport>
+        <Hero step={step} />
+        <Form setStep={setStep} step={step} />
+      </Viewport>
+    </I18nProvider>
+  );
+};
 
 // eslint-disable-next-line import/no-default-export
 export default App;

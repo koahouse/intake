@@ -1,9 +1,14 @@
 export const es = {
-  FIND_A_TIME: 'Encuentra una hora',
-  NEXT: 'Siguiente',
-  NOW_TO_FIND_A_TIME: 'Ahora para encontrar una hora.',
-  WE_CHARGE_SIXTY_EUROS:
-    'Cargamos 60€ por la navegación de atención. Haremos todo lo posible para encontrar una buena combinación con un proveedor de atención. Si no podemos, le devolveremos su dinero',
-  THANKS: 'Gracias',
-  WELCOME_TO_YOUR_OLIVA_JOURNEY: 'Bienvenido a tu viaje con Oliva',
+  FIND_A_TIME: '[Pending]',
+  NEXT: '[Pending]',
+  NOW_TO_FIND_A_TIME: '[Pending]',
+  WE_CHARGE_SIXTY_EUROS: '[Pending]',
+  THANKS: '[Pending]',
+  YOUR_JOURNEY_STARTS_HERE: '[Pending]',
+  START_QUESTIONNAIRE: '[Pending]',
+  THIS_WILL_TAKE_FIVE_TO_TEN_MINUTES: '[Pending]',
+  YOURE_MAKING_THE_RIGHT_CHOICE: '[Pending]',
+  SOME_MORE_COMFORTING_COPY: '[Pending]',
+  CHECK_YOUR_INBOX: '[Pending]',
+  WEVE_SENT_YOU_SOMETHING_WITH_ALL_THE_DETAILS: '[Pending]',
 };

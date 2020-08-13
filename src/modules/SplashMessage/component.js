@@ -1,24 +1,20 @@
 import React from 'react';
 
-import { Button } from '../ui';
+import { Button, Subheading } from '../ui';
 import { useStrings } from '../I18n';
 
 import styles from './styles.module.css';
 
 export const Component = ({ onFinish }) => {
   const {
-    THANKS,
-    NOW_TO_FIND_A_TIME,
-    FIND_A_TIME,
-    WE_CHARGE_SIXTY_EUROS,
+    START_QUESTIONNAIRE,
+    THIS_WILL_TAKE_FIVE_TO_TEN_MINUTES,
   } = useStrings();
 
   return (
     <div className={styles.container}>
-      <h1>{THANKS}</h1>
-      <p>{NOW_TO_FIND_A_TIME}</p>
-      <p>{WE_CHARGE_SIXTY_EUROS}</p>
-      <Button onClick={onFinish}>{FIND_A_TIME}</Button>
+      <Button onClick={onFinish}>{START_QUESTIONNAIRE}</Button>
+      <Subheading isCentered>{THIS_WILL_TAKE_FIVE_TO_TEN_MINUTES}</Subheading>
     </div>
   );
 };

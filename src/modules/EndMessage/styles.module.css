@@ -7,21 +7,6 @@
   width: 100%;
 }
 
-.container > h1 {
-  color: #20333A;
-  font-size: 24px;
-  margin: 0;
-  margin-bottom: 24px;
-}
-
-.container > p {
-  color: #52818f;
-  font-size: 16px;
-  line-height: 1.5;
-  margin: 0;
-  margin-bottom: 24px;
-}
-
 @media screen and (min-width: 901px) {
   .container {
     padding: 72px;
