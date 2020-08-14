@@ -1,6 +1,6 @@
 .boat {
   border: 5px solid #202124;
-  bottom: 170px;
+  top: calc(70% - 80px);
   height: 200px;
   left: 0%;
   opacity: 0;
@@ -17,19 +17,20 @@
 }
 
 .boatStep1 {
-  bottom: 200px;
-  left: 25%;
-  transform: rotate(35deg);
+  top: calc(70% - 110px);
+  left: 30%;
+  transform: rotate(40deg);
 }
 
 .boatStep2 {
-  bottom: 170px;
-  left: 50%;
+  top: calc(70% - 70px);
+  left: 60%;
   transform: rotate(48deg);
 }
 
 .boatStep3 {
-  bottom: 200px;
-  left: 75%;
+  top: calc(70% - 90px);
+  left: auto;
+  right: 0%;
   transform: rotate(45deg);
 }
