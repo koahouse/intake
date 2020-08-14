@@ -30,3 +30,33 @@
     rotate(0deg)
     translateX(-60%);
 }
+
+@media screen and (max-width: 900px) {
+  .sea {
+    transform:
+      scale(0.8)
+      rotate(5deg)
+      translateX(0);
+  }
+
+  .seaStep1 {
+    transform:
+      scale(0.8)
+      rotate(-2deg)
+      translateX(-20%);
+  }
+
+  .seaStep2 {
+    transform:
+      scale(0.8)
+      rotate(2deg)
+      translateX(-35%);
+  }
+
+  .seaStep3 {
+    transform:
+      scale(0.8)
+      rotate(0deg)
+      translateX(-50%);
+  }
+}

@@ -34,3 +34,36 @@
   right: 0%;
   transform: rotate(45deg);
 }
+
+@media screen and (max-width: 900px) {
+  .boat {
+    left: -30px;
+    transform:
+      scale(0.6)
+      rotate(50deg);
+      transform-origin: bottom left;
+  }
+
+  .boatStep1 {
+    left: 15%;
+    top: calc(70% - 90px);
+    transform:
+      scale(0.6)
+      rotate(40deg);
+  }
+
+  .boatStep2 {
+    left: 30%;
+    transform:
+      scale(0.6)
+      rotate(48deg);
+  }
+
+  .boatStep3 {
+    left: auto;
+    right: -50px;
+    transform:
+      scale(0.6)
+      rotate(45deg);
+  }
+}

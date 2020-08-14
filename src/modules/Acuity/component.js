@@ -7,6 +7,7 @@ import styles from './styles.module.css';
 
 export const Component = ({ onSubmit, responseId }) => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const languageCode = useLanguageCode();
 
   const handleMessage = (event) => {
@@ -14,7 +15,10 @@ export const Component = ({ onSubmit, responseId }) => {
 
     if (event.data.includes('sizing')) setIsLoaded(true);
 
-    if (event.data.includes('load:')) onSubmit();
+    if (event.data.includes('load:')) {
+      setIsVisible(false);
+      onSubmit();
+    }
   };
 
   useEffect(() => {
@@ -30,7 +34,9 @@ export const Component = ({ onSubmit, responseId }) => {
 
   return (
     <div
-      className={`${styles.container} ${isLoaded && styles.visible}`}
+      className={`${styles.container} ${
+        isLoaded && isVisible && styles.visible
+      }`}
       id="acuity-container"
     />
   );
