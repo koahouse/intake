@@ -7,6 +7,13 @@
   width: 100%;
 }
 
+.container img {
+  height: auto;
+  margin: 0 auto 16px;
+  opacity: 0.8;
+  width: 80px;
+}
+
 @media screen and (min-width: 901px) {
   .container {
     padding: 72px;
