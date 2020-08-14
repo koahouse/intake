@@ -1,0 +1,32 @@
+.sea {
+  background: linear-gradient(0.25turn, #202124, #f7f7f5);
+  bottom: -200px;
+  height: 500px;
+  left: -100px;
+  position: absolute;
+  transform:
+    rotate(5deg)
+    translateX(0);
+  transform-origin: bottom left;
+  transition: transform 1s ease-in-out;
+  width: 350%;
+  z-index: 0;
+}
+
+.seaStep1 {
+  transform:
+    rotate(-2deg)
+    translateX(-20%);
+}
+
+.seaStep2 {
+  transform:
+    rotate(2deg)
+    translateX(-40%);
+}
+
+.seaStep3 {
+  transform:
+    rotate(0deg)
+    translateX(-60%);
+}
