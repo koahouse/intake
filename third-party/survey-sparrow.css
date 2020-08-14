@@ -78,6 +78,7 @@ body,
     color: #202124;
 }
 
+.ss-primary-action-btn:before,
 .ss-primary-action-btn:hover:before {
     display: none;
 }
@@ -94,11 +95,14 @@ body,
 
 .ss_cl_survey_submit_resp button {
     justify-content: center;
+    opacity: 1 !important;
 }
 
-.ss_cl_survey_submit_resp button svg {
+.ss_cl_survey_submit_resp button.ss-primary-action-btn svg,
+.ss_cl_survey_submit_resp button.ss-primary-action-btn .loader {
     display: none;
 }
+
 
 /* Hide redundant warning*/
 .ss_cl_survey_submit_resp .ss_cl_survey_submit_resp_btn_wrapper p {

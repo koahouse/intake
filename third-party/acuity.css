@@ -1,14 +1,46 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 .content {
   margin: 0 auto;
 }
 
-.step-pane {
+.is-embedded .step-pane {
   border: none;
   margin: 0;
+  padding: 40px;
 }
 
 .business-content-logo-adjust-container {
   display: none;
+}
+
+.choose-date-time .calendar-prev-next a {
+  color: #202124;
+  text-transform: none;
+  text-decoration: none;
+}
+
+.pane-collapsed {
+  color: #202124;
+  margin-left: 0;
+  margin-top: 16px;
+}
+
+#step-pick-appointment {
+  border-bottom: 1px solid #eee;
+}
+
+.step-title .step-number {
+  display: none;
+}
+
+h2.step-title * {
+  font-size: 24px;
 }
 
 .select-type {
@@ -16,18 +48,91 @@
   height: 0;
 }
 
-.date-heading {
+.choose-date-time .date-heading {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
 }
 
 .date-head-text {
   margin-bottom: 8px;
 }
 
+#step-forms-pane .pane-content#step-forms {
+  margin-top: 16px;
+}
+
+.form-control {
+    font-size: 16px;
+    padding: 16px 16px;
+    height: auto;
+    border-width: 3px;
+}
+
+.btn.btn-primary.submit-forms-payment,
+input[type=submit] {
+	background-color: transparent;
+	border: 3px solid #202124;
+	color: #202124;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 16px;
+	padding: 16px 24px;
+     cursor: pointer;
+   -webkit-transition: 0.2s ease;
+   -o-transition: 0.2s ease;
+   transition: 0.2s ease;
+-webkit-box-shadow: none;
+        box-shadow: none;
+}
+
+.btn.btn-primary.submit-forms-payment:hover,
+input[type=submit]:hover {
+	border: 3px solid #202124;
+	color: #202124;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 16px;
+	padding: 16px 24px;
+     cursor: pointer;
+   -webkit-transition: 0.2s ease;
+   -o-transition: 0.2s ease;
+   transition: 0.2s ease;
+-webkit-box-shadow: none;
+        box-shadow: none;
+	background-color: #FED591 !important;
+}
+
+.btn-cancel-payment {
+  margin-left: 0 !important;
+}
+
 * {
   border-radius: 0 !important;
+}
+
+.payment-container {
+  padding-top: 0 !important;
+}
+
+.payment-container form div.row:first-of-type > div {
+    width: 49%;
+    display: inline-block;
+}
+
+.payment-container form div.row:first-of-type > div:first-child {
+ padding-right: 0;
+}
+
+.payment-container form div.row:first-of-type > div:last-child {
+ padding-left: 0;
 }
 
 label[for="phone"],
@@ -36,5 +141,9 @@ input#phone {
 }
 
 span[data-original-text="You will be billed "] {
+  display: none;
+}
+
+#step-confirmation-pane {
   display: none;
 }
