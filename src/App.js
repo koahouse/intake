@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import {
   BackButtonDisabler,
+  CloseWindowWarner,
   Form,
   Hero,
   I18nProvider,
@@ -14,6 +15,7 @@ const App = () => {
   return (
     <I18nProvider>
       <BackButtonDisabler />
+      <CloseWindowWarner />
       <Viewport>
         <Hero step={step} />
         <Form setStep={setStep} step={step} />
