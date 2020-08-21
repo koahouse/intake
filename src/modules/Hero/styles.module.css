@@ -1,18 +1,23 @@
 .container {
   background-color: #f7f7f5;
   color: #202124;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   font-family: 'DM Serif Display', serif;
   font-weight: 400;
   height: 100%;
   opacity: 1;
   padding: 24px;
   position: absolute;
-  transition:
-    opacity 0.3s ease-out,
-    visibility 0s 0.3s;
-  visibility: visible;
   width: 100%;
   z-index: 0;
+}
+
+.content {
+  position: relative;
+  transition: opacity 0.6s ease;
+  z-index: 1;
 }
 
 .logo {
@@ -21,21 +26,20 @@
   font-weight: inherit;
   margin: 0 0 30px 0;
   position: relative;
-  z-index: 1;
 }
 
 .heading {
   font-size: 28px;
 	line-height: 38px;
   font-weight: inherit;
-  margin: 0 0 36px 0;
+  margin: 0 0 24px 0;
   max-width: 320px;
   position: relative;
-  z-index: 1;
 }
 
 @media screen and (min-width: 901px) {
   .container {
+    display: block;
     flex-grow: 1;
     padding: 72px;
     position: relative;
@@ -49,5 +53,17 @@
 
   .heading {
     margin: 0 0 24px 0;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  .logo {
+    display: none;
+  }
+
+  .heading {
+    font-size: 24px;
+  	line-height: 34px;
+    margin: 0 0 16px 0;
   }
 }

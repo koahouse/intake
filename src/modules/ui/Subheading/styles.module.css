@@ -11,3 +11,10 @@
   max-width: none;
   text-align: center;
 }
+
+@media screen and (max-width: 370px) {
+  .subheading {
+    font-size: 14px;
+  	line-height: 24px;
+  }
+}

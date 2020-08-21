@@ -13,11 +13,17 @@ export const Component = ({ onFinish }) => {
     THIS_WILL_TAKE_FIVE_TO_TEN_MINUTES,
   } = useStrings();
 
+  if (isMobile) return null;
+
   return (
     <div className={styles.container}>
       <Button isCentered={!isMobile} onClick={onFinish}>
-        {START_QUESTIONNAIRE}
+        Get started
       </Button>
+      <Subheading isCentered={!isMobile}>
+        To help you make the most of your intro meeting, we’ll start by getting
+        to know you with a few questions.
+      </Subheading>
       <Subheading isCentered={!isMobile}>
         {THIS_WILL_TAKE_FIVE_TO_TEN_MINUTES}
       </Subheading>

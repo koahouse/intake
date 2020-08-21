@@ -1,62 +1,8 @@
 .sea {
-  background: linear-gradient(0.25turn, #202124, #f7f7f5);
-  top: 70%;
-  height: 500px;
-  left: -100px;
+  bottom: 0;
+  height: 250px;
+  left: -20px;
   position: absolute;
-  transform:
-    rotate(5deg)
-    translateX(0);
-  transform-origin: bottom left;
-  transition: transform 1s ease-in-out;
-  width: 350%;
+  transition: left 1.3s cubic-bezier(0.76, 0, 0.24, 1);
   z-index: 0;
-}
-
-.seaStep1 {
-  transform:
-    rotate(-2deg)
-    translateX(-20%);
-}
-
-.seaStep2 {
-  transform:
-    rotate(2deg)
-    translateX(-40%);
-}
-
-.seaStep3 {
-  transform:
-    rotate(0deg)
-    translateX(-60%);
-}
-
-@media screen and (max-width: 900px) {
-  .sea {
-    transform:
-      scale(0.8)
-      rotate(5deg)
-      translateX(0);
-  }
-
-  .seaStep1 {
-    transform:
-      scale(0.8)
-      rotate(-2deg)
-      translateX(-20%);
-  }
-
-  .seaStep2 {
-    transform:
-      scale(0.8)
-      rotate(2deg)
-      translateX(-35%);
-  }
-
-  .seaStep3 {
-    transform:
-      scale(0.8)
-      rotate(0deg)
-      translateX(-50%);
-  }
 }

@@ -9,6 +9,19 @@ import {
   Viewport,
 } from './modules';
 
+// <button
+//   onClick={() => setStep(step + 1)}
+//   style={{ position: 'fixed', zIndex: 1000 }}
+// >
+//   Step +
+// </button>
+// <button
+//   onClick={() => setStep(step - 1)}
+//   style={{ left: 60, position: 'fixed', zIndex: 1000 }}
+// >
+//   Step -
+// </button>
+
 const App = () => {
   const [step, setStep] = useState(0);
 
@@ -17,7 +30,7 @@ const App = () => {
       <BackButtonDisabler />
       <CloseWindowWarner />
       <Viewport>
-        <Hero step={step} />
+        <Hero setStep={setStep} step={step} />
         <Form setStep={setStep} step={step} />
       </Viewport>
     </I18nProvider>

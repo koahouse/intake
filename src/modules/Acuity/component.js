@@ -19,11 +19,9 @@ export const Component = ({ onSubmit, responseId }) => {
 
     if (event.data.includes('sizing')) setIsLoaded(true);
 
-    if (event.data.includes('load:')) {
-      isFinishedTimeout.current = window.setTimeout(() => {
-        setIsVisible(false);
-        onSubmit();
-      }, 500);
+    if (event.data.includes('acuity-appointment-scheduled')) {
+      setIsVisible(false);
+      onSubmit();
     }
   };
 
