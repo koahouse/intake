@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
+import debounce from 'lodash.debounce';
 
 import { useIsMobile } from '../../utils';
 import { Button, Subheading } from '../ui';
@@ -13,8 +14,30 @@ export const Component = ({ setStep, step }) => {
   const isMobile = useIsMobile();
   const [contentOpacity, setContentOpacity] = useState(1);
   const [contentStep, setContentStep] = useState(0);
+  const [containerWidth, setContainerWidth] = useState(null);
+  const ref = useRef(null);
 
   const illustrationStep = getIllustrationStep(step);
+
+  const handleResize = useCallback(
+    debounce(() => {
+      setContainerWidth(ref.current.offsetWidth);
+    }, 100)
+  );
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (!ref.current) return;
+
+    setContainerWidth(ref.current.offsetWidth);
+  }, [ref.current]);
+
+  useEffect(() => {}, [ref.current]);
 
   useEffect(() => {
     if (step !== 0) {
@@ -23,7 +46,7 @@ export const Component = ({ setStep, step }) => {
     window.setTimeout(() => {
       window.requestAnimationFrame(() => {
         setContentOpacity(1);
-        const nextContentStep = getContentStep(step);
+        const nextContentStep = getContentStep(step, isMobile);
 
         setContentStep(nextContentStep);
       });
@@ -31,11 +54,12 @@ export const Component = ({ setStep, step }) => {
   }, [step]);
 
   return (
-    <div className={styles.container}>
-      <Sea step={illustrationStep} />
+    <div className={styles.container} ref={ref}>
+      <Sea containerWidth={containerWidth} step={illustrationStep} />
       <Boat step={illustrationStep} />
+      {!isMobile && <h1 className={styles.logo}>Oliva</h1>}
       <div className={styles.content} style={{ opacity: contentOpacity }}>
-        {(!isMobile || contentStep === 0) && (
+        {isMobile && contentStep === 0 && (
           <h1 className={styles.logo}>Oliva</h1>
         )}
         <h2 className={styles.heading}>

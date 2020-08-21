@@ -33,3 +33,31 @@
   left: 50%;
   transform: translateX(-50%);
 }
+
+@media screen and (min-width: 901px) {
+  .boatStep0 {
+    bottom: 90px;
+    height: 220px;
+    transform: rotate(3deg);
+  }
+
+  .boatStep1 {
+    bottom: 45px;
+    height: 170px;
+  }
+
+  .boatStep2 {
+    bottom: 45px;
+    height: 220px;
+    left: 45%;
+    transform: translateX(-50%);
+  }
+
+  .boatStep3 {
+    bottom: 45px;
+    height: 270px;
+    left: auto;
+    right: 30%;
+    transform: translateX(50%);
+  }
+}

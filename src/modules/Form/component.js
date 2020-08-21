@@ -11,16 +11,23 @@ import styles from './styles.module.css';
 export const Component = ({ step, setStep }) => {
   const isMobile = useIsMobile();
   const [responseId, setResponseId] = useState(null);
+
   const [isContainerVisible, setIsContainerVisible] = useState(!isMobile);
 
   useEffect(() => {
+    if (!isMobile) return;
+
     window.requestAnimationFrame(() =>
       setIsContainerVisible([2, 4].includes(step))
     );
   }, [step]);
 
+  const handleFinishSplashScreen = () => {
+    setStep(2);
+  };
+
   const handleSubmitSurveySparrow = (responseId) => {
-    setStep(3);
+    setStep(4);
     setResponseId(responseId);
   };
 
@@ -30,11 +37,13 @@ export const Component = ({ step, setStep }) => {
 
   return (
     <div
-      className={`${styles.container} ${isContainerVisible && styles.visible}`}
+      className={`${styles.container} ${
+        isContainerVisible ? styles.visible : ''
+      }`}
     >
       {!isMobile && (
         <div className={[styles.middle][step] || styles.up}>
-          <SplashMessage onFinish={() => {}} />
+          <SplashMessage onFinish={handleFinishSplashScreen} />
         </div>
       )}
       <div
@@ -52,7 +61,7 @@ export const Component = ({ step, setStep }) => {
         <Acuity onSubmit={handleSubmitAcuity} responseId={responseId} />
       </div>
       {!isMobile && (
-        <div className={[, , , styles.middle][step] || styles.down}>
+        <div className={[, , , , , , styles.middle][step] || styles.down}>
           <EndMessage />
         </div>
       )}

@@ -3,13 +3,10 @@ import React, { useRef, useState, useEffect } from 'react';
 import styles from './styles.module.css';
 import sea from './waves@2x.jpg';
 
-export const Component = ({ step }) => {
+export const Component = ({ containerWidth, step }) => {
   const ref = useRef(null);
   const [imageWidth, setImageWidth] = useState(null);
-  const [windowInnerWidth, setWindowInnerWidth] = useState(null);
   const [left, setLeft] = useState(-10);
-
-  useEffect(() => setWindowInnerWidth(window.innerWidth), []);
 
   useEffect(() => {
     if (!ref.current) return;
@@ -18,13 +15,15 @@ export const Component = ({ step }) => {
   }, [ref.current]);
 
   useEffect(() => {
+    if (containerWidth === null) return;
+
     window.requestAnimationFrame(() =>
       setLeft(
         {
           0: -10,
-          1: (windowInnerWidth - imageWidth) / 3,
-          2: ((windowInnerWidth - imageWidth) * 2) / 3,
-          3: windowInnerWidth - imageWidth,
+          1: (containerWidth - imageWidth) / 3,
+          2: ((containerWidth - imageWidth) * 2) / 3,
+          3: containerWidth - imageWidth,
         }[step]
       )
     );
