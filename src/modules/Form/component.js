@@ -27,12 +27,12 @@ export const Component = ({ step, setStep }) => {
   };
 
   const handleSubmitSurveySparrow = (responseId) => {
-    setStep(4);
+    setStep(3);
     setResponseId(responseId);
   };
 
   const handleSubmitAcuity = () => {
-    setStep(6);
+    setStep(5);
   };
 
   return (
@@ -53,7 +53,7 @@ export const Component = ({ step, setStep }) => {
       </div>
       <div
         className={
-          [styles.down, styles.down, styles.down, styles.down, styles.middle][
+          [styles.down, styles.down, styles.down, styles.middle, styles.middle][
             step
           ] || styles.up
         }
@@ -61,7 +61,7 @@ export const Component = ({ step, setStep }) => {
         <Acuity onSubmit={handleSubmitAcuity} responseId={responseId} />
       </div>
       {!isMobile && (
-        <div className={[, , , , , , styles.middle][step] || styles.down}>
+        <div className={[, , , , , styles.middle][step] || styles.down}>
           <EndMessage />
         </div>
       )}
