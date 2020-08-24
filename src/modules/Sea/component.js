@@ -8,10 +8,14 @@ export const Component = ({ containerWidth, step }) => {
   const [imageWidth, setImageWidth] = useState(null);
   const [left, setLeft] = useState(-10);
 
+  const handleLoad = () => {
+    setImageWidth(ref.current.offsetWidth);
+  };
+
   useEffect(() => {
     if (!ref.current) return;
 
-    setImageWidth(ref.current.offsetWidth);
+    ref.current.complete && handleLoad();
   }, [ref.current]);
 
   useEffect(() => {
@@ -33,6 +37,7 @@ export const Component = ({ containerWidth, step }) => {
     <img
       alt="sea"
       className={styles.sea}
+      onLoad={handleLoad}
       ref={ref}
       src={sea}
       style={{ left }}
