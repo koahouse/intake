@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 export const Component = ({ step }) => {
   const handleUnload = (event) => {
-    if (step === 0) return;
+    if ([0, 5].includes(step)) return;
 
     event.preventDefault();
     event.returnValue = 'something';

@@ -28,7 +28,7 @@ const App = () => {
   return (
     <I18nProvider>
       <BackButtonDisabler />
-      <CloseWindowWarner />
+      <CloseWindowWarner step={step} />
       <Viewport>
         <Hero setStep={setStep} step={step} />
         <Form setStep={setStep} step={step} />
