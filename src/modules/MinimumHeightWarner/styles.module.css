@@ -1,0 +1,27 @@
+.container {
+  align-items: center;
+  background-color: #fff;
+  bottom: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+}
+
+.visible {
+  display: flex;
+}
+
+.container img {
+  width: 60px;
+}
+
+.container p {
+  cursor: pointer;
+  margin-top: 48px;
+  text-decoration: underline;
+}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import {
+  MinimumHeightWarner,
   BackButtonDisabler,
   CloseWindowWarner,
   Form,
@@ -27,6 +28,7 @@ const App = () => {
 
   return (
     <I18nProvider>
+      <MinimumHeightWarner />
       <BackButtonDisabler />
       <CloseWindowWarner step={step} />
       <Viewport>
