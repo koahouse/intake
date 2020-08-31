@@ -57,6 +57,7 @@ export const Component = ({ setStep, step }) => {
     <div className={styles.container} ref={ref}>
       <Sea containerWidth={containerWidth} step={illustrationStep} />
       <Boat step={illustrationStep} />
+      <div className={styles.mask} />
       {!isMobile && <h1 className={styles.logo}>Oliva</h1>}
       <div className={styles.content} style={{ opacity: contentOpacity }}>
         {isMobile && contentStep === 0 && (
