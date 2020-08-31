@@ -57,7 +57,7 @@ export const Component = ({ setStep, step }) => {
     <div className={styles.container} ref={ref}>
       <Sea containerWidth={containerWidth} step={illustrationStep} />
       <Boat step={illustrationStep} />
-      <div className={styles.mask} />
+      <div className={styles.mask} onClick={() => console.log('click')} />
       {!isMobile && <h1 className={styles.logo}>Oliva</h1>}
       <div className={styles.content} style={{ opacity: contentOpacity }}>
         {isMobile && contentStep === 0 && (
@@ -100,6 +100,12 @@ export const Component = ({ setStep, step }) => {
           <React.Fragment>
             <Subheading>
               You’ll receive an email with all the details.
+            </Subheading>
+            <Subheading>
+              In the meantime you can{' '}
+              <a href="https://www.instagram.com/radically_normal/">
+                read therapy stories from people like you.
+              </a>
             </Subheading>
             <div style={{ height: 100 }}></div>
           </React.Fragment>
