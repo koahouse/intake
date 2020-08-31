@@ -4,7 +4,6 @@ import { useIsMobile } from '../../utils';
 import { Acuity } from '../Acuity';
 import { SplashMessage } from '../SplashMessage';
 import { SurveySparrow } from '../SurveySparrow';
-import { EndMessage } from '../EndMessage';
 
 import styles from './styles.module.css';
 
@@ -53,18 +52,11 @@ export const Component = ({ step, setStep }) => {
       </div>
       <div
         className={
-          [styles.down, styles.down, styles.down, styles.middle, styles.middle][
-            step
-          ] || styles.up
+          [styles.down, styles.down, styles.down][step] || styles.middle
         }
       >
         <Acuity onSubmit={handleSubmitAcuity} responseId={responseId} />
       </div>
-      {!isMobile && (
-        <div className={[, , , , , styles.middle][step] || styles.down}>
-          <EndMessage />
-        </div>
-      )}
     </div>
   );
 };

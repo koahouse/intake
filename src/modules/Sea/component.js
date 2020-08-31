@@ -23,15 +23,15 @@ export const Component = ({ containerWidth, step }) => {
 
     window.requestAnimationFrame(() =>
       setLeft(
-        {
-          0: -10,
-          1: (containerWidth - imageWidth) / 3,
-          2: ((containerWidth - imageWidth) * 2) / 3,
-          3: containerWidth - imageWidth,
-        }[step]
+        [
+          -10,
+          (containerWidth - imageWidth) / 3,
+          ((containerWidth - imageWidth) * 2) / 3,
+          containerWidth - imageWidth,
+        ][step]
       )
     );
-  }, [step]);
+  }, [step, containerWidth, imageWidth]);
 
   return (
     <img

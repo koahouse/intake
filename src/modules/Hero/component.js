@@ -95,9 +95,9 @@ export const Component = ({ setStep, step }) => {
         {contentStep === 3 && isMobile && (
           <Button onClick={() => setStep(4)}>Pick a time</Button>
         )}
-        {contentStep === 5 && isMobile && (
+        {contentStep === 5 && (
           <React.Fragment>
-            <Subheading isCentered={!isMobile}>
+            <Subheading>
               You’ll receive an email with all the details.
             </Subheading>
             <div style={{ height: 100 }}></div>

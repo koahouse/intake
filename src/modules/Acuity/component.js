@@ -1,13 +1,16 @@
 import React, { useEffect, useState, useRef } from 'react';
 
+import { useIsMobile } from '../../utils';
 import { useLanguageCode } from '../I18n';
+import { Button } from '../ui';
 
-import { startAcuity } from './startAcuity';
+import { getSrc } from './utils/getSrc';
 import styles from './styles.module.css';
 
 export const Component = ({ onSubmit, responseId }) => {
+  const isMobile = useIsMobile();
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const isFinishedTimeout = useRef(null);
   const languageCode = useLanguageCode();
 
@@ -20,8 +23,7 @@ export const Component = ({ onSubmit, responseId }) => {
     if (event.data.includes('sizing')) setIsLoaded(true);
 
     if (event.data.includes('acuity-appointment-scheduled')) {
-      setIsVisible(false);
-      onSubmit();
+      isMobile ? setIsSubmitted(true) : onSubmit();
     }
   };
 
@@ -31,18 +33,16 @@ export const Component = ({ onSubmit, responseId }) => {
     return () => window.removeEventListener('message', handleMessage);
   }, []);
 
-  useEffect(() => {
-    if (!responseId) return;
-    startAcuity(languageCode, responseId);
-  }, [responseId]);
-
   return (
     <div
-      className={`${styles.container} ${
-        isLoaded && isVisible && styles.visible
+      className={`${styles.container} ${isLoaded && styles.visible} ${
+        isSubmitted && isMobile && styles.isButtonVisible
       }`}
       id="acuity-container"
-    />
+    >
+      {responseId && <iframe src={getSrc(languageCode, responseId)} />}
+      <Button onClick={onSubmit}>Finish</Button>
+    </div>
   );
 };
 

@@ -63,10 +63,6 @@
 }
 
 @media screen and (max-width: 370px) {
-  .logo {
-    display: none;
-  }
-
   .heading {
     font-size: 24px;
   	line-height: 34px;
