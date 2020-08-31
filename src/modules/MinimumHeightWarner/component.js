@@ -14,7 +14,8 @@ export const Component = () => {
 
   const handleResize = debounce(() => {
     setIsDismissed(false);
-    setIsTooSmall(window.innerHeight < 500);
+
+    setIsTooSmall(window.innerWidth > 500 && window.innerHeight < 500);
   }, 100);
 
   useEffect(() => {
