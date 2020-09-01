@@ -10,6 +10,7 @@ import styles from './styles.module.css';
 export const Component = ({ step, setStep }) => {
   const isMobile = useIsMobile();
   const [responseId, setResponseId] = useState(null);
+  const [isIndividual, setIsIndividual] = useState(null);
 
   const [isContainerVisible, setIsContainerVisible] = useState(!isMobile);
 
@@ -25,9 +26,10 @@ export const Component = ({ step, setStep }) => {
     setStep(2);
   };
 
-  const handleSubmitSurveySparrow = (responseId) => {
+  const handleSubmitSurveySparrow = (responseId, isIndividual) => {
     setStep(3);
     setResponseId(responseId);
+    setIsIndividual(isIndividual);
   };
 
   const handleSubmitAcuity = () => {
@@ -55,7 +57,11 @@ export const Component = ({ step, setStep }) => {
           [styles.down, styles.down, styles.down][step] || styles.middle
         }
       >
-        <Acuity onSubmit={handleSubmitAcuity} responseId={responseId} />
+        <Acuity
+          isIndividual={isIndividual}
+          onSubmit={handleSubmitAcuity}
+          responseId={responseId}
+        />
       </div>
     </div>
   );

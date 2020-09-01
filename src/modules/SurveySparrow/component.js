@@ -3,6 +3,7 @@ import { v4 as uuid } from 'uuid';
 
 import { useLanguageCode } from '../I18n';
 
+import { getIsIndividual } from './utils/getIsIndividual';
 import styles from './styles.module.css';
 
 const ID = uuid().replace(/-/g, '');
@@ -14,7 +15,9 @@ export const Component = ({ onSubmit }) => {
     if (!event || !event.data) return;
 
     if (event.data.type === 'surveyCompleted') {
-      onSubmit(ID);
+      const isIndividual = getIsIndividual(event.data);
+
+      onSubmit(ID, isIndividual);
       return;
     }
   };
@@ -25,11 +28,17 @@ export const Component = ({ onSubmit }) => {
     return () => window.removeEventListener('message', handleMessage);
   }, []);
 
+  // const src = useMemo(
+  //   () =>
+  //     languageCode.includes('es')
+  //       ? `https://oliva.surveysparrow.com/widget/intake--spanish/tt-246a95?id=${ID}`
+  //       : `https://oliva.surveysparrow.com/widget/intake--english/tt-5031b3?id=${ID}`,
+  //   [languageCode]
+  // );
+
   const src = useMemo(
     () =>
-      languageCode.includes('es')
-        ? `https://oliva.surveysparrow.com/widget/intake--spanish/tt-246a95?id=${ID}`
-        : `https://oliva.surveysparrow.com/widget/intake--english/tt-5031b3?id=${ID}`,
+      `https://oliva.surveysparrow.com/widget/intake--english/tt-5031b3?id=${ID}`,
     [languageCode]
   );
 

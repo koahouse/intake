@@ -7,7 +7,7 @@ import { Button } from '../ui';
 import { getSrc } from './utils/getSrc';
 import styles from './styles.module.css';
 
-export const Component = ({ onSubmit, responseId }) => {
+export const Component = ({ isIndividual, onSubmit, responseId }) => {
   const isMobile = useIsMobile();
   const [isLoaded, setIsLoaded] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -40,7 +40,9 @@ export const Component = ({ onSubmit, responseId }) => {
       }`}
       id="acuity-container"
     >
-      {responseId && <iframe src={getSrc(languageCode, responseId)} />}
+      {isIndividual !== null && responseId && (
+        <iframe src={getSrc(languageCode, responseId, isIndividual)} />
+      )}
       <Button onClick={onSubmit}>Finish</Button>
     </div>
   );
