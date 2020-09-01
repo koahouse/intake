@@ -1,68 +1,105 @@
-/*
-* Prefixed by https://autoprefixer.github.io
-* PostCSS: v7.0.29,
-* Autoprefixer: v9.7.6
-* Browsers: last 4 version
-*/
+
+/* Normalise containers */
+
+html {
+  height: 100%;
+}
+
+body {
+  background: #fff;
+  color: #202124;
+  margin-top: 10px;
+  padding: 0 10px 40px;
+}
+
+@media screen and (min-width: 400px) {
+  body {
+    height: calc(100% - 72px);
+    margin-top: 72px;
+    padding: 0 40px 40px;
+  }
+}
 
 .content {
-  margin: 0 auto;
+  height: 100%;
+  margin: 0 !important;
 }
+
+/* Take round edges off everything */
+
+* {
+  border-radius: 0 !important;
+}
+
+/* Normalise step panes. */
 
 .is-embedded .step-pane {
-  border: none;
+  border: none !important;
   margin: 0;
-  padding: 40px;
+  padding: 0;
 }
 
-.business-content-logo-adjust-container {
+h2.step-title {
   display: none;
-}
-
-.choose-date-time .calendar-prev-next a {
-  color: #202124;
-  text-transform: none;
-  text-decoration: none;
 }
 
 .pane-collapsed {
   color: #202124;
   margin-left: 0;
-  margin-top: 16px;
 }
 
-#step-pick-appointment {
-  border-bottom: 1px solid #eee;
+#step-forms-pane .pane-collapsed {
+  display: none !important;
 }
 
-.step-title .step-number {
+/* Remove weird invisible spacer from header */
+
+.business-content-logo-adjust-container {
   display: none;
 }
 
-h2.step-title * {
-  font-size: 24px;
+/* Refine date picker */
+
+#step-pick-appointment .select.select-type {
+  display: none;
 }
 
-.select-type {
-  visibility: hidden;
-  height: 0;
+#step-pick-appointment .change-pick-appointment {
+  margin: 0;
+  padding: 0;
+}
+
+.choose-date-time .calendar-prev-next {
+  padding-bottom: 36px;
+}
+
+.choose-date-time .calendar-prev-next a {
+  color: #202124;
+  font-weight: 500;
+  text-decoration: none;
 }
 
 .choose-date-time .date-heading {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
 }
 
 .date-head-text {
   margin-bottom: 8px;
+}
+
+/* Normalise forms */
+
+#step-forms-pane {
+  margin-top: 24px;
 }
 
 #step-forms-pane .pane-content#step-forms {
@@ -70,80 +107,118 @@ h2.step-title * {
 }
 
 .form-control {
-    font-size: 16px;
-    padding: 16px 16px;
-    height: auto;
-    border-width: 3px;
+  font-size: 16px;
+  padding: 16px 16px;
+  height: auto;
+  border-width: 3px;
 }
 
-.btn.btn-primary.submit-forms-payment,
-input[type=submit] {
-	background-color: transparent;
-	border: 3px solid #202124;
-	color: #202124;
-	font-size: 16px;
-	font-weight: 500;
-	line-height: 16px;
-	padding: 16px 24px;
-     cursor: pointer;
-   -webkit-transition: 0.2s ease;
-   -o-transition: 0.2s ease;
-   transition: 0.2s ease;
--webkit-box-shadow: none;
-        box-shadow: none;
+label[for="phone"], input#phone {
+  display: none;
 }
 
-.btn.btn-primary.submit-forms-payment:hover,
-input[type=submit]:hover {
-	border: 3px solid #202124;
-	color: #202124;
-	font-size: 16px;
-	font-weight: 500;
-	line-height: 16px;
-	padding: 16px 24px;
-     cursor: pointer;
-   -webkit-transition: 0.2s ease;
-   -o-transition: 0.2s ease;
-   transition: 0.2s ease;
--webkit-box-shadow: none;
-        box-shadow: none;
-	background-color: #FED591 !important;
+.btn.btn-primary.submit-forms-payment, input[type=submit]:not(.reschedule-btn), .content.standalone-appointment-completed .appt-actions a.btn, .content.standalone-appointment-completed a#confirm-cancel.btn {
+  background-color: transparent;
+  border: 3px solid #202124;
+  color: #202124;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+  padding: 16px 24px;
+  cursor: pointer;
+  -webkit-transition: 0.2s ease;
+  -o-transition: 0.2s ease;
+  transition: 0.2s ease;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.btn.btn-primary.submit-forms-payment:hover, input[type=submit]:not(.reschedule-btn):hover, .content.standalone-appointment-completed .appt-actions a.btn:hover, .content.standalone-appointment-completed a#confirm-cancel.btn:hover {
+  border: 3px solid #202124;
+  color: #202124;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+  padding: 16px 24px;
+  cursor: pointer;
+  -webkit-transition: 0.2s ease;
+  -o-transition: 0.2s ease;
+  transition: 0.2s ease;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-color: #FED591 !important;
 }
 
 .btn-cancel-payment {
   margin-left: 0 !important;
 }
 
-* {
-  border-radius: 0 !important;
-}
-
 .payment-container {
   padding-top: 0 !important;
 }
 
-.payment-container form div.row:first-of-type > div {
-    width: 49%;
-    display: inline-block;
+.payment-container form div.row:first-of-type>div {
+  width: 49%;
+  display: inline-block;
 }
 
-.payment-container form div.row:first-of-type > div:first-child {
- padding-right: 0;
+.payment-container form div.row:first-of-type>div:first-child {
+  padding-right: 0;
 }
 
-.payment-container form div.row:first-of-type > div:last-child {
- padding-left: 0;
+.payment-container form div.row:first-of-type>div:last-child {
+  padding-left: 0;
 }
 
-label[for="phone"],
-input#phone {
+/* Normalise confirmation */
+
+#step-confirmation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.confirmation-details-container {
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+.confirm-name, h2.appointment-datetime {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+.appointment-datetime .appt-actions {
   display: none;
 }
 
-span[data-original-text="You will be billed "] {
+/* Hide hidden fields */
+
+.custom-form {
   display: none;
 }
 
-#step-confirmation-pane {
+/* Remove noise */
+
+.step-title .step-number, span[data-original-text="You will be billed "], .business-name, .confirmation-details-container .calendar-name-with, .confirmation-details-container .calendar-name, .add-to-calendar-container, a#client-edit-forms, .appointment-location, .is-embedded #schedule-appointment-no-longer-online {
   display: none;
+}
+
+.select-type {
+  visibility: hidden;
+  height: 0;
+}
+
+/* Normalise non-embedded form */
+
+.content.standalone-appointment-completed #step-confirmation-pane {
+  display: block;
+}
+
+.content.standalone-appointment-completed a#confirm-cancel.btn {
+  margin: 0;
 }
