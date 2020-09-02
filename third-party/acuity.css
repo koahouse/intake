@@ -1,4 +1,3 @@
-
 /* Normalise containers */
 
 html {
@@ -23,6 +22,7 @@ body {
 .content {
   height: 100%;
   margin: 0 !important;
+  max-width: none;
 }
 
 /* Take round edges off everything */
@@ -33,7 +33,7 @@ body {
 
 /* Normalise step panes. */
 
-.is-embedded .step-pane {
+.step-pane {
   border: none !important;
   margin: 0;
   padding: 0;
@@ -67,6 +67,14 @@ h2.step-title {
 #step-pick-appointment .change-pick-appointment {
   margin: 0;
   padding: 0;
+}
+
+#timezone-container {
+  text-align: left;
+}
+
+select#timezone {
+  padding: 8px 12px;
 }
 
 .choose-date-time .calendar-prev-next {
@@ -149,12 +157,9 @@ label[for="phone"], input#phone {
   background-color: #FED591 !important;
 }
 
-.btn-cancel-payment {
-  margin-left: 0 !important;
-}
-
 .payment-container {
   padding-top: 0 !important;
+  padding-bottom: 48px;
 }
 
 .payment-container form div.row:first-of-type>div {
@@ -192,7 +197,7 @@ label[for="phone"], input#phone {
   line-height: 28px;
 }
 
-.appointment-datetime .appt-actions {
+.is-embedded .appointment-datetime .appt-actions {
   display: none;
 }
 
@@ -204,7 +209,7 @@ label[for="phone"], input#phone {
 
 /* Remove noise */
 
-.step-title .step-number, span[data-original-text="You will be billed "], .business-name, .confirmation-details-container .calendar-name-with, .confirmation-details-container .calendar-name, .add-to-calendar-container, a#client-edit-forms, .appointment-location, .is-embedded #schedule-appointment-no-longer-online {
+.step-title .step-number, span[data-original-text="You will be billed "], .business-name, .confirmation-details-container .calendar-name-with, .confirmation-details-container .calendar-name, .add-to-calendar-container, a#client-edit-forms, .appointment-location, .is-embedded #schedule-appointment-no-longer-online, #timezone-prompt, .btn-cancel-payment {
   display: none;
 }
 
@@ -221,4 +226,35 @@ label[for="phone"], input#phone {
 
 .content.standalone-appointment-completed a#confirm-cancel.btn {
   margin: 0;
+}
+
+.pane.schedule-confirmation-loaded::before {
+    height: 50px;
+    background-image: url(https://oliva-static-assets.s3.amazonaws.com/Oliva-logo-93x29%402x.jpg);
+    width: 80px;
+    content: " ";
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: -55px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+}
+
+.appointment-datetime .appt-actions {
+  display: block;
+  margin-top: 24px;
+  text-align: center;
+}
+
+.appointment-datetime .appt-actions a {
+  margin-bottom: 8px;
+}
+
+.alert {
+  text-align: center;
+  position: relative;
+  z-index: 1;
 }
