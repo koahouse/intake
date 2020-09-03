@@ -91,7 +91,7 @@ export const Component = ({ setStep, step }) => {
           <Button onClick={() => setStep(1)}>Get started</Button>
         )}
         {contentStep === 1 && isMobile && (
-          <Button onClick={() => setStep(2)}>Continue</Button>
+          <Button onClick={() => setStep(2)}>OK</Button>
         )}
         {contentStep === 3 && isMobile && (
           <Button onClick={() => setStep(4)}>Pick a time</Button>
