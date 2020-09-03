@@ -81,7 +81,7 @@ export const Component = ({ setStep, step }) => {
               `One of the biggest challenges with therapy is taking that first step—so well done. We’ll make sure you start on the right foot.`,
               'Talking about personal stuff isn’t always easy, so we really appreciate your openness.',
               '',
-              'Now all you have to do is pick a time that suits you.',
+              'Now all you have to do is pick a time for your intro meeting, where one of our certified therapy experts will get to know you better.',
               '',
               'That’s everything we need for now.',
             ][contentStep]
