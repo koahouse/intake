@@ -15,12 +15,10 @@ export const Component = ({ step, setStep }) => {
   const [isContainerVisible, setIsContainerVisible] = useState(!isMobile);
 
   useEffect(() => {
-    if (!isMobile) return;
-
     window.requestAnimationFrame(() =>
-      setIsContainerVisible([2, 4].includes(step))
+      setIsContainerVisible(!isMobile || [2, 4].includes(step))
     );
-  }, [step]);
+  }, [isMobile, step]);
 
   const handleFinishSplashScreen = () => {
     setStep(2);
