@@ -121,11 +121,15 @@ select#timezone {
   border-width: 3px;
 }
 
-label[for="phone"], input#phone {
+label[for="phone"],
+input#phone {
   display: none;
 }
 
-.btn.btn-primary.submit-forms-payment, input[type=submit]:not(.reschedule-btn), .content.standalone-appointment-completed .appt-actions a.btn, .content.standalone-appointment-completed a#confirm-cancel.btn {
+.btn.btn-primary.submit-forms-payment,
+input[type=submit]:not(.reschedule-btn),
+.content.standalone-appointment-completed .appt-actions a.btn,
+.content.standalone-appointment-completed a#confirm-cancel.btn {
   background-color: transparent;
   border: 3px solid #202124;
   color: #202124;
@@ -141,7 +145,10 @@ label[for="phone"], input#phone {
   box-shadow: none;
 }
 
-.btn.btn-primary.submit-forms-payment:hover, input[type=submit]:not(.reschedule-btn):hover, .content.standalone-appointment-completed .appt-actions a.btn:hover, .content.standalone-appointment-completed a#confirm-cancel.btn:hover {
+.btn.btn-primary.submit-forms-payment:hover,
+input[type=submit]:not(.reschedule-btn):hover,
+.content.standalone-appointment-completed .appt-actions a.btn:hover,
+.content.standalone-appointment-completed a#confirm-cancel.btn:hover {
   border: 3px solid #202124;
   color: #202124;
   font-size: 16px;
@@ -182,8 +189,8 @@ label[for="phone"], input#phone {
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .confirmation-details-container {
@@ -191,7 +198,7 @@ label[for="phone"], input#phone {
   text-align: center;
 }
 
-.confirm-name, h2.appointment-datetime {
+h2.appointment-datetime {
   font-size: 16px;
   font-weight: 500;
   line-height: 28px;
@@ -209,7 +216,19 @@ label[for="phone"], input#phone {
 
 /* Remove noise */
 
-.step-title .step-number, span[data-original-text="You will be billed "], .business-name, .confirmation-details-container .calendar-name-with, .confirmation-details-container .calendar-name, .add-to-calendar-container, a#client-edit-forms, .appointment-location, .is-embedded #schedule-appointment-no-longer-online, #timezone-prompt, .btn-cancel-payment {
+.step-title .step-number,
+.business-name,
+.confirmation-details-container .calendar-name-with,
+.confirmation-details-container .confirm-name,
+.confirmation-details-container .calendar-name,
+.confirmation-details-container .appointment-price-confirmation,
+.appointment-price-confirmation,
+.add-to-calendar-container,
+a#client-edit-forms,
+.appointment-location,
+.is-embedded #schedule-appointment-no-longer-online,
+#timezone-prompt,
+.btn-cancel-payment {
   display: none;
 }
 
@@ -229,18 +248,22 @@ label[for="phone"], input#phone {
 }
 
 .pane.schedule-confirmation-loaded::before {
-    height: 50px;
-    background-image: url(https://oliva-static-assets.s3.amazonaws.com/Oliva-logo-93x29%402x.jpg);
-    width: 80px;
-    content: " ";
-    position: absolute;
-    background-size: contain;
-    background-repeat: no-repeat;
-    top: -55px;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-            transform: translateX(-50%);
+  height: 50px;
+  background-image: url(https://oliva-static-assets.s3.amazonaws.com/Oliva-logo-93x29%402x.jpg);
+  width: 80px;
+  content: " ";
+  position: absolute;
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: -55px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.is-embedded .pane.schedule-confirmation-loaded::before {
+  display: none;
 }
 
 .appointment-datetime .appt-actions {
