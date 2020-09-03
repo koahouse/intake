@@ -17,6 +17,13 @@
   transition: none;
 }
 
+.container > h3 {
+  position: absolute;
+  left: 10000px;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
 .container > button {
   position: absolute;
   bottom: 48px;
@@ -25,6 +32,27 @@
   opacity: 0;
   transition: opacity 0.6s ease;
   width: calc(100% - 48px);
+}
+
+.container.isThanksVisible > h3 {
+  opacity: 1;
+  left: 50%;
+  max-width: 220px;
+  text-align: center;
+  top: 50%;
+  width: 100%;
+}
+
+.container.isThanksVisible > h3:first-of-type {
+  transform: translate(-50%, -200px);
+}
+
+.container.isThanksVisible > h3:nth-of-type(2) {
+  transform: translate(-50%, -160px);
+}
+
+.container.isThanksVisible > h3:nth-of-type(3) {
+  transform: translate(-50%, 10px);
 }
 
 .container.isButtonVisible > button {

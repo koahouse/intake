@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 
 import { useIsMobile } from '../../utils';
 import { useLanguageCode } from '../I18n';
-import { Button } from '../ui';
+import { Button, Subheading } from '../ui';
 
 import { getSrc } from './utils/getSrc';
 import styles from './styles.module.css';
@@ -23,7 +23,8 @@ export const Component = ({ isIndividual, onSubmit, responseId }) => {
     if (event.data.includes('sizing')) setIsLoaded(true);
 
     if (event.data.includes('acuity-appointment-scheduled')) {
-      isMobile ? setIsSubmitted(true) : onSubmit();
+      setIsSubmitted(true);
+      !isMobile && onSubmit();
     }
   };
 
@@ -36,14 +37,21 @@ export const Component = ({ isIndividual, onSubmit, responseId }) => {
   return (
     <div
       className={`${styles.container} ${isLoaded && styles.visible} ${
-        isSubmitted && isMobile && styles.isButtonVisible
-      }`}
+        isSubmitted && styles.isThanksVisible
+      } ${isSubmitted && isMobile && styles.isButtonVisible}`}
       id="acuity-container"
     >
+      <Subheading>Thanks!</Subheading>
+      <Subheading>
+        Your payment was successful. Your intro meeting is booked for:
+      </Subheading>
       {isIndividual !== null && responseId && (
         <iframe src={getSrc(languageCode, responseId, isIndividual)} />
       )}
-      <Button onClick={onSubmit}>Finish</Button>
+      <Subheading>
+        You’ll receive an email very soon with all the details.
+      </Subheading>
+      <Button onClick={onSubmit}>What happens now?</Button>
     </div>
   );
 };

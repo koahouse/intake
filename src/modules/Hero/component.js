@@ -57,7 +57,7 @@ export const Component = ({ setStep, step }) => {
     <div className={styles.container} ref={ref}>
       <Sea containerWidth={containerWidth} step={illustrationStep} />
       <Boat step={illustrationStep} />
-      <div className={styles.mask} onClick={() => console.log('click')} />
+      <div className={styles.mask} />
       {!isMobile && <h1 className={styles.logo}>Oliva</h1>}
       <div className={styles.content} style={{ opacity: contentOpacity }}>
         {isMobile && contentStep === 0 && (
@@ -67,11 +67,11 @@ export const Component = ({ setStep, step }) => {
           {
             [
               'You’re on course to being back at your best',
-              'Your future self feels great about this decision',
+              'Understanding starts with a few questions',
               '',
               'That’s the hard part over',
               '',
-              'You’ve taken a strong first step. Now it’s our turn.',
+              'You’ve taken your first step. Now it’s our turn.',
             ][contentStep]
           }
         </h2>
@@ -79,11 +79,11 @@ export const Component = ({ setStep, step }) => {
           {
             [
               `One of the biggest challenges with therapy is taking that first step—so well done. We’ll make sure you start on the right foot.`,
-              'To help you make the most of your intro meeting, we’ll start by getting to know you with a few questions. Answering personal questions isn’t always easy, so we really appreciate your openness.',
+              'Talking about personal stuff isn’t always easy, so we really appreciate your openness.',
               '',
               'Now all you have to do is pick a time that suits you.',
               '',
-              'That’s everything we need for now. We’ll be in touch to remind you about your intro meeting. You don’t need to bring or prepare anything, so sit back, relax, and know that you’re in good hands.',
+              'That’s everything we need for now.',
             ][contentStep]
           }
         </Subheading>
@@ -99,13 +99,16 @@ export const Component = ({ setStep, step }) => {
         {contentStep === 5 && (
           <React.Fragment>
             <Subheading>
-              You’ll receive an email with all the details.
+              We’ll be in touch to remind you about your intro meeting. You
+              don’t need to prepare anything, so relax and know that you’re in
+              good hands.
             </Subheading>
             <Subheading>
-              In the meantime you can{' '}
+              In the meantime, you can{' '}
               <a href="https://www.instagram.com/radically_normal/">
-                read therapy stories from people like you.
+                read therapy stories from people like you
               </a>
+              .
             </Subheading>
             <div style={{ height: 100 }}></div>
           </React.Fragment>
