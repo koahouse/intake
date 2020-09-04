@@ -5,6 +5,20 @@ body,
     background-color: #00000000;
 }
 
+/* Slow the scroll down */
+* {
+    animation-duration: 0.6s !important;
+}
+
+/* Show scrollbars */
+.ss-fp-scroll__item-data-wrap::-webkit-scrollbar {
+    width: auto;
+}
+
+.ss-fp-scroll__item-data-wrap::-webkit-scrollbar-thumb {
+    background: #d3d3d3;
+}
+
 /* Hide surveysparrow branding */
 .made_with_ss_svg_loader,
 .ss_classic_footer_right_content_wrap__branding {
@@ -32,13 +46,18 @@ body,
     justify-content: flex-start;
 }
 
+.ss_rating_input--classic {
+    flex-wrap: nowrap !important;
+}
+
 /* Hide question numbers */
 .ss_cl_survey_qstn_left {
     opacity: 0;
 }
 
 /* Hide progress tracker */
-.ss-progress-container--new {
+.ss-progress-container--new,
+.ss-horizontal-progress-bar {
     display: none;
 }
 
@@ -111,4 +130,22 @@ body,
 
 .ss_cl_survey_submit_resp p {
     display: none;
+}
+
+/* Hide slider tooltip */
+.rc-slider-tooltip {
+    display: none !important;
+}
+
+/* Disable selection */
+* {
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;          /* Likely future */
+}
+
+/* Space out skip button */
+.ss-skip-container {
+    margin-left: 24px;
 }
