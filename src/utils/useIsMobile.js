@@ -6,7 +6,7 @@ const BREAKPOINT = 900;
 const getIsMobile = () => window.innerWidth <= BREAKPOINT;
 
 export const useIsMobile = () => {
-  const [isMobile, setIsMobile] = useState(getIsMobile());
+  const [isMobile, setIsMobile] = useState(null);
 
   const handleResize = useCallback(
     debounce(() => {

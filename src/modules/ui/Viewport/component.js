@@ -2,8 +2,10 @@ import React from 'react';
 
 import styles from './styles.module.css';
 
-export const Component = ({ children }) => (
-  <div className={styles.container}>{children}</div>
+export const Component = ({ children, isVisible }) => (
+  <div className={`${styles.container} ${isVisible && styles.isVisible}`}>
+    {children}
+  </div>
 );
 
 Component.displayName = 'Viewport';

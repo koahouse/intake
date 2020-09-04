@@ -32,7 +32,7 @@ export const Component = ({ isIndividual, onSubmit, responseId }) => {
     window.addEventListener('message', handleMessage);
 
     return () => window.removeEventListener('message', handleMessage);
-  }, []);
+  }, [isMobile]);
 
   return (
     <div

@@ -9,6 +9,7 @@ import {
   I18nProvider,
   Viewport,
 } from './modules';
+import { useIsMobile } from './utils/useIsMobile';
 
 // <button
 //   onClick={() => setStep(step + 1)}
@@ -24,6 +25,7 @@ import {
 // </button>
 
 const App = () => {
+  const isMobile = useIsMobile();
   const [step, setStep] = useState(0);
 
   return (
@@ -31,7 +33,7 @@ const App = () => {
       <MinimumHeightWarner />
       <BackButtonDisabler />
       <CloseWindowWarner step={step} />
-      <Viewport>
+      <Viewport isVisible={isMobile !== null}>
         <Hero setStep={setStep} step={step} />
         <Form setStep={setStep} step={step} />
       </Viewport>
