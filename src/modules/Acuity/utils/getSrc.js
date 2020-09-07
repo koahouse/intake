@@ -1,3 +1,7 @@
+import { parse } from 'query-string';
+
+const DISCOUNT_CODE = parse(window.location.search).d;
+
 export const getSrc = (languageCode, responseId, isIndividual) => {
   const {
     appointmentTypeCouple,
@@ -27,5 +31,9 @@ export const getSrc = (languageCode, responseId, isIndividual) => {
     isIndividual ? appointmentTypeIndividual : appointmentTypeCouple
   }&${idFieldName}=${responseId}&${linkFieldName}=${window.encodeURIComponent(
     `https://sanc.typeform.com/to/lXfBjpxR#memberid=${responseId}`
-  )}`;
+  )}${
+    DISCOUNT_CODE
+      ? `&certificate=${window.encodeURIComponent(DISCOUNT_CODE)}`
+      : ''
+  }`;
 };
