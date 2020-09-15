@@ -3,7 +3,21 @@ export const getIsIndividual = ({ customParams, response }) => {
     return JSON.parse(customParams.individual);
   }
 
-  const question = response.find(({ id }) => id === 828893);
+  const question = response.find(({ id }) =>
+    [
+      // English form
+      828893,
+      // Spanish form
+      1068322,
+    ].includes(id)
+  );
 
-  return question ? question.answer === 'Individual' : true;
+  return question
+    ? [
+        // English form
+        'Individual',
+        // Spanish form
+        '[Pending translation]',
+      ].includes(question.answer)
+    : true;
 };

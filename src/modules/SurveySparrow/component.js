@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { v4 as uuid } from 'uuid';
 
-// import { useLanguageCode } from '../I18n';
+import { useLanguageCode } from '../I18n';
 
 import { getIsIndividual } from './utils/getIsIndividual';
 import { getSrc } from './utils/getSrc';
@@ -10,7 +10,7 @@ import styles from './styles.module.css';
 const ID = uuid().replace(/-/g, '');
 
 export const Component = ({ onSubmit }) => {
-  // const languageCode = useLanguageCode();
+  const languageCode = useLanguageCode();
 
   const handleMessage = (event) => {
     if (!event || !event.data) return;
@@ -29,8 +29,7 @@ export const Component = ({ onSubmit }) => {
     return () => window.removeEventListener('message', handleMessage);
   }, []);
 
-  // const src = getSrc(ID, languageCode);
-  const src = getSrc(ID, 'en');
+  const src = getSrc(ID, languageCode);
 
   return (
     <div className={styles.container}>
