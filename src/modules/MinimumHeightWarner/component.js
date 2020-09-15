@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import debounce from 'lodash.debounce';
 
+import { useStrings } from '../I18n';
 import { Subheading } from '../ui';
 
 import orientation from './orientation.png';
 import styles from './styles.module.css';
 
 export const Component = () => {
+  const { THIS_WEBSITE_WORKS_BEST, USE_IT_ANYWAY } = useStrings();
   const [isTooSmall, setIsTooSmall] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
 
@@ -33,8 +35,8 @@ export const Component = () => {
       }`}
     >
       <img alt="portrait-mode" src={orientation} />
-      <Subheading>This website works best in portrait mode</Subheading>
-      <p onClick={handleClickDismiss}>Use it anyway</p>
+      <Subheading>{THIS_WEBSITE_WORKS_BEST}</Subheading>
+      <p onClick={handleClickDismiss}>{USE_IT_ANYWAY}</p>
     </div>
   );
 };

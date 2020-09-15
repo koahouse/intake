@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 
 import { useIsMobile } from '../../utils';
-import { useLanguageCode } from '../I18n';
+import { useLanguageCode, useStrings } from '../I18n';
 import { Button, Subheading } from '../ui';
 
 import { getSrc } from './utils/getSrc';
@@ -12,6 +12,7 @@ export const Component = ({ isIndividual, onSubmit, responseId }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const isFinishedTimeout = useRef(null);
+  const strings = useStrings();
   const languageCode = useLanguageCode();
 
   const handleMessage = (event) => {
@@ -41,17 +42,13 @@ export const Component = ({ isIndividual, onSubmit, responseId }) => {
       } ${isSubmitted && isMobile && styles.isButtonVisible}`}
       id="acuity-container"
     >
-      <Subheading>Thanks!</Subheading>
-      <Subheading>
-        Your payment was successful. Your intro meeting is booked for:
-      </Subheading>
+      <Subheading>{strings.THANKS}</Subheading>
+      <Subheading>{strings.YOUR_PAYMENT_WAS_SUCCESSFUL}</Subheading>
       {isIndividual !== null && responseId && (
         <iframe src={getSrc(languageCode, responseId, isIndividual)} />
       )}
-      <Subheading>
-        You’ll receive an email very soon with all the details.
-      </Subheading>
-      <Button onClick={onSubmit}>What happens now?</Button>
+      <Subheading>{strings.YOULL_RECEIVE_AN_EMAIL}</Subheading>
+      <Button onClick={onSubmit}>{strings.WHAT_HAPPENS_NOW}</Button>
     </div>
   );
 };

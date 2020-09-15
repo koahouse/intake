@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import debounce from 'lodash.debounce';
 
+import { useStrings } from '../I18n';
 import { useIsMobile } from '../../utils';
 import { Button, Subheading } from '../ui';
 import { Boat } from '../Boat';
@@ -11,6 +12,7 @@ import { getContentStep } from './utils/getContentStep';
 import styles from './styles.module.css';
 
 export const Component = ({ setStep, step }) => {
+  const strings = useStrings();
   const isMobile = useIsMobile();
   const [contentOpacity, setContentOpacity] = useState(1);
   const [contentStep, setContentStep] = useState(0);
@@ -66,47 +68,43 @@ export const Component = ({ setStep, step }) => {
         <h2 className={styles.heading}>
           {
             [
-              'You’re on course to being back at your best',
-              'Understanding starts with a few questions',
+              strings.YOURE_ON_COURSE,
+              strings.UNDERSTANDING_STARTS_WITH,
               '',
-              'That’s the hard part over',
+              strings.THATS_THE_HARD_PART,
               '',
-              'You’ve taken your first step. Now it’s our turn.',
+              strings.YOUVE_TAKEN_YOUR_FIRST,
             ][contentStep]
           }
         </h2>
         <Subheading>
           {
             [
-              `One of the biggest challenges with therapy is taking that first step—so well done. We’ll make sure you start on the right foot.`,
-              'Talking about personal stuff isn’t always easy, so we really appreciate your openness.',
+              strings.ONE_OF_THE_BIGGEST_CHALLENGES,
+              strings.TALKING_ABOUT_PERSONAL_STUFF,
               '',
-              'Now all you have to do is pick a time for your intro meeting, where one of our certified therapy experts will get to know you better.',
+              strings.NOW_ALL_YOU_HAVE_TO_DO,
               '',
-              'That’s everything we need for now.',
+              strings.THATS_EVERYTHING_WE_NEED,
             ][contentStep]
           }
         </Subheading>
         {contentStep === 0 && isMobile && (
-          <Button onClick={() => setStep(1)}>Get started</Button>
+          <Button onClick={() => setStep(1)}>{strings.GET_STARTED}</Button>
         )}
         {contentStep === 1 && isMobile && (
-          <Button onClick={() => setStep(2)}>OK</Button>
+          <Button onClick={() => setStep(2)}>{strings.OK}</Button>
         )}
         {contentStep === 3 && isMobile && (
-          <Button onClick={() => setStep(4)}>Pick a time</Button>
+          <Button onClick={() => setStep(4)}>{strings.PICK_A_TIME}</Button>
         )}
         {contentStep === 5 && (
           <React.Fragment>
+            <Subheading>{strings.WELL_BE_IN_TOUCH_TO_REMIND}</Subheading>
             <Subheading>
-              We’ll be in touch to remind you about your intro meeting. You
-              don’t need to prepare anything, so relax and know that you’re in
-              good hands.
-            </Subheading>
-            <Subheading>
-              In the meantime, you can{' '}
+              {strings.IN_THE_MEANTIME_YOU_CAN}{' '}
               <a href="https://www.instagram.com/radically_normal/">
-                read therapy stories from people like you
+                {strings.READ_THERAPY_STORIES}
               </a>
               .
             </Subheading>
