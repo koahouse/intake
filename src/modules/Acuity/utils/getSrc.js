@@ -27,13 +27,19 @@ export const getSrc = (languageCode, responseId, isIndividual) => {
         owner: 20088051,
       };
 
-  return `https://app.acuityscheduling.com/schedule.php?owner=${owner}&appointmentType=${
-    isIndividual ? appointmentTypeIndividual : appointmentTypeCouple
-  }&${idFieldName}=${responseId}&${linkFieldName}=${window.encodeURIComponent(
-    `https://sanc.typeform.com/to/lXfBjpxR#memberid=${responseId}`
-  )}${
-    DISCOUNT_CODE
-      ? `&certificate=${window.encodeURIComponent(DISCOUNT_CODE)}`
-      : ''
-  }`;
+  return [
+    'https://app.acuityscheduling.com/schedule.php',
+    `?owner=${owner}`,
+    `&appointmentType=${
+      isIndividual ? appointmentTypeIndividual : appointmentTypeCouple
+    }`,
+    `&${idFieldName}=${responseId}`,
+    `&${linkFieldName}=${window.encodeURIComponent(
+      `https://sanc.typeform.com/to/lXfBjpxR#memberid=${responseId}`
+    )}${
+      DISCOUNT_CODE
+        ? `&certificate=${window.encodeURIComponent(DISCOUNT_CODE)}`
+        : ''
+    }`,
+  ].join('');
 };
