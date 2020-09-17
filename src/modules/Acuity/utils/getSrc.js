@@ -35,7 +35,7 @@ export const getSrc = (languageCode, responseId, isIndividual) => {
     }`,
     `&${idFieldName}=${responseId}`,
     `&${linkFieldName}=${window.encodeURIComponent(
-      `https://sanc.typeform.com/to/lXfBjpxR#memberid=${responseId}`
+      `https://sanc.typeform.com/to/lXfBjpxR#memberid=${responseId}&languagecode=${languageCode}`
     )}${
       DISCOUNT_CODE
         ? `&certificate=${window.encodeURIComponent(DISCOUNT_CODE)}`
