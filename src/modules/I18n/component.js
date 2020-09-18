@@ -1,23 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { parse } from 'query-string';
 
 import { Context } from './context';
 import { getStrings } from './strings/getStrings';
 
-const DEFAULT_LANGUAGE_CODE = 'en';
+const DEFAULT_LANGUAGE_CODE =
+  parse(window.location.search).language ||
+  (window.navigator.language && window.navigator.language.startsWith('es'))
+    ? 'es'
+    : 'en';
 
-const languageCode =
-  parse(window.location.search).language || DEFAULT_LANGUAGE_CODE;
+export const Component = ({ children }) => {
+  const [languageCode, setLanguageCode] = useState(DEFAULT_LANGUAGE_CODE);
 
-export const Component = ({ children }) => (
-  <Context.Provider
-    value={{
-      languageCode,
-      strings: getStrings(languageCode),
-    }}
-  >
-    {children}
-  </Context.Provider>
-);
+  return (
+    <Context.Provider
+      value={{
+        languageCode,
+        setLanguageCode,
+        strings: getStrings(languageCode),
+      }}
+    >
+      {children}
+    </Context.Provider>
+  );
+};
 
 Component.displayName = 'I18nProvider';

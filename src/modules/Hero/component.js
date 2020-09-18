@@ -1,4 +1,10 @@
-import React, { useEffect, useState, useRef, useCallback } from 'react';
+import React, {
+  Fragment,
+  useEffect,
+  useState,
+  useRef,
+  useCallback,
+} from 'react';
 import debounce from 'lodash.debounce';
 
 import { useStrings } from '../I18n';
@@ -6,6 +12,8 @@ import { useIsMobile } from '../../utils';
 import { Button, Subheading } from '../ui';
 import { Boat } from '../Boat';
 import { Sea } from '../Sea';
+import { Configurator } from '../Configurator';
+import { ThreeSteps } from '../ThreeSteps';
 
 import { getIllustrationStep } from './utils/getIllustrationStep';
 import { getContentStep } from './utils/getContentStep';
@@ -62,13 +70,10 @@ export const Component = ({ setStep, step }) => {
       <div className={styles.mask} />
       {!isMobile && <h1 className={styles.logo}>Oliva</h1>}
       <div className={styles.content} style={{ opacity: contentOpacity }}>
-        {isMobile && contentStep === 0 && (
-          <h1 className={styles.logo}>Oliva</h1>
-        )}
         <h2 className={styles.heading}>
           {
             [
-              strings.YOURE_ON_COURSE,
+              strings.WELCOME,
               strings.UNDERSTANDING_STARTS_WITH,
               '',
               strings.THATS_THE_HARD_PART,
@@ -77,20 +82,31 @@ export const Component = ({ setStep, step }) => {
             ][contentStep]
           }
         </h2>
-        <Subheading>
-          {
-            [
-              strings.ONE_OF_THE_BIGGEST_CHALLENGES,
-              strings.TALKING_ABOUT_PERSONAL_STUFF,
-              '',
-              strings.NOW_ALL_YOU_HAVE_TO_DO,
-              '',
-              strings.THATS_EVERYTHING_WE_NEED,
-            ][contentStep]
-          }
-        </Subheading>
+        {contentStep === 0 && isMobile ? (
+          <Fragment>
+            <Configurator />
+            <Subheading>{strings.IN_THE_NEXT_TEN_MINUTES}</Subheading>
+            <ThreeSteps />
+          </Fragment>
+        ) : (
+          <Subheading>
+            {
+              [
+                isMobile ? '' : strings.ONE_OF_THE_BIGGEST_CHALLENGES,
+                strings.TALKING_ABOUT_PERSONAL_STUFF,
+                '',
+                strings.NOW_ALL_YOU_HAVE_TO_DO,
+                '',
+                strings.THATS_EVERYTHING_WE_NEED,
+              ][contentStep]
+            }
+          </Subheading>
+        )}
+
         {contentStep === 0 && isMobile && (
-          <Button onClick={() => setStep(1)}>{strings.GET_STARTED}</Button>
+          <Button isCompact onClick={() => setStep(1)}>
+            {strings.GET_STARTED}
+          </Button>
         )}
         {contentStep === 1 && isMobile && (
           <Button onClick={() => setStep(2)}>{strings.OK}</Button>

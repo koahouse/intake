@@ -8,6 +8,7 @@ import {
   Hero,
   I18nProvider,
   Viewport,
+  PricingProvider,
 } from './modules';
 import { useIsMobile } from './utils/useIsMobile';
 
@@ -30,13 +31,15 @@ const App = () => {
 
   return (
     <I18nProvider>
-      <MinimumHeightWarner />
-      <BackButtonDisabler />
-      <CloseWindowWarner step={step} />
-      <Viewport isVisible={isMobile !== null}>
-        <Hero setStep={setStep} step={step} />
-        <Form setStep={setStep} step={step} />
-      </Viewport>
+      <PricingProvider>
+        <MinimumHeightWarner />
+        <BackButtonDisabler />
+        <CloseWindowWarner step={step} />
+        <Viewport isVisible={isMobile !== null}>
+          <Hero setStep={setStep} step={step} />
+          <Form setStep={setStep} step={step} />
+        </Viewport>
+      </PricingProvider>
     </I18nProvider>
   );
 };

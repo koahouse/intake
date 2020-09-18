@@ -22,6 +22,10 @@
   margin: 0 auto;
 }
 
+.compact {
+	margin: 24px 0 0;
+}
+
 @media screen and (min-width: 901px) {
   .button {
 		max-width: 300px;

@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.step {
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 1px 1px 6px 0 rgba(0,0,0,.16);
+  display: flex;
+  margin: 12px auto 0;
+  padding: 24px 12px;
+  width: calc(100% - 4px);
+}
+
+.hasBorder .step {
+  border: 5px solid #f7f7f5;
+  box-shadow: none;
+}
+
+.number {
+  align-items: center;
+  display: flex;
+  font-family: 'DM Serif Display', serif;
+  font-size: 28px;
+  flex-basis: 30px;
+  flex-grow: 1;
+  justify-content: center;
+  margin-right: 8px;
+}
+
+.text {
+  flex-basis: 85%;
+}
+
+.step h3 {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  margin: 0;
+}

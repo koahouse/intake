@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { v4 as uuid } from 'uuid';
 
 import { useLanguageCode } from '../I18n';
+import { useIsIndividual } from '../Pricing';
 
 import { getIsIndividual } from './utils/getIsIndividual';
 import { getSrc } from './utils/getSrc';
@@ -11,14 +12,13 @@ const ID = uuid().replace(/-/g, '');
 
 export const Component = ({ onSubmit }) => {
   const languageCode = useLanguageCode();
+  const isIndividual = useIsIndividual();
 
   const handleMessage = (event) => {
     if (!event || !event.data) return;
 
     if (event.data.type === 'surveyCompleted') {
-      const isIndividual = getIsIndividual(event.data);
-
-      onSubmit(ID, isIndividual);
+      onSubmit(ID, getIsIndividual(event.data));
       return;
     }
   };
@@ -29,7 +29,7 @@ export const Component = ({ onSubmit }) => {
     return () => window.removeEventListener('message', handleMessage);
   }, []);
 
-  const src = getSrc(ID, languageCode);
+  const src = getSrc(ID, languageCode, isIndividual);
 
   return (
     <div className={styles.container}>
