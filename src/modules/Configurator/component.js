@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import Dropdown from 'react-dropdown';
+import React, { Fragment, useState, useEffect, useRef } from 'react';
+import ReactDropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 
 import { Subheading } from '../ui';
@@ -12,6 +12,37 @@ const LANGUAGE_OPTIONS = [
   { value: 'en', label: 'English' },
   { value: 'es', label: 'Castellano' },
 ];
+
+const Dropdown = ({ onChange, options, value }) => {
+  const [isMenuRightAligned, setIsMenuRightAligned] = useState(false);
+  const ref = useRef();
+
+  useEffect(() => {
+    if (!ref.current || !ref.current.getBoundingClientRect) return;
+
+    const availableSpace =
+      window.innerWidth - ref.current.getBoundingClientRect().x;
+
+    setIsMenuRightAligned(availableSpace < 130);
+  }, [ref.current]);
+
+  return (
+    <Fragment>
+      <span ref={ref} />
+      <ReactDropdown
+        arrowClassName={styles.dropdownArrow}
+        className={styles.dropdownRoot}
+        controlClassName={styles.dropdownControl}
+        menuClassName={`${styles.dropdownMenu} ${
+          isMenuRightAligned && styles.isMenuRightAligned
+        }`}
+        onChange={onChange}
+        options={options}
+        value={value}
+      />
+    </Fragment>
+  );
+};
 
 export const Component = () => {
   const languageCode = useLanguageCode();
@@ -51,10 +82,6 @@ export const Component = () => {
       <Subheading>{strings.I_WANT_THERAPY_IN} </Subheading>
       <Subheading>
         <Dropdown
-          arrowClassName={styles.dropdownArrow}
-          className={styles.dropdownRoot}
-          controlClassName={styles.dropdownControl}
-          menuClassName={styles.dropdownMenu}
           onChange={setLanguageValue}
           options={LANGUAGE_OPTIONS}
           value={languageValue}
@@ -63,10 +90,6 @@ export const Component = () => {
       <Subheading> {strings.FOR} </Subheading>
       <Subheading>
         <Dropdown
-          arrowClassName={styles.dropdownArrow}
-          className={styles.dropdownRoot}
-          controlClassName={styles.dropdownControl}
-          menuClassName={styles.dropdownMenu}
           onChange={setCoupleValue}
           options={coupleOptions}
           value={coupleValue}

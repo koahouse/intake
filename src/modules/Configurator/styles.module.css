@@ -9,7 +9,7 @@
   background: transparent !important;
   box-shadow: none !important;
   flex: 0 0 auto;
-  margin: 0 8px 6px 0;
+  margin: 0 6px 6px 0;
   z-index: auto;
 }
 
@@ -23,12 +23,12 @@
   border-bottom: 2px solid #202124;
   border-radius: 0;
   font-weight: 500;
-  padding: 6px 30px 4px 4px;
+  padding: 6px 20px 4px 2px;
 }
 
 .dropdownArrow {
   border-color: #202124 #0000 #0000;
-  right: 4px;
+  right: 2px;
   top: 16px;
 }
 
@@ -39,6 +39,10 @@
 .dropdownMenu {
   top: calc(100% + 8px);
   width: auto;
+}
+
+.isMenuRightAligned {
+  right: 0;
 }
 
 .dropdownMenu :global(.Dropdown-option) {
