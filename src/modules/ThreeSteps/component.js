@@ -23,7 +23,7 @@ export const Component = ({ hasBorder }) => {
       <div className={styles.step}>
         <div className={styles.number}>2</div>
         <div className={styles.text}>
-          <Subheading>{strings.PICK_A_TIME}</Subheading>
+          <Subheading>{strings.TO_PICK_A_TIME}</Subheading>
           <SmallPrint>{strings.YOU_GET_SIXTY_MINUTES}</SmallPrint>
         </div>
       </div>

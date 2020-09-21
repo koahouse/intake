@@ -2,23 +2,26 @@ import React from 'react';
 
 import { useStrings } from '../I18n';
 import { useIsMobile } from '../../utils';
-import { Button, Subheading } from '../ui';
+import { Button, SmallPrint } from '../ui';
 import { Configurator } from '../Configurator';
-import { ThreeSteps } from '../ThreeSteps';
+import { usePrice } from '../Pricing';
 
 import styles from './styles.module.css';
 
 export const Component = ({ onFinish }) => {
   const strings = useStrings();
   const isMobile = useIsMobile();
+  const price = usePrice();
 
   if (isMobile) return null;
 
   return (
     <div className={styles.container}>
       <Configurator />
-      <Subheading>{strings.IN_THE_NEXT_TEN_MINUTES}</Subheading>
-      <ThreeSteps hasBorder />
+      <div className={styles.price}>
+        <span>{price} </span>
+        <SmallPrint>/ {strings.SIXTY_MINUTE_VIDEO_CALL}</SmallPrint>
+      </div>
       <Button isCentered={!isMobile} onClick={onFinish}>
         {strings.GET_STARTED}
       </Button>

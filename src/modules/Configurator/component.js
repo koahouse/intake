@@ -1,8 +1,6 @@
-import React, { Fragment, useState, useEffect, useRef } from 'react';
-import ReactDropdown from 'react-dropdown';
-import 'react-dropdown/style.css';
+import React, { useState, useEffect } from 'react';
 
-import { Subheading } from '../ui';
+import { Subheading, Dropdown } from '../ui';
 import { useLanguageCode, useSetLanguageCode, useStrings } from '../I18n';
 import { useIsIndividual, useSetIsIndividual } from '../Pricing';
 
@@ -10,41 +8,10 @@ import styles from './styles.module.css';
 
 const LANGUAGE_OPTIONS = [
   { value: 'en', label: 'English' },
-  { value: 'es', label: 'Castellano' },
+  { value: 'es', label: 'castellano' },
 ];
 
-const Dropdown = ({ onChange, options, value }) => {
-  const [isMenuRightAligned, setIsMenuRightAligned] = useState(false);
-  const ref = useRef();
-
-  useEffect(() => {
-    if (!ref.current || !ref.current.getBoundingClientRect) return;
-
-    const availableSpace =
-      window.innerWidth - ref.current.getBoundingClientRect().x;
-
-    setIsMenuRightAligned(availableSpace < 130);
-  }, [ref.current]);
-
-  return (
-    <Fragment>
-      <span ref={ref} />
-      <ReactDropdown
-        arrowClassName={styles.dropdownArrow}
-        className={styles.dropdownRoot}
-        controlClassName={styles.dropdownControl}
-        menuClassName={`${styles.dropdownMenu} ${
-          isMenuRightAligned && styles.isMenuRightAligned
-        }`}
-        onChange={onChange}
-        options={options}
-        value={value}
-      />
-    </Fragment>
-  );
-};
-
-export const Component = () => {
+export const Component = ({ hasShadow }) => {
   const languageCode = useLanguageCode();
   const setLanguageCode = useSetLanguageCode();
   const isIndividual = useIsIndividual();
@@ -78,7 +45,7 @@ export const Component = () => {
   );
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${hasShadow && styles.hasShadow}`}>
       <Subheading>{strings.I_WANT_THERAPY_IN} </Subheading>
       <Subheading>
         <Dropdown
@@ -87,6 +54,7 @@ export const Component = () => {
           value={languageValue}
         />
       </Subheading>
+      <div style={{ width: '100%' }} />
       <Subheading> {strings.FOR} </Subheading>
       <Subheading>
         <Dropdown

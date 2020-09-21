@@ -82,31 +82,30 @@ export const Component = ({ setStep, step }) => {
             ][contentStep]
           }
         </h2>
-        {contentStep === 0 && isMobile ? (
+        <Subheading>
+          {
+            [
+              strings.ONE_OF_THE_BIGGEST_CHALLENGES,
+              isMobile ? '' : strings.TALKING_ABOUT_PERSONAL_STUFF,
+              '',
+              strings.NOW_ALL_YOU_HAVE_TO_DO,
+              '',
+              strings.THATS_EVERYTHING_WE_NEED,
+            ][contentStep]
+          }
+        </Subheading>
+        {contentStep === 0 && isMobile && (
           <Fragment>
-            <Configurator />
+            <Configurator hasShadow />
+            <Button onClick={() => setStep(1)}>{strings.GET_STARTED}</Button>
+          </Fragment>
+        )}
+        {((contentStep === 0 && !isMobile) ||
+          (contentStep === 1 && isMobile)) && (
+          <Fragment>
             <Subheading>{strings.IN_THE_NEXT_TEN_MINUTES}</Subheading>
             <ThreeSteps />
           </Fragment>
-        ) : (
-          <Subheading>
-            {
-              [
-                isMobile ? '' : strings.ONE_OF_THE_BIGGEST_CHALLENGES,
-                strings.TALKING_ABOUT_PERSONAL_STUFF,
-                '',
-                strings.NOW_ALL_YOU_HAVE_TO_DO,
-                '',
-                strings.THATS_EVERYTHING_WE_NEED,
-              ][contentStep]
-            }
-          </Subheading>
-        )}
-
-        {contentStep === 0 && isMobile && (
-          <Button isCompact onClick={() => setStep(1)}>
-            {strings.GET_STARTED}
-          </Button>
         )}
         {contentStep === 1 && isMobile && (
           <Button onClick={() => setStep(2)}>{strings.OK}</Button>

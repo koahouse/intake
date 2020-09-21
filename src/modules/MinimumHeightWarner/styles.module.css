@@ -16,6 +16,10 @@
   display: flex;
 }
 
+.container h3 {
+  text-align: center;
+}
+
 .container img {
   width: 60px;
 }
