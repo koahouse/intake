@@ -8,7 +8,7 @@ import { getIsIndividual } from './utils/getIsIndividual';
 import { getSrc } from './utils/getSrc';
 import styles from './styles.module.css';
 
-const ID = uuid().replace(/-/g, '');
+const ID = uuid().replace(/-/g, '').substring(0, 8);
 
 export const Component = ({ onSubmit }) => {
   const languageCode = useLanguageCode();
