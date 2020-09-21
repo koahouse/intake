@@ -4,7 +4,7 @@ export const en = {
   NOW_ALL_YOU_HAVE_TO_DO:
     'Now all you have to do is pick a time for your intro meeting, where one of our certified therapy experts will get to know you better.',
   OK: 'OK',
-  ONE_OF_THE_BIGGEST_CHALLENGES: `Your journey starts with a simple first step—to meet one of our certified therapists for an intro session. The session will be confidential on a secure video call, allowing you to get started from wherever you're most comfortable.`,
+  ONE_OF_THE_BIGGEST_CHALLENGES: `Your journey starts with a simple first step—to meet one of our certified therapists on a secure video call.`,
   PICK_A_TIME: 'Pick a time',
   READ_THERAPY_STORIES: 'read therapy stories from people like you',
   TALKING_ABOUT_PERSONAL_STUFF:
@@ -21,7 +21,7 @@ export const en = {
     'You’ll receive an email very soon with all the details.',
   YOUR_PAYMENT_WAS_SUCCESSFUL:
     'Your payment was successful. Your intro meeting is booked for:',
-  WELCOME: 'Welcome. Let’s find a time to meet.',
+  WELCOME: 'Let’s book your intro meeting',
   YOUVE_TAKEN_YOUR_FIRST: 'You’ve taken your first step. Now it’s our turn.',
   I_WANT_THERAPY_IN: 'I want therapy in',
   FOR: 'for',
@@ -31,6 +31,8 @@ export const en = {
   PAY: 'Pay',
   YOUR_ANSWERS_ARE_CONFIDENTIAL: 'Your information will be 100% confidential',
   YOU_GET_SIXTY_MINUTES: 'You get 60 minutes with an accredited therapist',
-  THE_ONE_OFF_COST: 'The one-off cost of our intro meeting',
+  THE_ONE_OFF_COST: 'The one-off cost of your intro meeting',
   IN_THE_NEXT_TEN_MINUTES: 'In the next ten minutes, we’ll ask you to:',
+  SIXTY_MINUTE_VIDEO_CALL: '60 minute video call',
+  TO_PICK_A_TIME: 'Pick a time',
 };
