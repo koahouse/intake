@@ -86,7 +86,7 @@ export const Component = ({ setStep, step }) => {
           {
             [
               strings.ONE_OF_THE_BIGGEST_CHALLENGES,
-              isMobile ? '' : strings.TALKING_ABOUT_PERSONAL_STUFF,
+              '',
               '',
               strings.NOW_ALL_YOU_HAVE_TO_DO,
               '',
@@ -100,15 +100,14 @@ export const Component = ({ setStep, step }) => {
             <Button onClick={() => setStep(1)}>{strings.GET_STARTED}</Button>
           </Fragment>
         )}
-        {((contentStep === 0 && !isMobile) ||
-          (contentStep === 1 && isMobile)) && (
+        {contentStep === 1 && (
           <Fragment>
             <Subheading>{strings.IN_THE_NEXT_TEN_MINUTES}</Subheading>
             <ThreeSteps />
+            {isMobile && (
+              <Button onClick={() => setStep(2)}>{strings.OK}</Button>
+            )}
           </Fragment>
-        )}
-        {contentStep === 1 && isMobile && (
-          <Button onClick={() => setStep(2)}>{strings.OK}</Button>
         )}
         {contentStep === 3 && isMobile && (
           <Button onClick={() => setStep(4)}>{strings.PICK_A_TIME}</Button>
