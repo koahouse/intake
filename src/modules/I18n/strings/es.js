@@ -13,7 +13,7 @@ export const es = {
     'Hablar de temas personales no siempre es fácil, por lo que apreciamos mucho tu franqueza.',
   THANKS: '¡Gracias!',
   THATS_EVERYTHING_WE_NEED: 'Esto es todo lo que necesitamos por ahora.',
-  THATS_THE_HARD_PART: 'Esta es la parte más difícil',
+  THATS_THE_HARD_PART: 'La parte mas difícil ha terminado',
   THIS_WEBSITE_WORKS_BEST: 'Este sitio web funciona mejor en modo retrato',
   UNDERSTANDING_STARTS_WITH:
     'Para comprender, lo primero es hacer algunas pocas preguntas.',
