@@ -69,9 +69,11 @@ export const Component = ({ step, setStep }) => {
       <Pane showOnStep={2} step={step}>
         <SurveySparrow onSubmit={handleSubmitSurveySparrow} />
       </Pane>
-      <Pane showOnStep={3} step={step}>
-        <PrepaymentMessage onFinish={handleFinishPrepaymentMessage} />
-      </Pane>
+      {!isMobile && (
+        <Pane showOnStep={3} step={step}>
+          <PrepaymentMessage onFinish={handleFinishPrepaymentMessage} />
+        </Pane>
+      )}
       <Pane showOnStep={4} step={step}>
         <Stripe onFinish={handleFinishStripe} />
       </Pane>
