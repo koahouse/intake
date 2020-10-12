@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 
 export const Component = ({ step }) => {
   const handleUnload = (event) => {
+    if (window.location.hostname === 'localhost') return;
+
     event.preventDefault();
     event.returnValue = 'something';
     return 'something';
