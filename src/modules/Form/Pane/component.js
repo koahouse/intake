@@ -8,16 +8,17 @@ export const Component = ({
   shouldRemainShowing = false,
   showOnStep,
   step,
-}) => (
-  <div
-    className={getClassNames(
-      styles.pane,
-      [...Array(showOnStep).fill(styles.down), styles.middle][step] ||
-        (shouldRemainShowing ? styles.middle : styles.up)
-    )}
-  >
-    {children}
-  </div>
-);
+}) =>
+  step > showOnStep - 2 && (
+    <div
+      className={getClassNames(
+        styles.pane,
+        [...Array(showOnStep).fill(styles.down), styles.middle][step] ||
+          (shouldRemainShowing ? styles.middle : styles.up)
+      )}
+    >
+      {children}
+    </div>
+  );
 
 Component.displayName = 'Pane';
