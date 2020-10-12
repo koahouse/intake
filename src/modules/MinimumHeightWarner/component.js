@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import debounce from 'lodash.debounce';
 
 import { useStrings } from '../I18n';
@@ -14,11 +14,14 @@ export const Component = () => {
 
   const handleClickDismiss = () => setIsDismissed(true);
 
-  const handleResize = debounce(() => {
-    setIsDismissed(false);
+  const handleResize = useCallback(
+    debounce(() => {
+      setIsDismissed(false);
 
-    setIsTooSmall(window.innerWidth > 500 && window.innerHeight < 500);
-  }, 100);
+      setIsTooSmall(window.innerWidth > 500 && window.innerHeight < 500);
+    }, 100),
+    [setIsDismissed, setIsTooSmall]
+  );
 
   useEffect(() => {
     handleResize();
@@ -26,7 +29,7 @@ export const Component = () => {
     window.addEventListener('resize', handleResize);
 
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, [handleResize]);
 
   return (
     <div
