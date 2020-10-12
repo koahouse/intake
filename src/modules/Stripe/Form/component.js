@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import getClassNames from 'classnames';
 
-import { useStrings, getInterpolatedString } from '../../I18n';
+import { useLanguageCode, useStrings, getInterpolatedString } from '../../I18n';
 import { Button, Paragraph } from '../../ui';
 import { usePrice, usePack } from '../../Pricing';
 
@@ -16,6 +16,7 @@ export const Component = ({ onFinish }) => {
   const strings = useStrings();
 
   const pack = usePack();
+  const languageCode = useLanguageCode();
   const price = usePrice();
 
   const stripe = useStripe();
@@ -31,7 +32,7 @@ export const Component = ({ onFinish }) => {
 
   useEffect(() => {
     const asyncSetClientSecret = async () => {
-      setClientSecret(await getClientSecret(pack));
+      setClientSecret(await getClientSecret(pack, languageCode));
     };
 
     asyncSetClientSecret();
@@ -90,6 +91,7 @@ export const Component = ({ onFinish }) => {
           method: 'POST',
           body: JSON.stringify({
             email,
+            languageCode,
             pack,
             paymentIntentId: result.paymentIntent.id,
           }),

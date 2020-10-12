@@ -246,28 +246,7 @@ input.btn.btn-primary:hover {
 /* Normalise confirmation */
 
 #step-confirmation {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  width: 100%
-}
-
-.confirmation-details-container {
-  margin-bottom: 48px;
-  text-align: center;
-}
-
-h2.appointment-datetime {
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 32px;
-}
-
-.appointment-time {
-  font-weight: inherit;
+  display: none;
 }
 
 .is-embedded .appointment-datetime .appt-actions {
@@ -276,7 +255,8 @@ h2.appointment-datetime {
 
 /* Hide hidden fields */
 
-.custom-form[data-form-id="1507087"] {
+.custom-form[data-form-id="1507087"],
+.custom-form[data-form-id="1507070"] {
   display: none;
 }
 

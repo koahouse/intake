@@ -73,15 +73,8 @@
 }
 
 @media screen and (min-width: 901px) {
-  .nameInputs {
-    display: block;
-  }
-
-  .nameInputs input:first-of-type {
-    margin-right: 0;
-  }
-
-  .nameInputs input:last-of-type {
-    margin-left: 0;
+  .container {
+    max-width: none;
+    padding: 24px;
   }
 }

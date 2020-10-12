@@ -2,10 +2,8 @@ export const es = {
   GET_STARTED: 'Empezar',
   IN_THE_MEANTIME_YOU_CAN: 'Mientras tanto, si quieres puedes',
   NOW_ALL_YOU_HAVE_TO_DO:
-    'Ahora todo lo que tienes que hacer es elegir un momento para tu reunión de introducción, donde uno de nuestros terapeutas certificados tendrá la ocasión de conocerte mejor.',
+    'Ahora todo lo que tienes que hacer es elegir un momento para tu sesión de afinidad, donde uno de nuestros terapeutas certificados tendrá la ocasión de conocerte mejor.',
   OK: 'Vale',
-  ONE_OF_THE_BIGGEST_CHALLENGES:
-    'Tu viaje comienza con un primer paso muy simple: conocer a uno de nuestros terapeutas certificados mediante una videollamada segura',
   PICK_A_TIME: 'Elige una fecha',
   READ_THERAPY_STORIES:
     'leer algunas historias de terapia de personas como tú.',
@@ -19,13 +17,10 @@ export const es = {
     'Para comprender, lo primero es hacer algunas pocas preguntas.',
   USE_IT_ANYWAY: 'Usar de todos modos',
   WELL_BE_IN_TOUCH_TO_REMIND:
-    'Nos pondremos en contacto contigo para recordarte tu reunión de introducción. No necesitas preparar nada, así que puedes relajarte porque estás en buenas manos.',
+    'Nos pondremos en contacto contigo para recordarte tu sesión de afinidad. No necesitas preparar nada, así que puedes relajarte porque estás en buenas manos.',
   WHAT_HAPPENS_NOW: '¿Qué pasa ahora?',
-  YOULL_RECEIVE_AN_EMAIL:
-    'Muy pronto recibirás un email con todos los detalles.',
-  YOUR_PAYMENT_WAS_SUCCESSFUL:
-    'Tu pago se ha realizado con éxito. Tu reunión de introducción está reservada para:',
-  WELCOME: 'Reservamos tu reunión de introducción',
+  YOUR_PAYMENT_WAS_SUCCESSFUL: 'Tu pago se ha realizado con éxito.',
+  WELCOME: 'Tu viaje empieza aquí',
   YOUVE_TAKEN_YOUR_FIRST:
     'Ya has dado el primer paso, y ahora es nuestro turno.',
   I_WANT_THERAPY_IN: 'Quiero terapia en',
@@ -35,13 +30,21 @@ export const es = {
   ANSWER_A_FEW_QUESTIONS: 'Responder algunas pocas preguntas',
   PAY: 'Pagar',
   YOUR_ANSWERS_ARE_CONFIDENTIAL: 'Tu información será 100% confidencial',
-  YOU_GET_SIXTY_MINUTES: 'Recibirás 60 minutos con un terapeuta acreditado',
-  THE_ONE_OFF_COST: 'El costo único de su reunión de introducción',
+  YOU_GET_SIXTY_MINUTES: '[Pending translation]',
+  THE_ONE_OFF_COST: '[Pending translation]',
   IN_THE_NEXT_TEN_MINUTES: 'En los próximos diez minutos, te pediremos:',
   SIXTY_MINUTE_VIDEO_CALL: 'videollamada de 60 minutos',
-  TO_PICK_A_TIME: 'Eligir una fecha',
-  YOU_WILL_BE_CHARGED: '[Pending translation] {{0}} para {{1}} sesiones',
+  TO_PICK_A_TIME: 'Eligir tu sesión de afinidad',
+  YOU_WILL_BE_CHARGED: '[Pending translation]',
   FIRST_NAME: '[Pending translation]',
   LAST_NAME: '[Pending translation]',
   EMAIL: '[Pending translation]',
+  WE_NEED_YOUR_FIRST_NAME: '[Pending translation]',
+  WE_NEED_YOUR_LAST_NAME: '[Pending translation]',
+  YOUR_EMAIL_DOESNT_LOOK_RIGHT: '[Pending translation]',
+  WE_NEED_YOUR_EMAIL: '[Pending translation]',
+  WE_NEED_YOUR_CARD_DETAILS: '[Pending translation]',
+  NOW_TO_PICK_A_TIME: '[Pending translation]',
+  ALL_DONE: '[Pending translation]',
+  WE_SENT_AN_EMAIL_TO: '[Pending translation]',
 };

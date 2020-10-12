@@ -4,7 +4,6 @@ export const en = {
   NOW_ALL_YOU_HAVE_TO_DO:
     'Now all you have to do is pay and pick a time for your matching session, where one of our accredited therapists will get to know you better.',
   OK: 'OK',
-  ONE_OF_THE_BIGGEST_CHALLENGES: `Your journey starts with a simple first step—to meet one of our certified therapists on a secure video call.`,
   PICK_A_TIME: 'Pick a time',
   READ_THERAPY_STORIES: 'read therapy stories from people like you',
   TALKING_ABOUT_PERSONAL_STUFF:
@@ -17,8 +16,6 @@ export const en = {
   USE_IT_ANYWAY: 'Use it anyway',
   WELL_BE_IN_TOUCH_TO_REMIND: `We’ll be in touch to remind you about your matching session. You don’t need to prepare anything, so relax and know that you’re in good hands.`,
   WHAT_HAPPENS_NOW: 'What happens now?',
-  YOULL_RECEIVE_AN_EMAIL:
-    'You’ll receive an email very soon with all the details.',
   YOUR_PAYMENT_WAS_SUCCESSFUL: 'Your payment was successful.',
   WELCOME: 'Your journey starts here',
   YOUVE_TAKEN_YOUR_FIRST: 'You’ve taken your first step. Now it’s our turn.',

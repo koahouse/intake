@@ -19,7 +19,7 @@ const isIndividual = true;
 export const Component = ({ onSubmit, responseId, paymentInformation }) => {
   const isMobile = useIsMobile();
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(true);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const isFinishedTimeout = useRef(null);
   const strings = useStrings();
   const languageCode = useLanguageCode();
