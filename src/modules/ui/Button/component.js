@@ -17,10 +17,12 @@ export const Component = ({
       [styles.centered]: isCentered,
       [styles.compact]: isCompact,
       [styles.isDisabled]: isDisabled || isLoading,
+      [styles.isLoading]: isLoading,
     })}
     onClick={onClick}
   >
-    {isLoading ? <Loader /> : children}
+    {children}
+    <Loader />
   </button>
 );
 

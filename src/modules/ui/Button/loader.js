@@ -4,12 +4,6 @@ export const Loader = () => (
   <svg
     height="16px"
     preserveAspectRatio="xMidYMid"
-    style={{
-      margin: 'auto',
-      background: 'rgb(255, 255, 255)',
-      display: 'block',
-      shapeRendering: 'auto',
-    }}
     viewBox="0 0 22 22"
     width="16px"
     xmlns="http://www.w3.org/2000/svg"

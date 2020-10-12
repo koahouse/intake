@@ -9,10 +9,20 @@
 	margin: 36px 0 96px 0;
 	outline: none;
 	padding: 16px 24px;
+	position: relative;
 	width: 100%;
   cursor: pointer;
   transition: 0.2s ease;
 	-webkit-tap-highlight-color: transparent;
+}
+
+.button svg {
+	left: 50%;
+	opacity: 0;
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	transition: opacity 0.2s ease;
 }
 
 .centered {
@@ -24,8 +34,17 @@
 }
 
 .isDisabled {
+	background-color: #fff !important;
 	color: #bbb;
   border-color: #e2e2e2;
+}
+
+.isLoading {
+	color: transparent;
+}
+
+.isLoading svg {
+	opacity: 1;
 }
 
 @media screen and (min-width: 901px) {
