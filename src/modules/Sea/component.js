@@ -16,7 +16,7 @@ export const Component = ({ containerWidth, step }) => {
     if (!ref.current) return;
 
     ref.current.complete && handleLoad();
-  }, [ref.current]);
+  }, []);
 
   useEffect(() => {
     if (containerWidth === null) return;
