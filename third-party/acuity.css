@@ -7,8 +7,7 @@ html {
 body {
   background: #fff;
   color: #202124;
-  margin-top: 10px;
-  padding: 0 10px 40px;
+  padding: 24px;
 }
 
 @media screen and (min-width: 400px) {
@@ -36,6 +35,10 @@ body {
 .step-pane {
   border: none !important;
   margin: 0;
+  padding: 0;
+}
+
+.is-embedded .step-pane {
   padding: 0;
 }
 
@@ -67,6 +70,7 @@ h2.step-title {
 #step-pick-appointment .change-pick-appointment {
   margin: 0;
   padding: 0;
+  padding-top: 2px;
 }
 
 #timezone-container {
@@ -75,6 +79,13 @@ h2.step-title {
 
 select#timezone {
   padding: 8px 12px;
+}
+
+@media screen and (max-width: 400px) {
+select#timezone {
+  max-width: none;
+  width: 100%;
+}
 }
 
 .choose-date-time .calendar-prev-next {
@@ -106,12 +117,25 @@ select#timezone {
 
 /* Normalise forms */
 
+#forms-appt-summary .appointment-type-name {
+  display: block;
+}
+
 #step-forms-pane {
-  margin-top: 24px;
+  margin-top: 48px;
 }
 
 #step-forms-pane .pane-content#step-forms {
   margin-top: 16px;
+}
+
+label > span.error,
+label > span.show-on-error {
+  display: none !important;
+}
+
+.form-group {
+  margin: 0;
 }
 
 .form-control {
@@ -119,17 +143,50 @@ select#timezone {
   padding: 16px 16px;
   height: auto;
   border-width: 3px;
+   margin-bottom: 16px;
 }
 
+label[for="first-name"] {
+  margin-bottom: 16px;
+}
+
+#first-name, #last-name {
+  display: inline-block;
+  width: calc(50% - 6px);
+}
+
+#first-name {
+  margin-right: 4px;
+}
+
+#last-name {
+  margin-left: 4px;
+}
+
+label[for="email"],
 label[for="phone"],
 input#phone {
   display: none;
 }
 
-.btn.btn-primary.submit-forms-payment,
-input[type=submit]:not(.reschedule-btn),
-.content.standalone-appointment-completed .appt-actions a.btn,
-.content.standalone-appointment-completed a#confirm-cancel.btn {
+.required-field.has-error {
+    border-left: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.has-error .control-label {
+  color: inherit;
+}
+
+.has-error .form-control,
+.has-error .form-control:focus {
+    border-color: #fa755a99;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
+
+input.btn.btn-primary {
   background-color: transparent;
   border: 3px solid #202124;
   color: #202124;
@@ -143,25 +200,25 @@ input[type=submit]:not(.reschedule-btn),
   transition: 0.2s ease;
   -webkit-box-shadow: none;
   box-shadow: none;
+  width: 100%;
 }
 
-.btn.btn-primary.submit-forms-payment:hover,
-input[type=submit]:not(.reschedule-btn):hover,
-.content.standalone-appointment-completed .appt-actions a.btn:hover,
-.content.standalone-appointment-completed a#confirm-cancel.btn:hover {
-  border: 3px solid #202124;
-  color: #202124;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 16px;
-  padding: 16px 24px;
-  cursor: pointer;
-  -webkit-transition: 0.2s ease;
-  -o-transition: 0.2s ease;
-  transition: 0.2s ease;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  background-color: #FED591 !important;
+input.btn.btn-primary:hover {
+  background: #fff;
+}
+
+@media screen and (min-width: 901px) {
+  input.btn.btn-primary {
+		max-width: 300px;
+	}
+
+	input.btn.btn-primary:hover {
+		background-color: #FED591 !important;
+	}
+}
+
+.certificate-input {
+  display: none;
 }
 
 .payment-container {
@@ -182,6 +239,10 @@ input[type=submit]:not(.reschedule-btn):hover,
   padding-left: 0;
 }
 
+#card-element {
+  margin: 0 0 8px 0;
+}
+
 /* Normalise confirmation */
 
 #step-confirmation {
@@ -191,6 +252,7 @@ input[type=submit]:not(.reschedule-btn):hover,
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  width: 100%
 }
 
 .confirmation-details-container {
@@ -199,9 +261,13 @@ input[type=submit]:not(.reschedule-btn):hover,
 }
 
 h2.appointment-datetime {
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 28px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+.appointment-time {
+  font-weight: inherit;
 }
 
 .is-embedded .appointment-datetime .appt-actions {
@@ -210,7 +276,11 @@ h2.appointment-datetime {
 
 /* Hide hidden fields */
 
-.custom-form {
+.custom-form[data-form-id="1507087"] {
+  display: none;
+}
+
+.custom-form h2 {
   display: none;
 }
 
@@ -228,8 +298,10 @@ a#client-edit-forms,
 .appointment-location,
 .is-embedded #schedule-appointment-no-longer-online,
 #timezone-prompt,
-.btn-cancel-payment {
-  display: none;
+.btn-cancel-payment,
+#show-redeem-certificate-code,
+.certificate-apply-btn {
+  display: none !important;
 }
 
 .select-type {
@@ -280,4 +352,53 @@ a#client-edit-forms,
   text-align: center;
   position: relative;
   z-index: 1;
+}
+
+/* ------------------------- */
+/* SUBSCRIPTION PAGE */
+/* ------------------------- */
+
+/* Reduce vertical space taken up by card form */
+.product-catalog form.checkout-container > div.row:first-of-type {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.product-catalog form.checkout-container > div.row:first-of-type > div:first-of-type {
+   padding-right: 7px;
+}
+
+.product-catalog form.checkout-container > div.row:first-of-type > div:last-of-type {
+   padding-left: 7px;
+}
+
+/* Give button a little space */
+.product-catalog form#checkout-form input.btn {
+  margin-top: 12px;
+}
+
+/* Normalise table */
+.product-catalog > .pane > p:first-of-type + table {
+  margin-top: 20px;
+}
+
+.product-catalog > .pane > p:first-of-type + table > tbody > tr > td {
+  padding: 5px 0;
+}
+
+/* Remove noise */
+.product-catalog label.control-label[data-original-text="Phone "],
+.product-catalog form#checkout-form .row::before,
+.product-catalog form#checkout-form .row::after,
+.product-catalog form#checkout-form .checkout-notes,
+.product-catalog form#checkout-form .checkout-notes + p,
+.product-catalog form#checkout-form .checkout-notes + p + table,
+.product-catalog > .pane > p:first-of-type + table > thead,
+.product-catalog > .pane > p:first-of-type + table > tbody > tr:first-of-type > td:nth-of-type(3),
+.product-catalog > .pane > p:first-of-type + table > tbody > tr:first-of-type > td:nth-of-type(4),
+.product-catalog > .pane > form.checkout-container > h3,
+.product-catalog > .pane > h2[data-qa="product-checkout-success-message"],
+.product-catalog > .pane > .confirmation-flex-wrap-container > .confirmation-flex-section-left > div:first-child {
+  display: none;
 }
