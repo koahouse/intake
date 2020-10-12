@@ -16,6 +16,8 @@ export const useIsMobile = () => {
   );
 
   useEffect(() => {
+    handleResize();
+
     window.addEventListener('load', handleResize);
     window.addEventListener('resize', handleResize);
 
