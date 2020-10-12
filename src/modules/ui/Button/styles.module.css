@@ -12,10 +12,7 @@
 	width: 100%;
   cursor: pointer;
   transition: 0.2s ease;
-}
-
-.button:hover {
-	background-color: #FED591;
+	-webkit-tap-highlight-color: transparent;
 }
 
 .centered {
@@ -26,10 +23,19 @@
 	margin: 24px 0 0;
 }
 
+.isDisabled {
+	color: #bbb;
+  border-color: #e2e2e2;
+}
+
 @media screen and (min-width: 901px) {
   .button {
 		max-width: 300px;
 		width: auto;
 		width: fit-content;
+	}
+
+	.button:hover {
+		background-color: #FED591;
 	}
 }

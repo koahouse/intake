@@ -12,22 +12,30 @@ import {
 } from './modules';
 import { useIsMobile } from './utils/useIsMobile';
 
-// <button
-//   onClick={() => setStep(step + 1)}
-//   style={{ position: 'fixed', zIndex: 1000 }}
+// <div
+//   style={{
+//     background: 'lightgreen',
+//     bottom: 0,
+//     right: 0,
+//     position: 'fixed',
+//     textAlign: 'center',
+//     zIndex: 1000,
+//   }}
 // >
-//   Step +
-// </button>
-// <button
-//   onClick={() => setStep(step - 1)}
-//   style={{ left: 60, position: 'fixed', zIndex: 1000 }}
-// >
-//   Step -
-// </button>
+//   <h1>{step}</h1>
+//   <button onClick={() => setStepWithBounds(step + 1)}>Step +</button>
+//   <button onClick={() => setStepWithBounds(step - 1)}>Step -</button>
+// </div>
 
 const App = () => {
   const isMobile = useIsMobile();
   const [step, setStep] = useState(0);
+
+  const setStepWithBounds = (nextStep) => {
+    const boundedStep = Math.max(0, Math.min(7, nextStep));
+
+    setStep(boundedStep);
+  };
 
   return (
     <I18nProvider>
@@ -36,8 +44,8 @@ const App = () => {
         <BackButtonDisabler />
         <CloseWindowWarner step={step} />
         <Viewport isVisible={isMobile !== null}>
-          <Hero setStep={setStep} step={step} />
-          <Form setStep={setStep} step={step} />
+          <Hero setStep={setStepWithBounds} step={step} />
+          <Form setStep={setStepWithBounds} step={step} />
         </Viewport>
       </PricingProvider>
     </I18nProvider>

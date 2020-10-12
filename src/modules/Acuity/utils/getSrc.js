@@ -1,8 +1,9 @@
-import { parse } from 'query-string';
-
-const DISCOUNT_CODE = parse(window.location.search).d;
-
-export const getSrc = (languageCode, responseId, isIndividual) => {
+export const getSrc = (
+  languageCode,
+  responseId,
+  isIndividual,
+  { firstName, lastName, email, certificate }
+) => {
   const {
     appointmentTypeCouple,
     appointmentTypeIndividual,
@@ -36,10 +37,10 @@ export const getSrc = (languageCode, responseId, isIndividual) => {
     `&${idFieldName}=${responseId}`,
     `&${linkFieldName}=${window.encodeURIComponent(
       `https://sanc.typeform.com/to/lXfBjpxR#memberid=${responseId}&languagecode=${languageCode}`
-    )}${
-      DISCOUNT_CODE
-        ? `&certificate=${window.encodeURIComponent(DISCOUNT_CODE)}`
-        : ''
-    }`,
+    )}`,
+    `&certificate=${certificate}`,
+    `&firstName=${firstName}`,
+    `&lastName=${lastName}`,
+    `&email=${email}`,
   ].join('');
 };

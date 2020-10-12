@@ -1,12 +1,13 @@
-export const getPrice = (languageCode, isIndividual) => {
-  switch (true) {
-    case languageCode === 'es' && isIndividual:
-      return '€80';
-    case languageCode === 'es' && !isIndividual:
-      return '€110';
-    case languageCode === 'en' && isIndividual:
-      return '£80';
-    case languageCode === 'en' && !isIndividual:
-      return '£110';
-  }
-};
+export const getPrice = (languageCode, pack) =>
+  ({
+    es: {
+      3: '€255',
+      6: '€480',
+      9: '€840',
+    },
+    en: {
+      3: '£375',
+      6: '£690',
+      9: '£1,320',
+    },
+  }[languageCode][pack]);

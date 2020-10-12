@@ -15,7 +15,7 @@ export const Component = ({ onChange, options, value }) => {
       window.innerWidth - ref.current.getBoundingClientRect().x;
 
     setIsMenuRightAligned(availableSpace < 130);
-  }, [ref.current]);
+  }, []);
 
   return (
     <Fragment>

@@ -2,8 +2,8 @@ import { useContext } from 'react';
 
 import { Context } from './context';
 
-export const useSetIsIndividual = () => {
+export const usePack = () => {
   const pricing = useContext(Context);
 
-  return pricing.setIsIndividual;
+  return pricing.pack;
 };

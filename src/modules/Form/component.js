@@ -2,21 +2,29 @@ import React, { useState, useEffect } from 'react';
 
 import { useIsMobile } from '../../utils';
 import { Acuity } from '../Acuity';
+import { PrepaymentMessage } from '../PrepaymentMessage';
 import { SplashMessage } from '../SplashMessage';
+import { Stripe } from '../Stripe';
 import { SurveySparrow } from '../SurveySparrow';
+import { Thanks } from '../Thanks';
 
+import { Pane } from './Pane';
 import styles from './styles.module.css';
+
+const VISIBILE_STEPS = [2, 4, 5, 6];
 
 export const Component = ({ step, setStep }) => {
   const isMobile = useIsMobile();
+
   const [responseId, setResponseId] = useState(null);
   const [isIndividual, setIsIndividual] = useState(null);
+  const [paymentInformation, setPaymentInformation] = useState(null);
 
   const [isContainerVisible, setIsContainerVisible] = useState(!isMobile);
 
   useEffect(() => {
     window.requestAnimationFrame(() =>
-      setIsContainerVisible(!isMobile || [2, 4].includes(step))
+      setIsContainerVisible(!isMobile || VISIBILE_STEPS.includes(step))
     );
   }, [isMobile, step]);
 
@@ -30,8 +38,21 @@ export const Component = ({ step, setStep }) => {
     setIsIndividual(isIndividual);
   };
 
-  const handleSubmitAcuity = () => {
+  const handleFinishPrepaymentMessage = () => {
+    setStep(4);
+  };
+
+  const handleFinishStripe = (paymentInformation) => {
     setStep(5);
+    setPaymentInformation(paymentInformation);
+  };
+
+  const handleFinishThanks = () => {
+    setStep(6);
+  };
+
+  const handleSubmitAcuity = () => {
+    setStep(7);
   };
 
   return (
@@ -41,26 +62,30 @@ export const Component = ({ step, setStep }) => {
       }`}
     >
       {!isMobile && (
-        <div className={[styles.middle][step] || styles.up}>
+        <Pane showOnStep={0} step={step}>
           <SplashMessage onFinish={handleFinishSplashScreen} />
-        </div>
+        </Pane>
       )}
-      <div
-        className={[styles.down, styles.down, styles.middle][step] || styles.up}
-      >
+      <Pane showOnStep={2} step={step}>
         <SurveySparrow onSubmit={handleSubmitSurveySparrow} />
-      </div>
-      <div
-        className={
-          [styles.down, styles.down, styles.down][step] || styles.middle
-        }
-      >
+      </Pane>
+      <Pane showOnStep={3} step={step}>
+        <PrepaymentMessage onFinish={handleFinishPrepaymentMessage} />
+      </Pane>
+      <Pane showOnStep={4} step={step}>
+        <Stripe onFinish={handleFinishStripe} />
+      </Pane>
+      <Pane showOnStep={5} step={step}>
+        <Thanks onFinish={handleFinishThanks} />
+      </Pane>
+      <Pane shouldRemainShowing showOnStep={6} step={step}>
         <Acuity
           isIndividual={isIndividual}
           onSubmit={handleSubmitAcuity}
+          paymentInformation={paymentInformation}
           responseId={responseId}
         />
-      </div>
+      </Pane>
     </div>
   );
 };

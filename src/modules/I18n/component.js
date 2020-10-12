@@ -6,9 +6,9 @@ import { getStrings } from './strings/getStrings';
 
 const DEFAULT_LANGUAGE_CODE =
   parse(window.location.search).language ||
-  (window.navigator.language && window.navigator.language.startsWith('es'))
+  (window.navigator.language && window.navigator.language.startsWith('es')
     ? 'es'
-    : 'en';
+    : 'en');
 
 export const Component = ({ children }) => {
   const [languageCode, setLanguageCode] = useState(DEFAULT_LANGUAGE_CODE);

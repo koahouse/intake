@@ -12,7 +12,6 @@ import { useIsMobile } from '../../utils';
 import { Button, Subheading } from '../ui';
 import { Boat } from '../Boat';
 import { Sea } from '../Sea';
-import { Configurator } from '../Configurator';
 import { ThreeSteps } from '../ThreeSteps';
 
 import { getIllustrationStep } from './utils/getIllustrationStep';
@@ -26,42 +25,44 @@ export const Component = ({ setStep, step }) => {
   const [contentStep, setContentStep] = useState(0);
   const [containerWidth, setContainerWidth] = useState(null);
   const ref = useRef(null);
-
   const illustrationStep = getIllustrationStep(step);
 
   const handleResize = useCallback(
     debounce(() => {
       setContainerWidth(ref.current.offsetWidth);
-    }, 100)
+    }, 100),
+    []
   );
 
   useEffect(() => {
     window.addEventListener('resize', handleResize);
 
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, [handleResize]);
 
   useEffect(() => {
     if (!ref.current) return;
 
     setContainerWidth(ref.current.offsetWidth);
-  }, [ref.current]);
-
-  useEffect(() => {}, [ref.current]);
+  }, []);
 
   useEffect(() => {
+    const nextContentStep = getContentStep(step, isMobile);
+
+    if (contentStep === nextContentStep) {
+      return;
+    }
+
     if (step !== 0) {
       window.requestAnimationFrame(() => setContentOpacity(0));
     }
     window.setTimeout(() => {
       window.requestAnimationFrame(() => {
         setContentOpacity(1);
-        const nextContentStep = getContentStep(step, isMobile);
-
         setContentStep(nextContentStep);
       });
     }, 600);
-  }, [step]);
+  }, [step, isMobile]);
 
   return (
     <div className={styles.container} ref={ref}>
@@ -78,6 +79,7 @@ export const Component = ({ setStep, step }) => {
               '',
               strings.THATS_THE_HARD_PART,
               '',
+              '',
               strings.YOUVE_TAKEN_YOUR_FIRST,
             ][contentStep]
           }
@@ -85,39 +87,37 @@ export const Component = ({ setStep, step }) => {
         <Subheading>
           {
             [
-              strings.ONE_OF_THE_BIGGEST_CHALLENGES,
               '',
+              strings.TALKING_ABOUT_PERSONAL_STUFF,
               '',
               strings.NOW_ALL_YOU_HAVE_TO_DO,
+              '',
               '',
               strings.THATS_EVERYTHING_WE_NEED,
             ][contentStep]
           }
         </Subheading>
-        {contentStep === 0 && isMobile && (
-          <Fragment>
-            <Configurator hasShadow />
-            <Button onClick={() => setStep(1)}>{strings.GET_STARTED}</Button>
-          </Fragment>
-        )}
-        {contentStep === 1 && (
+        {contentStep === 0 && (
           <Fragment>
             <Subheading>{strings.IN_THE_NEXT_TEN_MINUTES}</Subheading>
             <ThreeSteps />
             {isMobile && (
-              <Button onClick={() => setStep(2)}>{strings.OK}</Button>
+              <Button onClick={() => setStep(1)}>{strings.GET_STARTED}</Button>
             )}
           </Fragment>
         )}
-        {contentStep === 3 && isMobile && (
-          <Button onClick={() => setStep(4)}>{strings.PICK_A_TIME}</Button>
+        {contentStep === 1 && isMobile && (
+          <Button onClick={() => setStep(2)}>{strings.OK}</Button>
         )}
-        {contentStep === 5 && (
+        {contentStep === 3 && isMobile && (
+          <Button onClick={() => setStep(4)}>{strings.OK}</Button>
+        )}
+        {contentStep === 6 && (
           <React.Fragment>
             <Subheading>{strings.WELL_BE_IN_TOUCH_TO_REMIND}</Subheading>
             <Subheading>
               {strings.IN_THE_MEANTIME_YOU_CAN}{' '}
-              <a href="https://www.instagram.com/radically_normal/">
+              <a href="https://www.instagram.com/mind.chronicles/">
                 {strings.READ_THERAPY_STORIES}
               </a>
               .

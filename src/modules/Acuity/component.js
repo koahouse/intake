@@ -1,54 +1,88 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, {
+  Fragment,
+  useEffect,
+  useState,
+  useRef,
+  useCallback,
+} from 'react';
+import getClassNames from 'classnames';
 
 import { useIsMobile } from '../../utils';
-import { useLanguageCode, useStrings } from '../I18n';
-import { Button, Subheading } from '../ui';
+import { useLanguageCode, useStrings, getInterpolatedString } from '../I18n';
+import { Button, Paragraph } from '../ui';
 
 import { getSrc } from './utils/getSrc';
 import styles from './styles.module.css';
 
-export const Component = ({ isIndividual, onSubmit, responseId }) => {
+const isIndividual = true;
+
+export const Component = ({ onSubmit, responseId, paymentInformation }) => {
   const isMobile = useIsMobile();
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(true);
   const isFinishedTimeout = useRef(null);
   const strings = useStrings();
   const languageCode = useLanguageCode();
 
-  const handleMessage = (event) => {
-    if (!event || !event.data || !event.origin.includes('acuity')) return;
+  const handleMessage = useCallback(
+    (event) => {
+      if (!event || !event.data || !event.origin.includes('acuity')) return;
 
-    if (isFinishedTimeout.current)
-      window.clearTimeout(isFinishedTimeout.current);
+      if (isFinishedTimeout.current)
+        window.clearTimeout(isFinishedTimeout.current);
 
-    if (event.data.includes('sizing')) setIsLoaded(true);
+      if (event.data.includes('sizing')) setIsLoaded(true);
 
-    if (event.data.includes('acuity-appointment-scheduled')) {
-      setIsSubmitted(true);
-      !isMobile && onSubmit();
-    }
-  };
+      if (event.data.includes('acuity-appointment-scheduled')) {
+        setIsSubmitted(true);
+        !isMobile && onSubmit();
+      }
+    },
+    [isMobile, onSubmit]
+  );
 
   useEffect(() => {
     window.addEventListener('message', handleMessage);
 
     return () => window.removeEventListener('message', handleMessage);
-  }, [isMobile]);
+  }, [handleMessage, isMobile]);
 
   return (
     <div
-      className={`${styles.container} ${isLoaded && styles.visible} ${
-        isSubmitted && styles.isThanksVisible
-      } ${isSubmitted && isMobile && styles.isButtonVisible}`}
+      className={getClassNames(styles.container, {
+        [styles.visible]: isLoaded,
+      })}
       id="acuity-container"
     >
-      <Subheading>{strings.THANKS}</Subheading>
-      <Subheading>{strings.YOUR_PAYMENT_WAS_SUCCESSFUL}</Subheading>
-      {isIndividual !== null && responseId && (
-        <iframe src={getSrc(languageCode, responseId, isIndividual)} />
+      {isIndividual !== null && responseId && paymentInformation && (
+        <Fragment>
+          <iframe
+            src={getSrc(
+              languageCode,
+              responseId,
+              isIndividual,
+              paymentInformation
+            )}
+            title="booking-form"
+          />
+          <div
+            className={getClassNames(styles.confirmationContainer, {
+              [styles.visible]: isSubmitted,
+            })}
+          >
+            <Paragraph>{strings.ALL_DONE}</Paragraph>
+            <Paragraph>
+              {getInterpolatedString(
+                strings.WE_SENT_AN_EMAIL_TO,
+                paymentInformation.email
+              )}
+            </Paragraph>
+            {isMobile && (
+              <Button onClick={onSubmit}>{strings.WHAT_HAPPENS_NOW}</Button>
+            )}
+          </div>
+        </Fragment>
       )}
-      <Subheading>{strings.YOULL_RECEIVE_AN_EMAIL}</Subheading>
-      <Button onClick={onSubmit}>{strings.WHAT_HAPPENS_NOW}</Button>
     </div>
   );
 };

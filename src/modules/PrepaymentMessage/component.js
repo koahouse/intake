@@ -15,10 +15,10 @@ export const Component = ({ onFinish }) => {
   return (
     <div className={styles.container}>
       <Button isCentered={!isMobile} onClick={onFinish}>
-        {strings.GET_STARTED}
+        {strings.OK}
       </Button>
     </div>
   );
 };
 
-Component.displayName = 'SplashMessage';
+Component.displayName = 'PrepaymentMessage';

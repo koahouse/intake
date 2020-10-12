@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { parse } from 'query-string';
 
 import { useLanguageCode } from '../I18n';
@@ -6,19 +6,16 @@ import { useLanguageCode } from '../I18n';
 import { getPrice } from './utils/getPrice';
 import { Context } from './context';
 
-const DEFAULT_IS_INDIVIDUAL =
-  parse(window.location.search).individual === 'false' ? false : true;
+const pack = parse(window.location.search).pack || '6';
 
 export const Component = ({ children }) => {
-  const [isIndividual, setIsIndividual] = useState(DEFAULT_IS_INDIVIDUAL);
   const languageCode = useLanguageCode();
 
   return (
     <Context.Provider
       value={{
-        isIndividual,
-        setIsIndividual,
-        price: getPrice(languageCode, isIndividual),
+        pack,
+        price: getPrice(languageCode, pack),
       }}
     >
       {children}

@@ -14,29 +14,6 @@
   z-index: 1;
 }
 
-.container > div {
-  height: 100%;
-  opacity: 0;
-  position: absolute;
-  transition: top 1s cubic-bezier(0.76, 0, 0.24, 1);
-  width: 100%;
-  z-index: 2;
-}
-
-.container > div.middle {
-  bottom: 0;
-  opacity: 1;
-  top: 0;
-}
-
-.container > div.up {
-  top: -100%;
-}
-
-.container > div.down {
-  top: 100%;
-}
-
 @media screen and (min-width: 901px) {
   .container {
     flex-basis: 520px;
@@ -44,9 +21,4 @@
     flex-shrink: 0;
     position: relative;
   }
-
-  .container > div {
-    transition: top 0.4s ease;
-  }
-
 }

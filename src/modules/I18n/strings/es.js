@@ -40,4 +40,8 @@ export const es = {
   IN_THE_NEXT_TEN_MINUTES: 'En los próximos diez minutos, te pediremos:',
   SIXTY_MINUTE_VIDEO_CALL: 'videollamada de 60 minutos',
   TO_PICK_A_TIME: 'Eligir una fecha',
+  YOU_WILL_BE_CHARGED: '[Pending translation] {{0}} para {{1}} sesiones',
+  FIRST_NAME: '[Pending translation]',
+  LAST_NAME: '[Pending translation]',
+  EMAIL: '[Pending translation]',
 };

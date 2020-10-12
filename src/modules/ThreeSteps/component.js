@@ -1,18 +1,23 @@
 import React from 'react';
-import 'react-dropdown/style.css';
+import getClassNames from 'classnames';
 
 import { Subheading, SmallPrint } from '../ui';
-import { useStrings } from '../I18n';
-import { usePrice } from '../Pricing';
+import { getInterpolatedString, useStrings } from '../I18n';
+import { usePack, usePrice } from '../Pricing';
 
 import styles from './styles.module.css';
 
 export const Component = ({ hasBorder }) => {
   const strings = useStrings();
+  const pack = usePack();
   const price = usePrice();
 
   return (
-    <div className={`${styles.container} ${hasBorder && styles.hasBorder}`}>
+    <div
+      className={getClassNames(styles.container, {
+        [styles.hasBorder]: hasBorder,
+      })}
+    >
       <div className={styles.step}>
         <div className={styles.number}>1</div>
         <div className={styles.text}>
@@ -23,17 +28,19 @@ export const Component = ({ hasBorder }) => {
       <div className={styles.step}>
         <div className={styles.number}>2</div>
         <div className={styles.text}>
-          <Subheading>{strings.TO_PICK_A_TIME}</Subheading>
-          <SmallPrint>{strings.YOU_GET_SIXTY_MINUTES}</SmallPrint>
+          <Subheading>
+            {strings.PAY} {price}
+          </Subheading>
+          <SmallPrint>
+            {getInterpolatedString(strings.THE_ONE_OFF_COST, pack)}
+          </SmallPrint>
         </div>
       </div>
       <div className={styles.step}>
         <div className={styles.number}>3</div>
         <div className={styles.text}>
-          <Subheading>
-            {strings.PAY} {price}
-          </Subheading>
-          <SmallPrint>{strings.THE_ONE_OFF_COST}</SmallPrint>
+          <Subheading>{strings.TO_PICK_A_TIME}</Subheading>
+          <SmallPrint>{strings.YOU_GET_SIXTY_MINUTES}</SmallPrint>
         </div>
       </div>
     </div>

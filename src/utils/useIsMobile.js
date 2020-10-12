@@ -11,7 +11,8 @@ export const useIsMobile = () => {
   const handleResize = useCallback(
     debounce(() => {
       setIsMobile(getIsMobile());
-    }, 100)
+    }, 100),
+    []
   );
 
   useEffect(() => {
@@ -22,7 +23,7 @@ export const useIsMobile = () => {
       window.removeEventListener('load', handleResize);
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [handleResize]);
 
   return isMobile;
 };

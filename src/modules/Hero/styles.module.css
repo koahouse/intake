@@ -70,6 +70,7 @@
 
   .content {
     margin: 0;
+    max-width: 320px;
   }
 
   .logo {
@@ -85,7 +86,7 @@
 
 @media screen and (max-width: 370px) {
   .content {
-    margin: 0 12px;
+    margin: 0 16px;
   }
 
   .heading {
