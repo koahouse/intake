@@ -16,8 +16,8 @@
 
 @media screen and (min-width: 901px) {
   .container {
-    flex-basis: 520px;
-    flex-grow: 1;
+    flex-basis: 580px;
+    flex-grow: 0;
     flex-shrink: 0;
     position: relative;
   }

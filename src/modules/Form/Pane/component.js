@@ -9,7 +9,7 @@ export const Component = ({
   showOnStep,
   step,
 }) =>
-  step > showOnStep - 2 && (
+  step > showOnStep - 4 && (
     <div
       className={getClassNames(
         styles.pane,
