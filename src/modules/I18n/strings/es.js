@@ -1,5 +1,5 @@
 export const es = {
-  GET_STARTED: 'Empezar',
+  GET_STARTED: 'Empezar con las preguntas',
   IN_THE_MEANTIME_YOU_CAN: 'Mientras tanto, si quieres puedes',
   NOW_ALL_YOU_HAVE_TO_DO:
     'Ahora todo lo que tienes que hacer es pagar y elegir un momento para tu sesión de afinidad, donde uno de nuestros terapeutas certificados tendrá la ocasión de conocerte mejor.',
@@ -33,7 +33,7 @@ export const es = {
   YOU_GET_SIXTY_MINUTES:
     'Ahora es cuando te asignamos al terapeuta ideal para ti',
   THE_ONE_OFF_COST: 'El coste único de tu pack de {{0}} sesiones',
-  IN_THE_NEXT_TEN_MINUTES: 'En los próximos diez minutos, te pediremos:',
+  IN_THE_NEXT_TEN_MINUTES: 'En los próximos minutos, te pediremos:',
   SIXTY_MINUTE_VIDEO_CALL: 'videollamada de 60 minutos',
   TO_PICK_A_TIME: 'Eligir una fecha para tu sesión de afinidad',
   YOU_WILL_BE_CHARGED: 'Se te cobrarán {{0}} por el pack de {{1}} sesiones',
@@ -49,5 +49,5 @@ export const es = {
     'Ahora vamos a reservar una fecha para tu sesión de afinidad, y ya habremos acabado.',
   ALL_DONE: '¡Hemos terminado!',
   WE_SENT_AN_EMAIL_TO:
-    'Acabamos de enviar un email a {{0}} con todos los detalles de tu sesión de afinidad, y un recibo del pago por tu pack de sesiones.',
+    'Acabamos de enviar un email a {{0}} con todos los detalles de tu sesión de afinidad, y un recibo del pago.',
 };

@@ -1,8 +1,8 @@
 export const en = {
-  GET_STARTED: 'Get started',
+  GET_STARTED: 'Start questions',
   IN_THE_MEANTIME_YOU_CAN: 'In the meantime, you can',
   NOW_ALL_YOU_HAVE_TO_DO:
-    'Now all you have to do is pay and pick a time for your matching session, where one of our accredited therapists will get to know you better.',
+    'Now all you have to do is pay and pick a time for your matching session, where one of our qualified therapists will get to know you better.',
   OK: 'OK',
   PICK_A_TIME: 'Pick a time',
   READ_THERAPY_STORIES: 'read therapy stories from people like you',
@@ -23,16 +23,15 @@ export const en = {
   FOR: 'for',
   ME: 'me',
   MY_PARTNER_AND_ME: 'my partner and me',
-  ANSWER_A_FEW_QUESTIONS: 'Answer a few questions',
+  ANSWER_A_FEW_QUESTIONS: 'Answer some questions',
   PAY: 'Pay',
   YOUR_ANSWERS_ARE_CONFIDENTIAL: 'Your information will be 100% confidential',
   YOU_GET_SIXTY_MINUTES: 'This is when we match you with the right therapist',
   THE_ONE_OFF_COST: 'The one-off cost for your pack of {{0}} sessions',
-  IN_THE_NEXT_TEN_MINUTES: 'In the next ten minutes, we’ll ask you to:',
+  IN_THE_NEXT_TEN_MINUTES: 'In the next few minutes, we’ll ask you to:',
   SIXTY_MINUTE_VIDEO_CALL: '60 minute video call',
   TO_PICK_A_TIME: 'Book your matching session',
-  YOU_WILL_BE_CHARGED:
-    'You will be charged {{0}} for your pack of {{1}} sessions',
+  YOU_WILL_BE_CHARGED: 'You’ll be charged {{0}} for {{1}} sessions',
   FIRST_NAME: 'First name',
   LAST_NAME: 'Last name',
   EMAIL: 'Email',
@@ -42,8 +41,8 @@ export const en = {
   WE_NEED_YOUR_EMAIL: 'We need your email',
   WE_NEED_YOUR_CARD_DETAILS: 'We need your card details',
   NOW_TO_PICK_A_TIME:
-    'Now to pick a time for your matching session, then you’re all done.',
+    'All that’s left to pick a time for your matching session, then you’re all done.',
   ALL_DONE: 'All done!',
   WE_SENT_AN_EMAIL_TO:
-    'We just sent an email to {{0}} with all the details of your matching session and a payment receipt for your session pack.',
+    'We just sent an email to {{0}} with all the details of your matching session and a payment receipt.',
 };
