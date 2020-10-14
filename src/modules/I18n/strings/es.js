@@ -30,12 +30,13 @@ export const es = {
   ANSWER_A_FEW_QUESTIONS: 'Responder algunas pocas preguntas',
   PAY: 'Pagar',
   YOUR_ANSWERS_ARE_CONFIDENTIAL: 'Tu información será 100% confidencial',
-  YOU_GET_SIXTY_MINUTES: '[Pending translation]',
-  THE_ONE_OFF_COST: '[Pending translation]',
+  YOU_GET_SIXTY_MINUTES:
+    'Ahora es cuando te asignamos al terapeuta ideal para ti',
+  THE_ONE_OFF_COST: 'El coste único de tu pack de {{0}} sesiones',
   IN_THE_NEXT_TEN_MINUTES: 'En los próximos diez minutos, te pediremos:',
   SIXTY_MINUTE_VIDEO_CALL: 'videollamada de 60 minutos',
   TO_PICK_A_TIME: 'Eligir una fecha para tu sesión de afinidad',
-  YOU_WILL_BE_CHARGED: '[Pending translation]',
+  YOU_WILL_BE_CHARGED: 'Se te cobrarán {{0}} por el pack de {{1}} sesiones',
   FIRST_NAME: 'Nombre',
   LAST_NAME: 'Apellido',
   EMAIL: 'Email',
@@ -44,7 +45,9 @@ export const es = {
   YOUR_EMAIL_DOESNT_LOOK_RIGHT: 'Tu email no parece correcto',
   WE_NEED_YOUR_EMAIL: 'Necesitamos tu email',
   WE_NEED_YOUR_CARD_DETAILS: 'Necesitamos los datos de su tarjeta',
-  NOW_TO_PICK_A_TIME: '[Pending translation]',
-  ALL_DONE: '[Pending translation]',
-  WE_SENT_AN_EMAIL_TO: '[Pending translation]',
+  NOW_TO_PICK_A_TIME:
+    'Ahora vamos a reservar una fecha para tu sesión de afinidad, y ya habremos acabado.',
+  ALL_DONE: '¡Hemos terminado!',
+  WE_SENT_AN_EMAIL_TO:
+    'Acabamos de enviar un email a {{0}} con todos los detalles de tu sesión de afinidad, y un recibo del pago por tu pack de sesiones.',
 };
