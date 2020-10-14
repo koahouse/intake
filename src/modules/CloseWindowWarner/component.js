@@ -10,7 +10,7 @@ export const Component = ({ step }) => {
   };
 
   useEffect(() => {
-    if ([0, 5].includes(step)) return;
+    if ([0, 7].includes(step)) return;
 
     window.addEventListener('beforeunload', handleUnload);
 
