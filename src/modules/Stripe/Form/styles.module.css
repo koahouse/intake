@@ -53,7 +53,8 @@
   border-color: #fa755a99;
 }
 
-.container .isFocussed {
+.container .isFocussed,
+.container input:focus {
   border-color: #202124;
 }
 
