@@ -5,7 +5,7 @@ export const en = {
     'Now all you have to do is pay and pick a time for your matching session, where one of our qualified therapists will get to know you better.',
   OK: 'OK',
   PICK_A_TIME: 'Pick a time',
-  READ_THERAPY_STORIES: 'read therapy stories from people like you',
+  READ_THERAPY_STORIES: 'read stories from people like you',
   TALKING_ABOUT_PERSONAL_STUFF:
     'Talking about personal stuff isn’t always easy, so we really appreciate your openness. Your answers will help us prepare for your matching session.',
   THANKS: 'Thanks!',
