@@ -48,7 +48,7 @@ export const en = {
   PAY_AND_PICK: 'Pay & pick a time',
   MONTH: 'month',
   MONTHS: 'months',
-  TO_USE_YOUR_SESSIONS: '{{0}} {{1}} to use your sessions',
+  TO_USE_YOUR_SESSIONS: 'You have {{0}} {{1}} to use your sessions',
   SAFE_AND_SECURE_PAYMENT: 'Safe & secure payment',
   GUARANTEED_THERAPIST_MATCH: 'Guaranteed therapist match',
 };
