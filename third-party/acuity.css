@@ -146,6 +146,12 @@ label > span.show-on-error {
    margin-bottom: 16px;
 }
 
+input, input[type="text"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
 label[for="first-name"] {
   margin-bottom: 16px;
 }
@@ -246,7 +252,7 @@ input.btn.btn-primary:hover {
 /* Normalise confirmation */
 
 #step-confirmation {
-  display: none;
+  display: none !important;
 }
 
 .is-embedded .appointment-datetime .appt-actions {
