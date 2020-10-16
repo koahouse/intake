@@ -11,7 +11,7 @@ export const Component = ({ onFinish }) => {
   return (
     <div className={styles.container}>
       <Button isCentered onClick={onFinish}>
-        {strings.OK}
+        {strings.PAY_AND_PICK}
       </Button>
     </div>
   );

@@ -3,6 +3,7 @@ import { parse } from 'query-string';
 
 import { useLanguageCode } from '../I18n';
 
+import { getExpiry } from './utils/getExpiry';
 import { getPrice } from './utils/getPrice';
 import { Context } from './context';
 
@@ -14,6 +15,7 @@ export const Component = ({ children }) => {
   return (
     <Context.Provider
       value={{
+        expiry: getExpiry(pack),
         pack,
         price: getPrice(languageCode, pack),
       }}

@@ -49,4 +49,10 @@ export const es = {
   ALL_DONE: '¡Hemos terminado!',
   WE_SENT_AN_EMAIL_TO:
     'Acabamos de enviar un email a {{0}} con todos los detalles de tu sesión de afinidad, y un recibo del pago.',
+  PAY_AND_PICK: 'Pagar y eligir una fecha',
+  MONTH: 'mes',
+  MONTHS: 'meses',
+  TO_USE_YOUR_SESSIONS: '{{0}} {{1}} para usar tus sesiones',
+  SAFE_AND_SECURE_PAYMENT: 'Pago seguro',
+  GUARANTEED_THERAPIST_MATCH: 'Asignación de terapeuta garantizada',
 };

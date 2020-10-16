@@ -41,8 +41,14 @@ export const en = {
   WE_NEED_YOUR_EMAIL: 'We need your email',
   WE_NEED_YOUR_CARD_DETAILS: 'We need your card details',
   NOW_TO_PICK_A_TIME:
-    'All that’s left to pick a time for your matching session, then you’re all done.',
+    'All that’s left is to pick a time for your matching session, then you’re all done.',
   ALL_DONE: 'All done!',
   WE_SENT_AN_EMAIL_TO:
     'We just sent an email to {{0}} with all the details of your matching session and a payment receipt.',
+  PAY_AND_PICK: 'Pay & pick a time',
+  MONTH: 'month',
+  MONTHS: 'months',
+  TO_USE_YOUR_SESSIONS: '{{0}} {{1}} to use your sessions',
+  SAFE_AND_SECURE_PAYMENT: 'Safe & secure payment',
+  GUARANTEED_THERAPIST_MATCH: 'Guaranteed therapist match',
 };

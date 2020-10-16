@@ -102,15 +102,15 @@ export const Component = ({ setStep, step }) => {
             <Subheading>{strings.IN_THE_NEXT_TEN_MINUTES}</Subheading>
             <ThreeSteps />
             {isMobile && (
-              <Button onClick={() => setStep(1)}>{strings.GET_STARTED}</Button>
+              <Button onClick={() => setStep(1)}>{strings.OK}</Button>
             )}
           </Fragment>
         )}
         {contentStep === 1 && isMobile && (
-          <Button onClick={() => setStep(2)}>{strings.OK}</Button>
+          <Button onClick={() => setStep(2)}>{strings.GET_STARTED}</Button>
         )}
         {contentStep === 3 && isMobile && (
-          <Button onClick={() => setStep(4)}>{strings.OK}</Button>
+          <Button onClick={() => setStep(4)}>{strings.PAY_AND_PICK}</Button>
         )}
         {contentStep === 6 && (
           <React.Fragment>

@@ -4,9 +4,14 @@ import * as Yup from 'yup';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import getClassNames from 'classnames';
 
-import { useLanguageCode, useStrings, getInterpolatedString } from '../../I18n';
-import { Button, Paragraph } from '../../ui';
-import { usePrice, usePack } from '../../Pricing';
+import {
+  useLanguageCode,
+  useStrings,
+  getInterpolatedString,
+  getPluralisedString,
+} from '../../I18n';
+import { Button, Paragraph, Bullets } from '../../ui';
+import { useExpiry, usePrice, usePack } from '../../Pricing';
 
 import { CARD_STYLE } from './constants';
 import { getClientSecret } from './utils/getClientSecret';
@@ -18,6 +23,7 @@ export const Component = ({ onFinish }) => {
   const pack = usePack();
   const languageCode = useLanguageCode();
   const price = usePrice();
+  const expiry = useExpiry();
 
   const stripe = useStripe();
   const elements = useElements();
@@ -107,6 +113,17 @@ export const Component = ({ onFinish }) => {
       <Paragraph>
         {getInterpolatedString(strings.YOU_WILL_BE_CHARGED, price, pack)}
       </Paragraph>
+      <Bullets
+        items={[
+          getInterpolatedString(
+            strings.TO_USE_YOUR_SESSIONS,
+            expiry,
+            getPluralisedString(expiry, strings.MONTH, strings.MONTHS)
+          ),
+          strings.SAFE_AND_SECURE_PAYMENT,
+          strings.GUARANTEED_THERAPIST_MATCH,
+        ]}
+      />
       <Formik
         initialValues={{ firstName: '', lastName: '', email: '' }}
         onSubmit={handleSubmit}

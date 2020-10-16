@@ -1,0 +1,15 @@
+.container {
+  margin-bottom: 16px;
+}
+
+.item {
+  align-items: center;
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.checkmark {
+  height: 16px;
+  padding-left: 4px;
+  padding-right: 12px;
+}
