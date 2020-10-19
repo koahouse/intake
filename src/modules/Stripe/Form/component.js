@@ -91,8 +91,8 @@ export const Component = ({ onFinish }) => {
           name: `${firstName} ${lastName}`,
         },
         metadata: {
-          legal,
-          communications,
+          legal: JSON.stringify(legal),
+          communications: JSON.stringify(communications),
         },
       },
     });
