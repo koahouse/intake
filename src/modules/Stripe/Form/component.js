@@ -11,7 +11,13 @@ import {
   getPluralisedString,
 } from '../../I18n';
 import { Button, Paragraph, Bullets, SmallPrint } from '../../ui';
-import { useExpiry, usePrice, usePack } from '../../Pricing';
+import {
+  useExpiry,
+  usePrice,
+  usePack,
+  useIsFoundingMember,
+  useIsAM,
+} from '../../Pricing';
 
 import { CARD_STYLE } from './constants';
 import { getClientSecret } from './utils/getClientSecret';
@@ -25,6 +31,8 @@ export const Component = ({ onFinish }) => {
   const languageCode = useLanguageCode();
   const price = usePrice();
   const expiry = useExpiry();
+  const isFoundingMember = useIsFoundingMember();
+  const isAM = useIsAM();
 
   const stripe = useStripe();
   const elements = useElements();
@@ -39,7 +47,9 @@ export const Component = ({ onFinish }) => {
 
   useEffect(() => {
     const asyncSetClientSecret = async () => {
-      setClientSecret(await getClientSecret(pack, languageCode));
+      setClientSecret(
+        await getClientSecret(pack, isFoundingMember, isAM, languageCode)
+      );
     };
 
     asyncSetClientSecret();
