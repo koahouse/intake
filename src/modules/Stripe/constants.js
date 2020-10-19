@@ -6,4 +6,4 @@ export const ELEMENTS_OPTIONS = {
   ],
 };
 export const STRIPE_PUBLIC_KEY =
-  'pk_test_51HYpBBIC0gTe0BTtZkET4e30h4PpAgB23MVqHvN9ffoYg2oAsu1HI7QfTOuLWwUhpgOcd8oeZ6CVFcVjU4QmS28Z006bgCey7P';
+  'pk_live_51HYpBBIC0gTe0BTt1h2esyxTioSzPbrMk4vRFtV8OL8XCR0obV2Ieo18Ozw1PZoCfAtqfEAPQA2xXHeCz7mWKTqQ002QJbMlee';
