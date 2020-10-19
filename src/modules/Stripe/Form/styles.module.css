@@ -25,7 +25,8 @@
   margin-left: 4px;
 }
 
-.container input {
+.container input[type="text"],
+.container input[type="email"] {
   /* Reset */
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -43,8 +44,28 @@
 	padding: 16px;
 	width: 100%;
   cursor: pointer;
-  transition: 0.2s ease;
+  transition: 0.6s ease;
 	-webkit-tap-highlight-color: transparent;
+}
+
+.container label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  transition: 0.6s ease;
+}
+
+.container label.isError {
+  color: #fa755a;
+}
+
+.container label input {
+  border: 3px solid #e2e2e2;
+  border-radius: 0;
+}
+
+.container label p {
+  margin: 0 0 0 8px;
 }
 
 .cardElement {
@@ -59,7 +80,7 @@
 }
 
 .container .isError {
-  border-color: #fa755a99;
+  border-color: #fa755a99 !important;
 }
 
 .container .isFocussed,

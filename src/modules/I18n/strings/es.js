@@ -44,6 +44,8 @@ export const es = {
   YOUR_EMAIL_DOESNT_LOOK_RIGHT: 'Tu email no parece correcto',
   WE_NEED_YOUR_EMAIL: 'Necesitamos tu email',
   WE_NEED_YOUR_CARD_DETAILS: 'Necesitamos los datos de su tarjeta',
+  WE_NEED_YOU_TO_AGREE_WITH_OUR_TERMS:
+    'Necesitamos que aceptes los términos y condiciones',
   NOW_TO_PICK_A_TIME:
     'Ahora vamos a reservar una fecha para tu sesión de afinidad, y ya habremos acabado.',
   ALL_DONE: '¡Hemos terminado!',
@@ -55,4 +57,9 @@ export const es = {
   TO_USE_YOUR_SESSIONS: 'Tienes {{0}} {{1}} para usar tus sesiones',
   SAFE_AND_SECURE_PAYMENT: 'Pago seguro',
   GUARANTEED_THERAPIST_MATCH: 'Asignación de tu terapeuta garantizada',
+  I_AGREE_TO_THE: 'Estoy de acuerdo con los',
+  TERMS_OF_USE: 'términos y condiciones',
+  AND: 'y',
+  PRIVACY_POLICY: 'política de privacidad',
+  PLEASE_SEND_ME_NEWS: 'Recibir noticias, articulos y contenido sobre Oliva',
 };

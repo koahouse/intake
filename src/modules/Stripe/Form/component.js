@@ -10,11 +10,12 @@ import {
   getInterpolatedString,
   getPluralisedString,
 } from '../../I18n';
-import { Button, Paragraph, Bullets } from '../../ui';
+import { Button, Paragraph, Bullets, SmallPrint } from '../../ui';
 import { useExpiry, usePrice, usePack } from '../../Pricing';
 
 import { CARD_STYLE } from './constants';
 import { getClientSecret } from './utils/getClientSecret';
+import { getHost } from './utils/getHost';
 import styles from './styles.module.css';
 
 export const Component = ({ onFinish }) => {
@@ -50,6 +51,10 @@ export const Component = ({ onFinish }) => {
         email: Yup.string()
           .email(strings.YOUR_EMAIL_DOESNT_LOOK_RIGHT)
           .required(strings.WE_NEED_YOUR_EMAIL),
+        legal: Yup.bool().oneOf(
+          [true],
+          strings.WE_NEED_YOU_TO_AGREE_WITH_OUR_TERMS
+        ),
       })
     );
   }, []);
@@ -70,7 +75,13 @@ export const Component = ({ onFinish }) => {
   const handleAttemptSubmit = () =>
     !isCardTouched && setCardError(strings.WE_NEED_YOUR_CARD_DETAILS);
 
-  const handleSubmit = async ({ firstName, lastName, email }) => {
+  const handleSubmit = async ({
+    firstName,
+    lastName,
+    email,
+    legal,
+    communications,
+  }) => {
     setIsProcessing(true);
     const result = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
@@ -78,6 +89,10 @@ export const Component = ({ onFinish }) => {
         billing_details: {
           email,
           name: `${firstName} ${lastName}`,
+        },
+        metadata: {
+          legal,
+          communications,
         },
       },
     });
@@ -125,9 +140,14 @@ export const Component = ({ onFinish }) => {
         ]}
       />
       <Formik
-        initialValues={{ firstName: '', lastName: '', email: '' }}
+        initialValues={{
+          firstName: '',
+          lastName: '',
+          email: '',
+          legal: false,
+          communications: false,
+        }}
         onSubmit={handleSubmit}
-        validateOnChange={false}
         validationSchema={validationSchema}
       >
         {({ errors, touched }) => {
@@ -156,6 +176,7 @@ export const Component = ({ onFinish }) => {
                   })}
                   name="firstName"
                   placeholder={strings.FIRST_NAME}
+                  type="text"
                 />
                 <Field
                   className={getClassNames({
@@ -163,6 +184,7 @@ export const Component = ({ onFinish }) => {
                   })}
                   name="lastName"
                   placeholder={strings.LAST_NAME}
+                  type="text"
                 />
               </div>
               <Field
@@ -183,6 +205,33 @@ export const Component = ({ onFinish }) => {
                 onFocus={handleCardFocus}
                 options={CARD_STYLE}
               />
+              <label
+                className={getClassNames({
+                  [styles.isError]: touchedErrors.legal,
+                })}
+              >
+                <Field name="legal" type="checkbox" />
+                <SmallPrint>
+                  {strings.I_AGREE_TO_THE}{' '}
+                  <a
+                    href={`${getHost(languageCode)}terms-of-service`}
+                    target="_blank"
+                  >
+                    {strings.TERMS_OF_USE}
+                  </a>{' '}
+                  {strings.AND}{' '}
+                  <a
+                    href={`${getHost(languageCode)}privacy-policy`}
+                    target="_blank"
+                  >
+                    {strings.PRIVACY_POLICY}
+                  </a>
+                </SmallPrint>
+              </label>
+              <label>
+                <Field name="communications" type="checkbox" />
+                <SmallPrint>{strings.PLEASE_SEND_ME_NEWS}</SmallPrint>
+              </label>
               <Button
                 isCompact
                 isDisabled={!!errorsToDisplay.length}

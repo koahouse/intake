@@ -40,6 +40,7 @@ export const en = {
   YOUR_EMAIL_DOESNT_LOOK_RIGHT: "Your email doesn't look right",
   WE_NEED_YOUR_EMAIL: 'We need your email',
   WE_NEED_YOUR_CARD_DETAILS: 'We need your card details',
+  WE_NEED_YOU_TO_AGREE_WITH_OUR_TERMS: 'We need you to agree with our terms',
   NOW_TO_PICK_A_TIME:
     'All that’s left is to pick a time for your matching session, then you’re all done.',
   ALL_DONE: 'All done!',
@@ -51,4 +52,10 @@ export const en = {
   TO_USE_YOUR_SESSIONS: 'You have {{0}} {{1}} to use your sessions',
   SAFE_AND_SECURE_PAYMENT: 'Safe & secure payment',
   GUARANTEED_THERAPIST_MATCH: 'Guaranteed therapist match',
+  I_AGREE_TO_THE: 'I agree to the',
+  TERMS_OF_USE: 'terms of use',
+  AND: 'and',
+  PRIVACY_POLICY: 'privacy policy',
+  PLEASE_SEND_ME_NEWS:
+    'Please send me news, articles and relevant content about Oliva',
 };
