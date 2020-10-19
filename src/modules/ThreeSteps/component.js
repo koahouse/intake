@@ -2,15 +2,24 @@ import React from 'react';
 import getClassNames from 'classnames';
 
 import { Subheading, SmallPrint } from '../ui';
-import { getInterpolatedString, useStrings } from '../I18n';
-import { usePack, usePrice } from '../Pricing';
+import { getInterpolatedString, useStrings, useLanguageCode } from '../I18n';
+import {
+  usePack,
+  usePrice,
+  useIsFoundingMember,
+  useIsAM,
+  getPrice,
+} from '../Pricing';
 
 import styles from './styles.module.css';
 
 export const Component = ({ hasBorder }) => {
   const strings = useStrings();
+  const languageCode = useLanguageCode();
   const pack = usePack();
   const price = usePrice();
+  const isFoundingMember = useIsFoundingMember();
+  const isAM = useIsAM();
 
   return (
     <div
@@ -28,9 +37,19 @@ export const Component = ({ hasBorder }) => {
       <div className={styles.step}>
         <div className={styles.number}>2</div>
         <div className={styles.text}>
-          <Subheading>
-            {strings.PAY} {price}
-          </Subheading>
+          {pack === '3' && (isFoundingMember || isAM) ? (
+            <Subheading>
+              {strings.PAY}{' '}
+              <span className={styles.oldPrice}>
+                {getPrice(languageCode, 3)}
+              </span>
+              <span className={styles.newPrice}>{price}</span>🎉
+            </Subheading>
+          ) : (
+            <Subheading>
+              {strings.PAY} {price}
+            </Subheading>
+          )}
           <SmallPrint>
             {getInterpolatedString(strings.THE_ONE_OFF_COST, pack)}
           </SmallPrint>

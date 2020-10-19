@@ -19,6 +19,7 @@ export const es = {
     'Nos pondremos en contacto contigo para recordarte de tu sesión de afinidad. No necesitas preparar nada, así que puedes relajarte porque estás en buenas manos.',
   WHAT_HAPPENS_NOW: '¿Qué pasa ahora?',
   YOUR_PAYMENT_WAS_SUCCESSFUL: 'Tu pago se ha realizado con éxito.',
+  HEY_FOUNDING_MEMBER: 'Hola, Miembro Fundador 👋',
   WELCOME: 'Tu camino empieza aquí',
   YOUVE_TAKEN_YOUR_FIRST:
     'Ya has dado el primer paso, y ahora es nuestro turno.',
@@ -39,10 +40,13 @@ export const es = {
   FIRST_NAME: 'Nombre',
   LAST_NAME: 'Apellido',
   EMAIL: 'Email',
+  MOBILE_NUMBER: 'Número de móvil',
   WE_NEED_YOUR_FIRST_NAME: 'Necesitamos tu nombre',
   WE_NEED_YOUR_LAST_NAME: 'Necesitamos tu apellido',
   YOUR_EMAIL_DOESNT_LOOK_RIGHT: 'Tu email no parece correcto',
   WE_NEED_YOUR_EMAIL: 'Necesitamos tu email',
+  YOUR_MOBILE_NUMBER_DOESNT_LOOK_RIGHT: 'Tu número de móvil no parece correcto',
+  WE_NEED_YOUR_MOBILE_NUMBER: 'Necesitamos tu número de móvil',
   WE_NEED_YOUR_CARD_DETAILS: 'Necesitamos los datos de su tarjeta',
   WE_NEED_YOU_TO_AGREE_WITH_OUR_TERMS:
     'Necesitamos que aceptes los términos y condiciones',

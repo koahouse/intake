@@ -7,12 +7,17 @@ import React, {
 } from 'react';
 import debounce from 'lodash.debounce';
 
-import { useStrings } from '../I18n';
+import {
+  useStrings,
+  getInterpolatedString,
+  getPluralisedString,
+} from '../I18n';
 import { useIsMobile } from '../../utils';
-import { Button, Subheading } from '../ui';
+import { Button, Subheading, Bullets } from '../ui';
 import { Boat } from '../Boat';
 import { Sea } from '../Sea';
 import { ThreeSteps } from '../ThreeSteps';
+import { useExpiry, useIsAM, useIsFoundingMember } from '../Pricing';
 
 import { getIllustrationStep } from './utils/getIllustrationStep';
 import { getContentStep } from './utils/getContentStep';
@@ -26,6 +31,9 @@ export const Component = ({ setStep, step }) => {
   const [containerWidth, setContainerWidth] = useState(null);
   const ref = useRef(null);
   const illustrationStep = getIllustrationStep(step);
+  const expiry = useExpiry();
+  const isAM = useIsAM();
+  const isFoundingMember = useIsFoundingMember();
 
   const handleResize = useCallback(
     debounce(() => {
@@ -74,7 +82,9 @@ export const Component = ({ setStep, step }) => {
         <h2 className={styles.heading}>
           {
             [
-              strings.WELCOME,
+              `${isAM || isFoundingMember ? strings.HEY_FOUNDING_MEMBER : ''} ${
+                strings.WELCOME
+              }`,
               strings.UNDERSTANDING_STARTS_WITH,
               '',
               strings.THATS_THE_HARD_PART,
@@ -109,8 +119,23 @@ export const Component = ({ setStep, step }) => {
         {contentStep === 1 && isMobile && (
           <Button onClick={() => setStep(2)}>{strings.GET_STARTED}</Button>
         )}
-        {contentStep === 3 && isMobile && (
-          <Button onClick={() => setStep(4)}>{strings.PAY_AND_PICK}</Button>
+        {contentStep === 3 && (
+          <Fragment>
+            <Bullets
+              items={[
+                getInterpolatedString(
+                  strings.TO_USE_YOUR_SESSIONS,
+                  expiry,
+                  getPluralisedString(expiry, strings.MONTH, strings.MONTHS)
+                ),
+                strings.SAFE_AND_SECURE_PAYMENT,
+                strings.GUARANTEED_THERAPIST_MATCH,
+              ]}
+            />
+            {isMobile && (
+              <Button onClick={() => setStep(4)}>{strings.PAY_AND_PICK}</Button>
+            )}
+          </Fragment>
         )}
         {contentStep === 6 && (
           <React.Fragment>
