@@ -138,17 +138,6 @@ export const Component = ({ onFinish }) => {
       <Paragraph>
         {getInterpolatedString(strings.YOU_WILL_BE_CHARGED, price, pack)}
       </Paragraph>
-      <Bullets
-        items={[
-          getInterpolatedString(
-            strings.TO_USE_YOUR_SESSIONS,
-            expiry,
-            getPluralisedString(expiry, strings.MONTH, strings.MONTHS)
-          ),
-          strings.SAFE_AND_SECURE_PAYMENT,
-          strings.GUARANTEED_THERAPIST_MATCH,
-        ]}
-      />
       <Formik
         initialValues={{
           firstName: '',
