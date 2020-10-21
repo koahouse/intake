@@ -5,7 +5,7 @@ export const es = {
     'Ahora todo lo que tienes que hacer es pagar y elegir un momento para tu sesión de afinidad, donde uno de nuestros terapeutas certificados tendrá la ocasión de conocerte mejor.',
   OK: 'De acuerdo',
   PICK_A_TIME: 'Elige una fecha',
-  READ_THERAPY_STORIES: 'leer algunas historias de personas como tú.',
+  READ_THERAPY_STORIES: 'leer algunas historias de personas como tú',
   TALKING_ABOUT_PERSONAL_STUFF:
     'Hablar de temas personales no siempre es fácil, por lo que apreciamos mucho tu franqueza.',
   THANKS: '¡Gracias!',
