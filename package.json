@@ -6,7 +6,7 @@
   "scripts": {
     "build": "react-scripts build",
     "deploy": "gh-pages -d build",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build && touch build/.nojekyll",
     "start": "react-scripts start"
   },
   "repository": {
@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/koahouse/intake/issues"
   },
-  "homepage": "http://welcome.koa.house",
+  "homepage": "https://welcome.oliva.house",
   "dependencies": {
     "@stripe/react-stripe-js": "^1.1.2",
     "@stripe/stripe-js": "^1.9.0",
