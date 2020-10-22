@@ -1,26 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Formik, Form, Field } from 'formik';
-import * as Yup from 'yup';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import getClassNames from 'classnames';
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 
-import {
-  useLanguageCode,
-  useStrings,
-  getInterpolatedString,
-  getPluralisedString,
-} from '../../I18n';
-import { Button, Paragraph, Bullets, SmallPrint } from '../../ui';
-import {
-  useExpiry,
-  usePrice,
-  usePack,
-  useIsFoundingMember,
-  useIsAM,
-} from '../../Pricing';
+import { useLanguageCode, useStrings, getInterpolatedString } from '../../I18n';
+import { Button, Paragraph, SmallPrint } from '../../ui';
+import { usePrice, usePack, useIsFoundingMember, useIsAM } from '../../Pricing';
 
 import { CARD_STYLE } from './constants';
 import { getClientSecret } from './utils/getClientSecret';
+import { getValidationSchema } from './utils/getValidationSchema';
 import { getHost } from './utils/getHost';
 import styles from './styles.module.css';
 
@@ -30,7 +21,6 @@ export const Component = ({ onFinish }) => {
   const pack = usePack();
   const languageCode = useLanguageCode();
   const price = usePrice();
-  const expiry = useExpiry();
   const isFoundingMember = useIsFoundingMember();
   const isAM = useIsAM();
 
@@ -46,27 +36,15 @@ export const Component = ({ onFinish }) => {
   const [cardError, setCardError] = useState(null);
 
   useEffect(() => {
-    const asyncSetClientSecret = async () => {
-      setClientSecret(
-        await getClientSecret(pack, isFoundingMember, isAM, languageCode)
-      );
-    };
+    // const asyncSetClientSecret = async () => {
+    //   setClientSecret(
+    //     await getClientSecret(pack, isFoundingMember, isAM, languageCode)
+    //   );
+    // };
+    //
+    // asyncSetClientSecret();
 
-    asyncSetClientSecret();
-
-    setValidationSchema(
-      Yup.object().shape({
-        firstName: Yup.string().required(strings.WE_NEED_YOUR_FIRST_NAME),
-        lastName: Yup.string().required(strings.WE_NEED_YOUR_LAST_NAME),
-        email: Yup.string()
-          .email(strings.YOUR_EMAIL_DOESNT_LOOK_RIGHT)
-          .required(strings.WE_NEED_YOUR_EMAIL),
-        legal: Yup.bool().oneOf(
-          [true],
-          strings.WE_NEED_YOU_TO_AGREE_WITH_OUR_TERMS
-        ),
-      })
-    );
+    setValidationSchema(getValidationSchema(strings));
   }, []);
 
   const handleCardFocus = () => setIsCardFocussed(true);
@@ -89,48 +67,50 @@ export const Component = ({ onFinish }) => {
     firstName,
     lastName,
     email,
+    phone,
     legal,
     communications,
   }) => {
-    setIsProcessing(true);
-    const result = await stripe.confirmCardPayment(clientSecret, {
-      payment_method: {
-        card: elements.getElement(CardElement),
-        billing_details: {
-          email,
-          name: `${firstName} ${lastName}`,
-        },
-        metadata: {
-          legal: JSON.stringify(legal),
-          communications: JSON.stringify(communications),
-        },
-      },
-    });
-
-    if (result.error) {
-      setCardError(result.error.message);
-      setIsProcessing(false);
-      return;
-    }
-
-    setCardError(null);
-
-    const { certificate } = await window
-      .fetch(
-        'https://mrazu50nsj.execute-api.us-east-1.amazonaws.com/dev/createPackCertificate',
-        {
-          method: 'POST',
-          body: JSON.stringify({
-            email,
-            languageCode,
-            pack,
-            paymentIntentId: result.paymentIntent.id,
-          }),
-        }
-      )
-      .then((response) => response.json());
-
-    onFinish({ firstName, lastName, email, certificate });
+    // setIsProcessing(true);
+    // const result = await stripe.confirmCardPayment(clientSecret, {
+    //   payment_method: {
+    //     card: elements.getElement(CardElement),
+    //     billing_details: {
+    //       email,
+    //       name: `${firstName} ${lastName}`,
+    //       phone,
+    //     },
+    //     metadata: {
+    //       legal: JSON.stringify(legal),
+    //       communications: JSON.stringify(communications),
+    //     },
+    //   },
+    // });
+    //
+    // if (result.error) {
+    //   setCardError(result.error.message);
+    //   setIsProcessing(false);
+    //   return;
+    // }
+    //
+    // setCardError(null);
+    //
+    // const { certificate } = await window
+    //   .fetch(
+    //     'https://mrazu50nsj.execute-api.us-east-1.amazonaws.com/dev/createPackCertificate',
+    //     {
+    //       method: 'POST',
+    //       body: JSON.stringify({
+    //         email,
+    //         languageCode,
+    //         pack,
+    //         paymentIntentId: result.paymentIntent.id,
+    //       }),
+    //     }
+    //   )
+    //   .then((response) => response.json());
+    //
+    // onFinish({ firstName, lastName, email, phone, certificate });
   };
 
   return (
@@ -143,13 +123,14 @@ export const Component = ({ onFinish }) => {
           firstName: '',
           lastName: '',
           email: '',
+          phone: '',
           legal: false,
           communications: false,
         }}
         onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
-        {({ errors, touched }) => {
+        {({ errors, touched, ...rest }) => {
           const touchedErrors = Object.entries(errors).reduce(
             (accumulator, [key, value]) =>
               touched[key]
@@ -168,7 +149,7 @@ export const Component = ({ onFinish }) => {
 
           return (
             <Form>
-              <div className={styles.nameInputs}>
+              <div className={styles.inputGroup}>
                 <Field
                   className={getClassNames({
                     [styles.isError]: touchedErrors.firstName,
@@ -193,6 +174,13 @@ export const Component = ({ onFinish }) => {
                 name="email"
                 placeholder="Email"
                 type="email"
+              />
+              <PhoneInput
+                className={getClassNames(styles.phoneInput)}
+                defaultCountry="ES"
+                name="phone"
+                onChange={(value = '') => rest.handleChange('phone')(value)}
+                placeholder={strings.MOBILE_NUMBER}
               />
               <CardElement
                 className={getClassNames(styles.cardElement, {
