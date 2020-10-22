@@ -7,7 +7,13 @@ import { SplashMessage } from '../SplashMessage';
 import { Stripe } from '../Stripe';
 import { SurveySparrow } from '../SurveySparrow';
 import { Thanks } from '../Thanks';
-import { useTracking } from '../tracking';
+import {
+  useTracking,
+  INTAKE_FORM_COMPLETE,
+  PAYMENT_COMPLETE,
+  BOOKING_COMPLETE,
+} from '../tracking';
+import { usePrice } from '../Pricing';
 
 import { Pane } from './Pane';
 import styles from './styles.module.css';
@@ -23,6 +29,7 @@ export const Component = ({ step, setStep }) => {
 
   const [isContainerVisible, setIsContainerVisible] = useState(!isMobile);
 
+  const price = usePrice();
   const triggerEvent = useTracking();
 
   useEffect(() => {
@@ -39,7 +46,7 @@ export const Component = ({ step, setStep }) => {
     setStep(3);
     setResponseId(responseId);
     setIsIndividual(isIndividual);
-    triggerEvent('CompleteRegistration');
+    triggerEvent(INTAKE_FORM_COMPLETE);
   };
 
   const handleFinishPrepaymentMessage = () => {
@@ -49,7 +56,12 @@ export const Component = ({ step, setStep }) => {
   const handleFinishStripe = (paymentInformation) => {
     setStep(5);
     setPaymentInformation(paymentInformation);
-    triggerEvent('Purchase', { value: 99999, currency: 'USD' });
+    const [currencySymbol, ...rest] = price;
+
+    triggerEvent(PAYMENT_COMPLETE, {
+      value: Number(rest.join('')),
+      currency: currencySymbol,
+    });
   };
 
   const handleFinishThanks = () => {
@@ -58,7 +70,7 @@ export const Component = ({ step, setStep }) => {
 
   const handleSubmitAcuity = () => {
     setStep(7);
-    triggerEvent('Schedule');
+    triggerEvent(BOOKING_COMPLETE);
   };
 
   return (
