@@ -7,6 +7,7 @@ import { SplashMessage } from '../SplashMessage';
 import { Stripe } from '../Stripe';
 import { SurveySparrow } from '../SurveySparrow';
 import { Thanks } from '../Thanks';
+import { useTracking } from '../tracking';
 
 import { Pane } from './Pane';
 import styles from './styles.module.css';
@@ -22,6 +23,8 @@ export const Component = ({ step, setStep }) => {
 
   const [isContainerVisible, setIsContainerVisible] = useState(!isMobile);
 
+  const triggerEvent = useTracking();
+
   useEffect(() => {
     window.requestAnimationFrame(() =>
       setIsContainerVisible(!isMobile || VISIBILE_STEPS.includes(step))
@@ -36,6 +39,7 @@ export const Component = ({ step, setStep }) => {
     setStep(3);
     setResponseId(responseId);
     setIsIndividual(isIndividual);
+    triggerEvent('CompleteRegistration');
   };
 
   const handleFinishPrepaymentMessage = () => {
@@ -45,6 +49,7 @@ export const Component = ({ step, setStep }) => {
   const handleFinishStripe = (paymentInformation) => {
     setStep(5);
     setPaymentInformation(paymentInformation);
+    triggerEvent('Purchase', { value: 99999, currency: 'USD' });
   };
 
   const handleFinishThanks = () => {
@@ -53,6 +58,7 @@ export const Component = ({ step, setStep }) => {
 
   const handleSubmitAcuity = () => {
     setStep(7);
+    triggerEvent('Schedule');
   };
 
   return (
