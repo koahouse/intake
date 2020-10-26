@@ -3,13 +3,7 @@ import getClassNames from 'classnames';
 
 import { Subheading, SmallPrint } from '../ui';
 import { getInterpolatedString, useStrings, useLanguageCode } from '../I18n';
-import {
-  usePack,
-  usePrice,
-  useIsFoundingMember,
-  useIsAM,
-  getPrice,
-} from '../Pricing';
+import { usePack, usePrice, useIsFoundingMember, getPrice } from '../Pricing';
 
 import styles from './styles.module.css';
 
@@ -19,7 +13,6 @@ export const Component = ({ hasBorder }) => {
   const pack = usePack();
   const price = usePrice();
   const isFoundingMember = useIsFoundingMember();
-  const isAM = useIsAM();
 
   return (
     <div
@@ -37,7 +30,7 @@ export const Component = ({ hasBorder }) => {
       <div className={styles.step}>
         <div className={styles.number}>2</div>
         <div className={styles.text}>
-          {pack === '3' && (isFoundingMember || isAM) ? (
+          {isFoundingMember ? (
             <Subheading>
               {strings.PAY}{' '}
               <span className={styles.oldPrice}>

@@ -1,9 +1,4 @@
-export const getClientSecret = async (
-  pack,
-  isFoundingMember,
-  isAM,
-  languageCode
-) => {
+export const getClientSecret = async (pack, isFoundingMember, languageCode) => {
   const clientSecret = await window
     .fetch(
       'https://mrazu50nsj.execute-api.us-east-1.amazonaws.com/dev/createPaymentIntent',
@@ -12,7 +7,7 @@ export const getClientSecret = async (
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ isAM, isFoundingMember, languageCode, pack }),
+        body: JSON.stringify({ isFoundingMember, languageCode, pack }),
       }
     )
     .then((res) => {

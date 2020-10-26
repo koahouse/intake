@@ -7,9 +7,8 @@ import { getExpiry } from './utils/getExpiry';
 import { getPrice } from './utils/getPrice';
 import { Context } from './context';
 
-const pack = parse(window.location.search).pack || '6';
-const isFoundingMember = parse(window.location.search).d === 'FM';
-const isAM = parse(window.location.search).d === 'AM';
+const { pack = '6', d } = parse(window.location.search);
+const isFoundingMember = pack === '3' && d === 'FM';
 
 export const Component = ({ children }) => {
   const languageCode = useLanguageCode();
@@ -18,10 +17,9 @@ export const Component = ({ children }) => {
     <Context.Provider
       value={{
         expiry: getExpiry(pack),
-        isAM,
         isFoundingMember,
         pack,
-        price: getPrice(languageCode, pack, isFoundingMember, isAM),
+        price: getPrice(languageCode, pack, isFoundingMember),
       }}
     >
       {children}

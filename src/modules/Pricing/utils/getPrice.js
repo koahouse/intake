@@ -1,9 +1,5 @@
-export const getPrice = (languageCode, pack, isFoundingMember, isAM) => {
-  if (isAM && pack === '3') {
-    return languageCode === 'es' ? '€60' : '£145';
-  }
-
-  if (isFoundingMember && pack === '3') {
+export const getPrice = (languageCode, pack, isFoundingMember) => {
+  if (isFoundingMember) {
     return languageCode === 'es' ? '€150' : '£225';
   }
 

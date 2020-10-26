@@ -17,7 +17,7 @@ import { Button, Subheading, Bullets } from '../ui';
 import { Boat } from '../Boat';
 import { Sea } from '../Sea';
 import { ThreeSteps } from '../ThreeSteps';
-import { useExpiry, useIsAM, useIsFoundingMember } from '../Pricing';
+import { useExpiry, useIsFoundingMember } from '../Pricing';
 
 import { getIllustrationStep } from './utils/getIllustrationStep';
 import { getContentStep } from './utils/getContentStep';
@@ -32,7 +32,6 @@ export const Component = ({ setStep, step }) => {
   const ref = useRef(null);
   const illustrationStep = getIllustrationStep(step);
   const expiry = useExpiry();
-  const isAM = useIsAM();
   const isFoundingMember = useIsFoundingMember();
 
   const handleResize = useCallback(
@@ -82,7 +81,7 @@ export const Component = ({ setStep, step }) => {
         <h2 className={styles.heading}>
           {
             [
-              `${isAM || isFoundingMember ? strings.HEY_FOUNDING_MEMBER : ''} ${
+              `${isFoundingMember ? strings.HEY_FOUNDING_MEMBER : ''} ${
                 strings.WELCOME
               }`,
               strings.UNDERSTANDING_STARTS_WITH,

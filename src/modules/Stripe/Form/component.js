@@ -4,20 +4,9 @@ import * as Yup from 'yup';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import getClassNames from 'classnames';
 
-import {
-  useLanguageCode,
-  useStrings,
-  getInterpolatedString,
-  getPluralisedString,
-} from '../../I18n';
-import { Button, Paragraph, Bullets, SmallPrint } from '../../ui';
-import {
-  useExpiry,
-  usePrice,
-  usePack,
-  useIsFoundingMember,
-  useIsAM,
-} from '../../Pricing';
+import { useLanguageCode, useStrings, getInterpolatedString } from '../../I18n';
+import { Button, Paragraph, SmallPrint } from '../../ui';
+import { usePrice, usePack, useIsFoundingMember } from '../../Pricing';
 
 import { CARD_STYLE } from './constants';
 import { getClientSecret } from './utils/getClientSecret';
@@ -30,9 +19,7 @@ export const Component = ({ onFinish }) => {
   const pack = usePack();
   const languageCode = useLanguageCode();
   const price = usePrice();
-  const expiry = useExpiry();
   const isFoundingMember = useIsFoundingMember();
-  const isAM = useIsAM();
 
   const stripe = useStripe();
   const elements = useElements();
@@ -48,7 +35,7 @@ export const Component = ({ onFinish }) => {
   useEffect(() => {
     const asyncSetClientSecret = async () => {
       setClientSecret(
-        await getClientSecret(pack, isFoundingMember, isAM, languageCode)
+        await getClientSecret(pack, isFoundingMember, languageCode)
       );
     };
 
