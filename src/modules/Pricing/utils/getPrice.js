@@ -1,18 +1,23 @@
-export const getPrice = (languageCode, pack, isFoundingMember) => {
-  if (isFoundingMember) {
-    return languageCode === 'es' ? '€150' : '£225';
-  }
+import { stringify } from 'query-string';
 
-  return {
-    es: {
-      3: '€255',
-      6: '€480',
-      12: '€840',
-    },
-    en: {
-      3: '£375',
-      6: '£690',
-      12: '£1,320',
-    },
-  }[languageCode][pack];
+export const getPrice = async ({
+  currency,
+  isFoundingMember,
+  isTenpercenter,
+  languageCode,
+  pack,
+}) => {
+  const queryString = stringify({
+    currencyCode: currency,
+    isTenpercenter: isTenpercenter || undefined,
+    isFoundingMember: isFoundingMember || undefined,
+    languageCode,
+    pack,
+  });
+
+  return global
+    .fetch(
+      `https://mrazu50nsj.execute-api.us-east-1.amazonaws.com/dev/getPrice?${queryString}`
+    )
+    .then((response) => response.json());
 };

@@ -13,7 +13,7 @@ import {
   PAYMENT_COMPLETE,
   BOOKING_COMPLETE,
 } from '../tracking';
-import { usePrice } from '../Pricing';
+import { usePricing } from '../Pricing';
 
 import { Pane } from './Pane';
 import styles from './styles.module.css';
@@ -29,7 +29,7 @@ export const Component = ({ step, setStep }) => {
 
   const [isContainerVisible, setIsContainerVisible] = useState(!isMobile);
 
-  const price = usePrice();
+  const { currencySymbol, discountedPrice, price } = usePricing();
   const triggerEvent = useTracking();
 
   useEffect(() => {
@@ -56,10 +56,9 @@ export const Component = ({ step, setStep }) => {
   const handleFinishStripe = (paymentInformation) => {
     setStep(5);
     setPaymentInformation(paymentInformation);
-    const [currencySymbol, ...rest] = price;
 
     triggerEvent(PAYMENT_COMPLETE, {
-      value: Number(rest.join('')),
+      value: discountedPrice || price,
       currency: currencySymbol,
     });
   };

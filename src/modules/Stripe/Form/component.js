@@ -4,13 +4,14 @@ import * as Yup from 'yup';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import getClassNames from 'classnames';
 
-import { useLanguageCode, useStrings, getInterpolatedString } from '../../I18n';
+import { useLanguageCode, useStrings } from '../../I18n';
 import { Button, Paragraph, SmallPrint } from '../../ui';
-import { usePrice, usePack, useIsFoundingMember } from '../../Pricing';
+import { usePriceComponent, usePack, usePricing } from '../../Pricing';
 
 import { CARD_STYLE } from './constants';
 import { getClientSecret } from './utils/getClientSecret';
 import { getHost } from './utils/getHost';
+import { getChargeStatement } from './utils/getChargeStatement';
 import styles from './styles.module.css';
 
 export const Component = ({ onFinish }) => {
@@ -18,8 +19,8 @@ export const Component = ({ onFinish }) => {
 
   const pack = usePack();
   const languageCode = useLanguageCode();
-  const price = usePrice();
-  const isFoundingMember = useIsFoundingMember();
+  const Price = usePriceComponent();
+  const { priceId, couponId } = usePricing();
 
   const stripe = useStripe();
   const elements = useElements();
@@ -33,14 +34,6 @@ export const Component = ({ onFinish }) => {
   const [cardError, setCardError] = useState(null);
 
   useEffect(() => {
-    const asyncSetClientSecret = async () => {
-      setClientSecret(
-        await getClientSecret(pack, isFoundingMember, languageCode)
-      );
-    };
-
-    asyncSetClientSecret();
-
     setValidationSchema(
       Yup.object().shape({
         firstName: Yup.string().required(strings.WE_NEED_YOUR_FIRST_NAME),
@@ -55,6 +48,16 @@ export const Component = ({ onFinish }) => {
       })
     );
   }, []);
+
+  useEffect(() => {
+    if (!priceId || !!clientSecret) return;
+
+    const asyncSetClientSecret = async () => {
+      setClientSecret(await getClientSecret(priceId, couponId));
+    };
+
+    asyncSetClientSecret();
+  }, [priceId, couponId]);
 
   const handleCardFocus = () => setIsCardFocussed(true);
   const handleCardBlur = () => setIsCardFocussed(false);
@@ -122,9 +125,7 @@ export const Component = ({ onFinish }) => {
 
   return (
     <div className={styles.container}>
-      <Paragraph>
-        {getInterpolatedString(strings.YOU_WILL_BE_CHARGED, price, pack)}
-      </Paragraph>
+      <Paragraph>{getChargeStatement(strings, Price, pack)}</Paragraph>
       <Formik
         initialValues={{
           firstName: '',

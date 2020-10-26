@@ -1,0 +1,30 @@
+.container {
+  opacity: 0;
+  transition: 0.6s ease;
+}
+
+.container.isLoaded {
+  opacity: 1;
+}
+
+.price {
+  position: relative;
+}
+
+.price::before {
+  content: "";
+  border-bottom: 3px solid #e6774d;
+  width: 36px;
+  position: absolute;
+  transform: rotate(-20deg);
+  transform-origin: top right;
+  top: 2px;
+  left: -2px;
+}
+
+.discountedPrice {
+  color: #e6774d;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 8px;
+}

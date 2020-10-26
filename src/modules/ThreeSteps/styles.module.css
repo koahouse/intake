@@ -29,28 +29,6 @@
   margin: 0;
 }
 
-.oldPrice {
-  position: relative;
-}
-
-.oldPrice::before {
-  content: "";
-  border-bottom: 3px solid #e6774d;
-  width: 36px;
-  position: absolute;
-  transform: rotate(-20deg);
-  transform-origin: top right;
-  top: 2px;
-  left: -2px;
-}
-
-.newPrice {
-  color: #e6774d;
-  font-size: 16px;
-  font-weight: 500;
-  margin: 0 8px;
-}
-
 @media screen and (min-width: 901px) {
   .container {
     background: #fff;
