@@ -11,6 +11,7 @@ export const getSrc = (
     appointmentTypeIndividual,
     bookingLinkFieldName,
     bookingLinkAppointmentTypeIndividual,
+    calendarID,
     idFieldName,
     owner,
   } = languageCode.includes('es')
@@ -20,6 +21,7 @@ export const getSrc = (
         appointmentTypeIndividual: 16738020,
         bookingLinkAppointmentTypeIndividual: 17676826,
         bookingLinkFieldName: 'field:8634468',
+        calendarID: 4333756,
         idFieldName: 'field:8295360',
         owner: 20408348,
       }
@@ -29,6 +31,7 @@ export const getSrc = (
         appointmentTypeIndividual: 15473079,
         bookingLinkAppointmentTypeIndividual: 17676776,
         bookingLinkFieldName: 'field:8634463',
+        calendarID: 4188857,
         idFieldName: 'field:8295421',
         owner: 20088051,
       };
@@ -39,6 +42,7 @@ export const getSrc = (
     `&appointmentType=${
       isIndividual ? appointmentTypeIndividual : appointmentTypeCouple
     }`,
+    `&calendarID=${calendarID}`,
     `&${idFieldName}=${responseId}`,
     `&${bookingLinkFieldName}=${getBookingLink({
       owner,
