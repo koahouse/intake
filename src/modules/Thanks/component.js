@@ -1,7 +1,7 @@
 import React from 'react';
+import { Button, Paragraph } from '@olivahouse/ui';
 
 import { useStrings } from '../I18n';
-import { Button, Paragraph } from '../ui';
 import { useIsMobile } from '../../utils';
 
 import styles from './styles.module.css';

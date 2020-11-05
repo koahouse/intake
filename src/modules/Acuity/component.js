@@ -6,10 +6,10 @@ import React, {
   useCallback,
 } from 'react';
 import getClassNames from 'classnames';
+import { Button, Paragraph } from '@olivahouse/ui';
 
 import { useIsMobile } from '../../utils';
 import { useLanguageCode, useStrings, getInterpolatedString } from '../I18n';
-import { Button, Paragraph } from '../ui';
 
 import { getSrc } from './utils/getSrc';
 import styles from './styles.module.css';

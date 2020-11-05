@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import debounce from 'lodash.debounce';
+import { Subheading } from '@olivahouse/ui';
 
 import { useStrings } from '../I18n';
-import { Subheading } from '../ui';
 
 import orientation from './orientation.png';
 import styles from './styles.module.css';

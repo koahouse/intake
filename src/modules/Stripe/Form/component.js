@@ -3,9 +3,9 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import getClassNames from 'classnames';
+import { Button, Paragraph, SmallPrint } from '@olivahouse/ui';
 
 import { useLanguageCode, useStrings } from '../../I18n';
-import { Button, Paragraph, SmallPrint } from '../../ui';
 import { usePriceComponent, usePack, usePricing } from '../../Pricing';
 
 import { CARD_STYLE } from './constants';

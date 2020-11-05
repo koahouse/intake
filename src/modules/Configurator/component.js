@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Subheading, Dropdown } from '@olivahouse/ui';
 
-import { Subheading, Dropdown } from '../ui';
 import { useLanguageCode, useSetLanguageCode, useStrings } from '../I18n';
 import { useIsIndividual, useSetIsIndividual } from '../Pricing';
 

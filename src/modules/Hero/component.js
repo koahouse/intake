@@ -6,6 +6,7 @@ import React, {
   useCallback,
 } from 'react';
 import debounce from 'lodash.debounce';
+import { Button, Subheading, Bullets } from '@olivahouse/ui';
 
 import {
   useStrings,
@@ -13,7 +14,6 @@ import {
   getPluralisedString,
 } from '../I18n';
 import { useIsMobile } from '../../utils';
-import { Button, Subheading, Bullets } from '../ui';
 import { Boat } from '../Boat';
 import { Sea } from '../Sea';
 import { ThreeSteps } from '../ThreeSteps';

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Viewport } from '@olivahouse/ui';
+import '@olivahouse/ui/lib/styles.css';
 
 import {
   MinimumHeightWarner,
@@ -7,7 +9,6 @@ import {
   Form,
   Hero,
   I18nProvider,
-  Viewport,
   PricingProvider,
 } from './modules';
 import { useIsMobile } from './utils/useIsMobile';

@@ -1,7 +1,7 @@
 import React from 'react';
 import getClassNames from 'classnames';
+import { Subheading, SmallPrint } from '@olivahouse/ui';
 
-import { Subheading, SmallPrint } from '../ui';
 import { getInterpolatedString, useStrings } from '../I18n';
 import { usePack, usePriceComponent } from '../Pricing';
 

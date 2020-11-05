@@ -1,8 +1,8 @@
 import React from 'react';
+import { Button } from '@olivahouse/ui';
 
 import { useStrings } from '../I18n';
 import { useIsMobile } from '../../utils';
-import { Button } from '../ui';
 
 import styles from './styles.module.css';
 
