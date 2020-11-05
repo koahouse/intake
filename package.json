@@ -20,20 +20,16 @@
   },
   "homepage": "https://welcome.oliva.house",
   "dependencies": {
+    "@olivahouse/stripe": "^1.0.0",
     "@olivahouse/ui": "^1.0.2",
-    "@stripe/react-stripe-js": "^1.1.2",
-    "@stripe/stripe-js": "^1.9.0",
     "classnames": "^2.2.6",
-    "formik": "^2.1.7",
     "lodash.debounce": "^4.0.8",
     "query-string": "5",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-dropdown": "^1.8.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "react-scripts": "3.4.1",
     "react-transition-group": "^4.4.1",
-    "uuid": "^8.3.0",
-    "yup": "^0.29.3"
+    "uuid": "^8.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",

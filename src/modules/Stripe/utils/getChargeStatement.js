@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-import { getInterpolatedString } from '../../../I18n';
+import { getInterpolatedString } from '../../I18n';
 
 const DELINEATOR = '|||';
 

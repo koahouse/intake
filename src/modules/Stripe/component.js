@@ -1,32 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import { Elements } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
+import React from 'react';
+import { Stripe } from '@olivahouse/stripe';
+import '@olivahouse/stripe/lib/styles.css';
 
-import { useLanguageCode } from '../I18n';
+import { usePack, usePriceComponent, usePricing } from '../Pricing';
+import { useLanguageCode, useStrings } from '../I18n';
 
-import { Form } from './Form';
-import { ELEMENTS_OPTIONS, STRIPE_PUBLIC_KEY } from './constants';
+import { getChargeStatement } from './utils/getChargeStatement';
+import { STRIPE_PUBLIC_KEY } from './constants';
 
 export const Component = ({ onFinish }) => {
+  const strings = useStrings();
   const languageCode = useLanguageCode();
-  const [stripe, setStripe] = useState(null);
 
-  useEffect(
-    () =>
-      setStripe(
-        loadStripe(STRIPE_PUBLIC_KEY, {
-          locale: languageCode,
-        })
-      ),
-    [languageCode]
-  );
+  const pack = usePack();
+  const Price = usePriceComponent();
+  const { couponId, priceId } = usePricing();
 
   return (
-    stripe && (
-      <Elements options={ELEMENTS_OPTIONS} stripe={stripe}>
-        <Form onFinish={onFinish} />
-      </Elements>
-    )
+    <Stripe
+      couponId={couponId}
+      languageCode={languageCode}
+      onFinish={onFinish}
+      pack={pack}
+      priceId={priceId}
+      renderChargeDescription={() => getChargeStatement(strings, Price, pack)}
+      strings={strings}
+      stripePublicKey={STRIPE_PUBLIC_KEY}
+    />
   );
 };
 
