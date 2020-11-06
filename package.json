@@ -20,7 +20,7 @@
   },
   "homepage": "https://welcome.oliva.house",
   "dependencies": {
-    "@olivahouse/stripe": "^1.0.1",
+    "@olivahouse/stripe": "^1.0.2",
     "@olivahouse/ui": "^1.0.2",
     "classnames": "^2.2.6",
     "lodash.debounce": "^4.0.8",

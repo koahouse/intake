@@ -19,6 +19,7 @@ export const Component = ({ onFinish }) => {
   return (
     <Stripe
       couponId={couponId}
+      isNewMember
       languageCode={languageCode}
       onFinish={onFinish}
       pack={pack}
