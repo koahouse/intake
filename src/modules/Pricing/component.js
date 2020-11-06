@@ -7,10 +7,10 @@ import { getExpiry } from './utils/getExpiry';
 import { getPrice } from './utils/getPrice';
 import { getCurrencySymbol } from './utils/getCurrencySymbol';
 import { Context } from './context';
-import { SIX, THREE, EUR_CODE } from './constants';
+import { SIX, EUR_CODE } from './constants';
 
 const { currency = EUR_CODE, pack = SIX, d } = parse(window.location.search);
-const isFoundingMember = pack === THREE && d === 'FM';
+const isFoundingMember = d === 'FM';
 const isTenpercenter = d === 'TPC';
 
 export const Component = ({ children }) => {
