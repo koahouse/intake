@@ -1,18 +1,13 @@
 export const initGoogleTagManager = () => {
-  const newScript = global.document.createElement('script');
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != 'dataLayer' ? '&l=' + l : '';
 
-  newScript.async = true;
-  newScript.src = 'https://www.googletagmanager.com/gtag/js?id=AW-528274137';
-  newScript.addEventListener('load', () => {
-    global.dataLayer = global.dataLayer || [];
-    global.gtag = function () {
-      global.dataLayer.push(arguments);
-    };
-    global.gtag('js', new Date());
-    global.gtag('config', 'AW-528274137');
-  });
-
-  const scriptElements = global.document.getElementsByTagName('script')[0];
-
-  scriptElements.parentNode.insertBefore(newScript, scriptElements);
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', 'GTM-T4SBTVH');
 };

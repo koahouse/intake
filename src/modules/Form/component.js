@@ -58,6 +58,7 @@ export const Component = ({ step, setStep }) => {
     setPaymentInformation(paymentInformation);
 
     triggerEvent(PAYMENT_COMPLETE, {
+      id: responseId,
       value: discountedPrice || price,
       currency: currencySymbol,
     });
