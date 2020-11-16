@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import getClassNames from 'classnames';
 
 import { useLanguageCode } from '../I18n';
@@ -21,17 +21,7 @@ export const usePriceComponent = () => {
         [styles.isLoaded]: price !== null,
       })}
     >
-      {!!adaptedDiscountedPrice ? (
-        <Fragment>
-          <span className={styles.price}>{adaptedPrice}</span>
-          <span className={styles.discountedPrice}>
-            {adaptedDiscountedPrice}
-          </span>
-          🎉
-        </Fragment>
-      ) : (
-        adaptedPrice
-      )}
+      {!!adaptedDiscountedPrice ? adaptedDiscountedPrice : adaptedPrice}
     </span>
   );
 };
