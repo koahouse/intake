@@ -11,6 +11,7 @@ export const getEvent = (name, data = {}, languageCode) => {
       return { event: name };
     case PAYMENT_COMPLETE:
       return {
+        event: 'transaction',
         ecommerce: {
           purchase: {
             actionField: {
