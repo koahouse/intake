@@ -8,16 +8,12 @@ import React, {
 import debounce from 'lodash.debounce';
 import { Button, Subheading, Bullets } from '@olivahouse/ui';
 
-import {
-  useStrings,
-  getInterpolatedString,
-  getPluralisedString,
-} from '../I18n';
+import { useStrings } from '../I18n';
 import { useIsMobile } from '../../utils';
 import { Boat } from '../Boat';
 import { Sea } from '../Sea';
 import { ThreeSteps } from '../ThreeSteps';
-import { useExpiry, useIsFoundingMember } from '../Pricing';
+import { useIsFoundingMember } from '../Pricing';
 
 import { getIllustrationStep } from './utils/getIllustrationStep';
 import { getContentStep } from './utils/getContentStep';
@@ -31,7 +27,6 @@ export const Component = ({ setStep, step }) => {
   const [containerWidth, setContainerWidth] = useState(null);
   const ref = useRef(null);
   const illustrationStep = getIllustrationStep(step);
-  const expiry = useExpiry();
   const isFoundingMember = useIsFoundingMember();
 
   const handleResize = useCallback(
@@ -122,11 +117,6 @@ export const Component = ({ setStep, step }) => {
           <Fragment>
             <Bullets
               items={[
-                getInterpolatedString(
-                  strings.TO_USE_YOUR_SESSIONS,
-                  expiry,
-                  getPluralisedString(expiry, strings.MONTH, strings.MONTHS)
-                ),
                 strings.SAFE_AND_SECURE_PAYMENT,
                 strings.GUARANTEED_THERAPIST_MATCH,
               ]}
