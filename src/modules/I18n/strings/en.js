@@ -1,8 +1,10 @@
 export const en = {
   GET_STARTED: 'Start questions',
   IN_THE_MEANTIME_YOU_CAN: 'In the meantime, you can',
-  NOW_ALL_YOU_HAVE_TO_DO:
+  NOW_ALL_YOU_HAVE_TO_DO_IS_PAY:
     'Now all you have to do is pay and pick a time for your matching session, where one of our qualified therapists will get to know you better.',
+  NOW_ALL_YOU_HAVE_TO_DO_IS_PICK:
+    'Now all you have to do is pick a time for your matching session, where one of our qualified therapists will get to know you better.',
   OK: 'OK',
   PICK_A_TIME: 'Pick a time',
   READ_THERAPY_STORIES: 'read stories from people like you',
@@ -50,6 +52,8 @@ export const en = {
   ALL_DONE: 'All done!',
   WE_SENT_AN_EMAIL_TO:
     'We just sent an email to {{0}} with all the details of your matching session and a payment receipt.',
+  WE_SENT_YOU_AN_EMAIL:
+    'We just sent you an email with all the details of your matching session.',
   PAY_AND_PICK: 'Pay & pick a time',
   MONTH: 'month',
   MONTHS: 'months',
@@ -62,4 +66,6 @@ export const en = {
   PRIVACY_POLICY: 'privacy policy',
   PLEASE_SEND_ME_NEWS:
     'Please send me news, articles and relevant content about Oliva',
+  LEAVE_TWENTY_TWENTY_BEHIND: 'Leave 2020 behind',
+  WEVE_ALL_HAD_ENOUGH: 'Becuase we’ve all had enough of this year',
 };

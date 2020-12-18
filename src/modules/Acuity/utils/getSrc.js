@@ -4,7 +4,7 @@ export const getSrc = (
   languageCode,
   responseId,
   isIndividual,
-  { firstName, lastName, email, certificate }
+  { firstName = '', lastName = '', email = '', certificate }
 ) => {
   const {
     appointmentTypeCouple,

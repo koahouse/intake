@@ -13,7 +13,7 @@ import {
   PAYMENT_COMPLETE,
   BOOKING_COMPLETE,
 } from '../tracking';
-import { usePricing } from '../Pricing';
+import { usePricing, useGiftcard } from '../Pricing';
 
 import { Pane } from './Pane';
 import styles from './styles.module.css';
@@ -30,6 +30,7 @@ export const Component = ({ step, setStep }) => {
   const [isContainerVisible, setIsContainerVisible] = useState(!isMobile);
 
   const { currencySymbol, discountedPrice, price } = usePricing();
+  const giftcard = useGiftcard();
   const triggerEvent = useTracking();
 
   useEffect(() => {
@@ -50,7 +51,7 @@ export const Component = ({ step, setStep }) => {
   };
 
   const handleFinishPrepaymentMessage = () => {
-    setStep(4);
+    setStep(!!giftcard ? 6 : 4);
   };
 
   const handleFinishStripe = (paymentInformation) => {
@@ -102,7 +103,9 @@ export const Component = ({ step, setStep }) => {
         <Acuity
           isIndividual={isIndividual}
           onSubmit={handleSubmitAcuity}
-          paymentInformation={paymentInformation}
+          paymentInformation={
+            !!giftcard ? { certificate: giftcard } : paymentInformation
+          }
           responseId={responseId}
         />
       </Pane>

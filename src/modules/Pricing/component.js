@@ -9,7 +9,9 @@ import { getCurrencySymbol } from './utils/getCurrencySymbol';
 import { Context } from './context';
 import { SIX, EUR_CODE } from './constants';
 
-const { currency = EUR_CODE, pack = SIX, d } = parse(window.location.search);
+const { currency = EUR_CODE, pack = SIX, d, giftcard } = parse(
+  window.location.search
+);
 const isFoundingMember = d === 'FM';
 const isTenpercenter = d === 'TPC';
 
@@ -48,6 +50,7 @@ export const Component = ({ children }) => {
         currencySymbol: getCurrencySymbol(currency),
         discountedPrice,
         expiry: getExpiry(pack),
+        giftcard,
         isFoundingMember,
         pack,
         price,

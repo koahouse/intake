@@ -10,6 +10,7 @@ import { Button, Paragraph } from '@olivahouse/ui';
 
 import { useIsMobile } from '../../utils';
 import { useLanguageCode, useStrings, getInterpolatedString } from '../I18n';
+import { useGiftcard } from '../Pricing';
 
 import { getSrc } from './utils/getSrc';
 import styles from './styles.module.css';
@@ -23,6 +24,7 @@ export const Component = ({ onSubmit, responseId, paymentInformation }) => {
   const isFinishedTimeout = useRef(null);
   const strings = useStrings();
   const languageCode = useLanguageCode();
+  const giftcard = useGiftcard();
 
   const handleMessage = useCallback(
     (event) => {
@@ -72,10 +74,12 @@ export const Component = ({ onSubmit, responseId, paymentInformation }) => {
           >
             <Paragraph>{strings.ALL_DONE}</Paragraph>
             <Paragraph>
-              {getInterpolatedString(
-                strings.WE_SENT_AN_EMAIL_TO,
-                paymentInformation.email
-              )}
+              {!!giftcard
+                ? strings.WE_SENT_YOU_AN_EMAIL
+                : getInterpolatedString(
+                    strings.WE_SENT_AN_EMAIL_TO,
+                    paymentInformation.email
+                  )}
             </Paragraph>
             {isMobile && (
               <Button onClick={onSubmit}>{strings.WHAT_HAPPENS_NOW}</Button>

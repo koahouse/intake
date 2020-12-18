@@ -13,7 +13,7 @@ import { useIsMobile } from '../../utils';
 import { Boat } from '../Boat';
 import { Sea } from '../Sea';
 import { ThreeSteps } from '../ThreeSteps';
-import { useIsFoundingMember } from '../Pricing';
+import { useIsFoundingMember, useGiftcard } from '../Pricing';
 
 import { getIllustrationStep } from './utils/getIllustrationStep';
 import { getContentStep } from './utils/getContentStep';
@@ -28,6 +28,7 @@ export const Component = ({ setStep, step }) => {
   const ref = useRef(null);
   const illustrationStep = getIllustrationStep(step);
   const isFoundingMember = useIsFoundingMember();
+  const giftcard = useGiftcard();
 
   const handleResize = useCallback(
     debounce(() => {
@@ -94,7 +95,9 @@ export const Component = ({ setStep, step }) => {
               '',
               strings.TALKING_ABOUT_PERSONAL_STUFF,
               '',
-              strings.NOW_ALL_YOU_HAVE_TO_DO,
+              !!giftcard
+                ? strings.NOW_ALL_YOU_HAVE_TO_DO_IS_PICK
+                : strings.NOW_ALL_YOU_HAVE_TO_DO_IS_PAY,
               '',
               '',
               strings.THATS_EVERYTHING_WE_NEED,
@@ -115,14 +118,18 @@ export const Component = ({ setStep, step }) => {
         )}
         {contentStep === 3 && (
           <Fragment>
-            <Bullets
-              items={[
-                strings.SAFE_AND_SECURE_PAYMENT,
-                strings.GUARANTEED_THERAPIST_MATCH,
-              ]}
-            />
+            {!giftcard && (
+              <Bullets
+                items={[
+                  strings.SAFE_AND_SECURE_PAYMENT,
+                  strings.GUARANTEED_THERAPIST_MATCH,
+                ]}
+              />
+            )}
             {isMobile && (
-              <Button onClick={() => setStep(4)}>{strings.PAY_AND_PICK}</Button>
+              <Button onClick={() => setStep(!!giftcard ? 6 : 4)}>
+                {!!giftcard ? strings.PICK_A_TIME : strings.PAY_AND_PICK}
+              </Button>
             )}
           </Fragment>
         )}
