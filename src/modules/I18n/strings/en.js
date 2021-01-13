@@ -68,4 +68,10 @@ export const en = {
     'Please send me news, articles and relevant content about Oliva',
   LEAVE_TWENTY_TWENTY_BEHIND: 'Leave 2020 behind',
   WEVE_ALL_HAD_ENOUGH: 'Becuase we’ve all had enough of this year',
+  WE_CURRENTLY_HAVE_NO_SPACE: 'We currently have no space for new bookings.',
+  PLEASE_SIGN_UP_TO_OUR_WAITING_LIST:
+    'Please sign up to our waiting list and we’ll let you know when a space opens up.',
+  SIGN_UP: 'Sign up',
+  WELL_BE_IN_TOUCH_WHEN_A_SPACE_OPENS_UP:
+    'We’ll be in touch as soon as a space opens up.',
 };

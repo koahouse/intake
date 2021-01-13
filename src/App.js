@@ -10,6 +10,7 @@ import {
   Hero,
   I18nProvider,
   PricingProvider,
+  ClosedForBusiness,
 } from './modules';
 import { useIsMobile } from './utils/useIsMobile';
 
@@ -45,6 +46,7 @@ const App = () => {
         <BackButtonDisabler />
         <CloseWindowWarner step={step} />
         <Viewport isVisible={isMobile !== null}>
+          <ClosedForBusiness />
           <Hero setStep={setStepWithBounds} step={step} />
           <Form setStep={setStepWithBounds} step={step} />
         </Viewport>
